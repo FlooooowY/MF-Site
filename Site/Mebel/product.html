@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Шкаф «Аристократ» — премиальный шкаф из массива дуба. Ручная работа, индивидуальные размеры, гарантия 10 лет."
+		/>
+		<title>Шкаф «Аристократ» | ДРЕВО МАСТЕРОВ</title>
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- GSAP -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+		<!-- Three.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+		<!-- Styles -->
+		<link rel="stylesheet" href="css/styles.css" />
+		<link rel="stylesheet" href="css/animations.css" />
+		<link rel="stylesheet" href="css/product.css" />
+	</head>
+	<body>
+		<!-- Wood Grain Background -->
+		<div class="wood-grain-bg"></div>
+
+		<!-- Header -->
+		<header class="header header--light" id="header">
+			<div class="header-container">
+				<a href="/" class="logo">
+					<span class="logo-icon">
+						<svg viewBox="0 0 50 50">
+							<path
+								d="M25 2 L15 17 L20 17 L12 30 L20 30 L8 45 L42 45 L30 30 L38 30 L30 17 L35 17 Z"
+								fill="currentColor"
+							/>
+						</svg>
+					</span>
+					<span class="logo-text">ДРЕВО<br />МАСТЕРОВ</span>
+				</a>
+
+				<nav class="nav" id="mainNav">
+					<ul class="nav-list">
+						<li>
+							<a href="index.html#craftsmanship" class="nav-link">Мастерство</a>
+						</li>
+						<li><a href="index.html#gallery" class="nav-link">Галерея</a></li>
+						<li>
+							<a href="index.html#materials" class="nav-link">Материалы</a>
+						</li>
+						<li>
+							<a href="index.html#constructor" class="nav-link">Конструктор</a>
+						</li>
+						<li><a href="catalog.html" class="nav-link">Каталог</a></li>
+						<li>
+							<a href="index.html#contact" class="nav-link nav-link--cta"
+								>Заказать</a
+							>
+						</li>
+					</ul>
+				</nav>
+
+				<button class="burger" id="burger" aria-label="Меню">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+		</header>
+
+		<!-- Mobile Menu -->
+		<div class="mobile-menu" id="mobileMenu">
+			<nav class="mobile-nav">
+				<ul class="mobile-nav-list">
+					<li><a href="index.html#craftsmanship">Мастерство</a></li>
+					<li><a href="index.html#gallery">Галерея</a></li>
+					<li><a href="index.html#materials">Материалы</a></li>
+					<li><a href="index.html#constructor">Конструктор</a></li>
+					<li><a href="catalog.html">Каталог</a></li>
+					<li>
+						<a href="index.html#contact" class="btn btn-primary"
+							>Заказать мебель</a
+						>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		<main class="product-page">
+			<!-- Breadcrumb -->
+			<div class="container">
+				<nav class="breadcrumb">
+					<a href="/">Главная</a>
+					<span>/</span>
+					<a href="catalog.html">Каталог</a>
+					<span>/</span>
+					<a href="catalog.html?cat=wardrobes">Шкафы</a>
+					<span>/</span>
+					<span>Шкаф «Аристократ»</span>
+				</nav>
+			</div>
+
+			<!-- Product Main Section -->
+			<section class="product-main">
+				<div class="container">
+					<div class="product-layout">
+						<!-- Product Gallery -->
+						<div class="product-gallery">
+							<div class="gallery-main">
+								<div class="gallery-3d" id="product3d">
+									<!-- Three.js 3D Model -->
+								</div>
+								<div class="gallery-3d-controls">
+									<button
+										class="control-3d"
+										id="rotateLeftBtn"
+										title="Повернуть влево"
+									>
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<path d="M2.5 2v6h6M2.66 15.57a10 10 0 1 0 .57-8.38" />
+										</svg>
+									</button>
+									<button
+										class="control-3d"
+										id="rotateRightBtn"
+										title="Повернуть вправо"
+									>
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38" />
+										</svg>
+									</button>
+									<button class="control-3d" id="zoomInBtn" title="Приблизить">
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<circle cx="11" cy="11" r="8" />
+											<path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
+										</svg>
+									</button>
+									<button class="control-3d" id="zoomOutBtn" title="Отдалить">
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<circle cx="11" cy="11" r="8" />
+											<path d="m21 21-4.35-4.35M8 11h6" />
+										</svg>
+									</button>
+									<button
+										class="control-3d control-3d--ar"
+										id="arBtn"
+										title="AR просмотр"
+									>
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<rect x="2" y="3" width="20" height="14" rx="2" />
+											<path d="M8 21h8M12 17v4" />
+										</svg>
+										<span>AR</span>
+									</button>
+								</div>
+								<div class="gallery-badge">3D модель</div>
+							</div>
+
+							<div class="gallery-thumbs">
+								<button class="thumb active" data-view="3d">
+									<svg
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+									>
+										<path
+											d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+										/>
+									</svg>
+								</button>
+								<button class="thumb" data-view="img1">
+									<img src="assets/products/wardrobe-1.jpg" alt="Фото 1" />
+								</button>
+								<button class="thumb" data-view="img2">
+									<img
+										src="assets/products/wardrobe-1-detail.jpg"
+										alt="Фото 2"
+									/>
+								</button>
+								<button class="thumb" data-view="img3">
+									<img
+										src="assets/products/wardrobe-1-interior.jpg"
+										alt="Фото 3"
+									/>
+								</button>
+								<button class="thumb" data-view="video">
+									<svg
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+									>
+										<polygon points="5 3 19 12 5 21 5 3" />
+									</svg>
+								</button>
+							</div>
+						</div>
+
+						<!-- Product Info -->
+						<div class="product-info">
+							<div class="product-header">
+								<span class="product-category">Шкафы и гардеробные</span>
+								<h1 class="product-title">Шкаф «Аристократ»</h1>
+								<div class="product-rating">
+									<div class="stars">★★★★★</div>
+									<span class="rating-count">47 отзывов</span>
+								</div>
+							</div>
+
+							<div class="product-price-block">
+								<div class="price-row">
+									<span class="price-label">Базовая цена:</span>
+									<span class="price-base">185 000 ₽</span>
+								</div>
+								<div class="price-row price-row--custom">
+									<span class="price-label">С учётом опций:</span>
+									<span class="price-custom" id="customPrice">185 000 ₽</span>
+								</div>
+							</div>
+
+							<div class="product-description">
+								<p>
+									Классический двустворчатый шкаф из массива кавказского дуба с
+									традиционными филёнчатыми фасадами. Идеально впишется в
+									интерьер спальни или гостиной. Внутреннее наполнение
+									проектируется индивидуально под ваши потребности.
+								</p>
+							</div>
+
+							<!-- Configurator -->
+							<div class="product-configurator">
+								<div class="config-section">
+									<h4 class="config-title">Размеры</h4>
+									<div class="size-selector">
+										<div class="size-option">
+											<label>Ширина</label>
+											<div class="size-input-group">
+												<button class="size-btn minus">−</button>
+												<input
+													type="number"
+													value="180"
+													min="100"
+													max="300"
+													step="10"
+													id="productWidth"
+												/>
+												<button class="size-btn plus">+</button>
+												<span class="size-unit">см</span>
+											</div>
+										</div>
+										<div class="size-option">
+											<label>Высота</label>
+											<div class="size-input-group">
+												<button class="size-btn minus">−</button>
+												<input
+													type="number"
+													value="220"
+													min="180"
+													max="280"
+													step="10"
+													id="productHeight"
+												/>
+												<button class="size-btn plus">+</button>
+												<span class="size-unit">см</span>
+											</div>
+										</div>
+										<div class="size-option">
+											<label>Глубина</label>
+											<div class="size-input-group">
+												<button class="size-btn minus">−</button>
+												<input
+													type="number"
+													value="60"
+													min="40"
+													max="80"
+													step="5"
+													id="productDepth"
+												/>
+												<button class="size-btn plus">+</button>
+												<span class="size-unit">см</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="config-section">
+									<h4 class="config-title">Материал</h4>
+									<div class="material-selector">
+										<button
+											class="material-option active"
+											data-material="oak"
+											data-price="0"
+										>
+											<span class="material-swatch material-swatch--oak"></span>
+											<span class="material-name">Дуб</span>
+											<span class="material-add">+0 ₽</span>
+										</button>
+										<button
+											class="material-option"
+											data-material="walnut"
+											data-price="45000"
+										>
+											<span
+												class="material-swatch material-swatch--walnut"
+											></span>
+											<span class="material-name">Орех</span>
+											<span class="material-add">+45 000 ₽</span>
+										</button>
+										<button
+											class="material-option"
+											data-material="ash"
+											data-price="-15000"
+										>
+											<span class="material-swatch material-swatch--ash"></span>
+											<span class="material-name">Ясень</span>
+											<span class="material-add">−15 000 ₽</span>
+										</button>
+										<button
+											class="material-option"
+											data-material="cherry"
+											data-price="30000"
+										>
+											<span
+												class="material-swatch material-swatch--cherry"
+											></span>
+											<span class="material-name">Вишня</span>
+											<span class="material-add">+30 000 ₽</span>
+										</button>
+									</div>
+								</div>
+
+								<div class="config-section">
+									<h4 class="config-title">Дополнительные опции</h4>
+									<div class="options-list">
+										<label class="option-item">
+											<input type="checkbox" id="optLed" data-price="15000" />
+											<span class="option-checkbox"></span>
+											<span class="option-info">
+												<span class="option-name">LED подсветка</span>
+												<span class="option-desc"
+													>Встроенная подсветка с датчиком открытия</span
+												>
+											</span>
+											<span class="option-price">+15 000 ₽</span>
+										</label>
+										<label class="option-item">
+											<input
+												type="checkbox"
+												id="optSoftClose"
+												data-price="8000"
+											/>
+											<span class="option-checkbox"></span>
+											<span class="option-info">
+												<span class="option-name">Доводчики</span>
+												<span class="option-desc"
+													>Плавное закрывание всех дверей и ящиков</span
+												>
+											</span>
+											<span class="option-price">+8 000 ₽</span>
+										</label>
+										<label class="option-item">
+											<input
+												type="checkbox"
+												id="optMirror"
+												data-price="12000"
+											/>
+											<span class="option-checkbox"></span>
+											<span class="option-info">
+												<span class="option-name">Зеркало</span>
+												<span class="option-desc"
+													>Зеркало в полный рост на одной из дверей</span
+												>
+											</span>
+											<span class="option-price">+12 000 ₽</span>
+										</label>
+										<label class="option-item">
+											<input
+												type="checkbox"
+												id="optDrawers"
+												data-price="25000"
+											/>
+											<span class="option-checkbox"></span>
+											<span class="option-info">
+												<span class="option-name">Выдвижные ящики</span>
+												<span class="option-desc"
+													>4 ящика с системой полного выдвижения</span
+												>
+											</span>
+											<span class="option-price">+25 000 ₽</span>
+										</label>
+									</div>
+								</div>
+							</div>
+
+							<div class="product-actions">
+								<div class="action-row">
+									<button
+										class="btn btn-primary btn-lg btn-chisel"
+										id="orderBtn"
+									>
+										<span class="btn-text">Оформить заказ</span>
+									</button>
+									<button class="btn btn-secondary btn-lg" id="favoriteBtn">
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<path
+												d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+											/>
+										</svg>
+									</button>
+								</div>
+								<div class="delivery-info">
+									<div class="delivery-item">
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<circle cx="12" cy="12" r="10" />
+											<polyline points="12 6 12 12 16 14" />
+										</svg>
+										<span>Срок изготовления: <strong>21-28 дней</strong></span>
+									</div>
+									<div class="delivery-item">
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<rect x="1" y="3" width="15" height="13" />
+											<polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+											<circle cx="5.5" cy="18.5" r="2.5" />
+											<circle cx="18.5" cy="18.5" r="2.5" />
+										</svg>
+										<span>Бесплатная доставка по Москве</span>
+									</div>
+									<div class="delivery-item">
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+										</svg>
+										<span>Гарантия <strong>10 лет</strong></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Product Tabs -->
+			<section class="product-tabs">
+				<div class="container">
+					<div class="tabs-nav">
+						<button class="tab-btn active" data-tab="specs">
+							Характеристики
+						</button>
+						<button class="tab-btn" data-tab="process">
+							Процесс изготовления
+						</button>
+						<button class="tab-btn" data-tab="guarantee">Гарантии</button>
+						<button class="tab-btn" data-tab="reviews">
+							Отзывы <span class="tab-count">47</span>
+						</button>
+					</div>
+
+					<div class="tabs-content">
+						<!-- Specs Tab -->
+						<div class="tab-panel active" id="tab-specs">
+							<div class="specs-grid">
+								<div class="spec-group">
+									<h4>Габариты</h4>
+									<dl class="spec-list">
+										<div class="spec-row">
+											<dt>Ширина</dt>
+											<dd>от 100 до 300 см</dd>
+										</div>
+										<div class="spec-row">
+											<dt>Высота</dt>
+											<dd>от 180 до 280 см</dd>
+										</div>
+										<div class="spec-row">
+											<dt>Глубина</dt>
+											<dd>от 40 до 80 см</dd>
+										</div>
+										<div class="spec-row">
+											<dt>Вес</dt>
+											<dd>от 80 до 150 кг</dd>
+										</div>
+									</dl>
+								</div>
+								<div class="spec-group">
+									<h4>Материалы</h4>
+									<dl class="spec-list">
+										<div class="spec-row">
+											<dt>Корпус</dt>
+											<dd>Массив дуба/ореха/ясеня/вишни</dd>
+										</div>
+										<div class="spec-row">
+											<dt>Фасады</dt>
+											<dd>Массив с филёнками</dd>
+										</div>
+										<div class="spec-row">
+											<dt>Задняя стенка</dt>
+											<dd>Шпон 8 мм</dd>
+										</div>
+										<div class="spec-row">
+											<dt>Покрытие</dt>
+											<dd>Масло + воск (7 слоёв)</dd>
+										</div>
+									</dl>
+								</div>
+								<div class="spec-group">
+									<h4>Фурнитура</h4>
+									<dl class="spec-list">
+										<div class="spec-row">
+											<dt>Петли</dt>
+											<dd>Blum (Австрия)</dd>
+										</div>
+										<div class="spec-row">
+											<dt>Направляющие</dt>
+											<dd>Hettich (Германия)</dd>
+										</div>
+										<div class="spec-row">
+											<dt>Ручки</dt>
+											<dd>Латунь с патиной</dd>
+										</div>
+										<div class="spec-row">
+											<dt>Штанга</dt>
+											<dd>Нержавеющая сталь</dd>
+										</div>
+									</dl>
+								</div>
+								<div class="spec-group">
+									<h4>Внутреннее наполнение</h4>
+									<dl class="spec-list">
+										<div class="spec-row">
+											<dt>Полки</dt>
+											<dd>4-8 шт. (регулируемые)</dd>
+										</div>
+										<div class="spec-row">
+											<dt>Штанги</dt>
+											<dd>1-2 шт.</dd>
+										</div>
+										<div class="spec-row">
+											<dt>Ящики</dt>
+											<dd>Опционально</dd>
+										</div>
+										<div class="spec-row">
+											<dt>Корзины</dt>
+											<dd>Опционально</dd>
+										</div>
+									</dl>
+								</div>
+							</div>
+						</div>
+
+						<!-- Process Tab -->
+						<div class="tab-panel" id="tab-process">
+							<div class="process-timeline">
+								<div class="timeline-item">
+									<div class="timeline-marker">1</div>
+									<div class="timeline-content">
+										<h4>Отбор материала</h4>
+										<p>
+											Мы лично отбираем каждую доску на лесопилках Кавказа.
+											Только древесина с идеальной структурой волокон и
+											влажностью не более 8%.
+										</p>
+										<span class="timeline-duration">День 1-2</span>
+									</div>
+								</div>
+								<div class="timeline-item">
+									<div class="timeline-marker">2</div>
+									<div class="timeline-content">
+										<h4>Сушка и подготовка</h4>
+										<p>
+											Древесина проходит дополнительную камерную сушку для
+											достижения оптимальной влажности и стабильности.
+										</p>
+										<span class="timeline-duration">День 3-5</span>
+									</div>
+								</div>
+								<div class="timeline-item">
+									<div class="timeline-marker">3</div>
+									<div class="timeline-content">
+										<h4>Раскрой и столярные работы</h4>
+										<p>
+											Точный раскрой по индивидуальным размерам. Традиционные
+											столярные соединения: шип-паз, ласточкин хвост.
+										</p>
+										<span class="timeline-duration">День 6-14</span>
+									</div>
+								</div>
+								<div class="timeline-item">
+									<div class="timeline-marker">4</div>
+									<div class="timeline-content">
+										<h4>Шлифовка</h4>
+										<p>
+											Многоступенчатая ручная шлифовка от грубой до финишной (до
+											400 грит) для идеально гладкой поверхности.
+										</p>
+										<span class="timeline-duration">День 15-17</span>
+									</div>
+								</div>
+								<div class="timeline-item">
+									<div class="timeline-marker">5</div>
+									<div class="timeline-content">
+										<h4>Покрытие</h4>
+										<p>
+											7 слоёв натурального масла и воска с промежуточной
+											полировкой. Экологичная защита, безопасная для детей.
+										</p>
+										<span class="timeline-duration">День 18-21</span>
+									</div>
+								</div>
+								<div class="timeline-item">
+									<div class="timeline-marker">6</div>
+									<div class="timeline-content">
+										<h4>Сборка и контроль качества</h4>
+										<p>
+											Контрольная сборка в мастерской, проверка всех механизмов,
+											устранение любых дефектов.
+										</p>
+										<span class="timeline-duration">День 22-24</span>
+									</div>
+								</div>
+								<div class="timeline-item">
+									<div class="timeline-marker">✓</div>
+									<div class="timeline-content">
+										<h4>Доставка и установка</h4>
+										<p>
+											Бережная доставка в защитной упаковке. Профессиональный
+											монтаж нашими специалистами с выравниванием по уровню.
+										</p>
+										<span class="timeline-duration">День 25-28</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Guarantee Tab -->
+						<div class="tab-panel" id="tab-guarantee">
+							<div class="guarantee-cards">
+								<div class="guarantee-card">
+									<div class="guarantee-icon">
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+											<path d="M9 12l2 2 4-4" />
+										</svg>
+									</div>
+									<h4>10 лет гарантии</h4>
+									<p>
+										На все конструктивные элементы и столярные соединения.
+										Бесплатный ремонт или замена при выявлении дефектов.
+									</p>
+								</div>
+								<div class="guarantee-card">
+									<div class="guarantee-icon">
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<path
+												d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+											/>
+											<circle cx="12" cy="10" r="3" />
+										</svg>
+									</div>
+									<h4>Бесплатный выезд замерщика</h4>
+									<p>
+										Наш специалист приедет к вам, произведёт точные замеры и
+										поможет с выбором оптимальной конфигурации.
+									</p>
+								</div>
+								<div class="guarantee-card">
+									<div class="guarantee-icon">
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<path
+												d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+											/>
+										</svg>
+									</div>
+									<h4>Пожизненный сервис</h4>
+									<p>
+										Подтяжка фурнитуры, обновление покрытия и мелкий ремонт —
+										бесплатно в течение всего срока службы изделия.
+									</p>
+								</div>
+								<div class="guarantee-card">
+									<div class="guarantee-icon">
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+											<line x1="1" y1="10" x2="23" y2="10" />
+										</svg>
+									</div>
+									<h4>Рассрочка 0%</h4>
+									<p>
+										Беспроцентная рассрочка до 12 месяцев от наших
+										банков-партнёров. Первый взнос от 10%.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Reviews Tab -->
+						<div class="tab-panel" id="tab-reviews">
+							<div class="reviews-summary">
+								<div class="rating-big">
+									<span class="rating-number">4.9</span>
+									<div class="rating-stars">★★★★★</div>
+									<span class="rating-total">47 отзывов</span>
+								</div>
+								<div class="rating-bars">
+									<div class="rating-bar-row">
+										<span>5 ★</span>
+										<div class="rating-bar">
+											<span style="width: 92%"></span>
+										</div>
+										<span>43</span>
+									</div>
+									<div class="rating-bar-row">
+										<span>4 ★</span>
+										<div class="rating-bar">
+											<span style="width: 6%"></span>
+										</div>
+										<span>3</span>
+									</div>
+									<div class="rating-bar-row">
+										<span>3 ★</span>
+										<div class="rating-bar">
+											<span style="width: 2%"></span>
+										</div>
+										<span>1</span>
+									</div>
+									<div class="rating-bar-row">
+										<span>2 ★</span>
+										<div class="rating-bar">
+											<span style="width: 0%"></span>
+										</div>
+										<span>0</span>
+									</div>
+									<div class="rating-bar-row">
+										<span>1 ★</span>
+										<div class="rating-bar">
+											<span style="width: 0%"></span>
+										</div>
+										<span>0</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="reviews-list">
+								<div class="review-item">
+									<div class="review-header">
+										<img
+											src="assets/reviews/avatar-1.jpg"
+											alt="Анна"
+											class="review-avatar"
+										/>
+										<div class="review-meta">
+											<span class="review-name">Анна Петрова</span>
+											<span class="review-date">15 ноября 2024</span>
+										</div>
+										<div class="review-rating">★★★★★</div>
+									</div>
+									<p class="review-text">
+										Заказывали шкаф в спальню. Качество превосходное, дерево
+										просто потрясающее! Запах в комнате как в лесу. Мастера
+										работали аккуратно, собрали за 3 часа. Рекомендую!
+									</p>
+									<div class="review-photos">
+										<img
+											src="assets/reviews/review-photo-1.jpg"
+											alt="Фото отзыва"
+										/>
+										<img
+											src="assets/reviews/review-photo-2.jpg"
+											alt="Фото отзыва"
+										/>
+									</div>
+								</div>
+
+								<div class="review-item">
+									<div class="review-header">
+										<img
+											src="assets/reviews/avatar-2.jpg"
+											alt="Михаил"
+											class="review-avatar"
+										/>
+										<div class="review-meta">
+											<span class="review-name">Михаил Сидоров</span>
+											<span class="review-date">3 ноября 2024</span>
+										</div>
+										<div class="review-rating">★★★★★</div>
+									</div>
+									<p class="review-text">
+										Долго выбирали между IKEA и мебелью на заказ. Не пожалели ни
+										секунды! Да, дороже, но это совсем другой уровень. Шкаф
+										служит уже год — как новый.
+									</p>
+								</div>
+							</div>
+
+							<button class="btn btn-secondary btn-full">
+								Показать все отзывы
+							</button>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Related Products -->
+			<section class="related-products">
+				<div class="container">
+					<h2 class="section-title">Похожие товары</h2>
+					<div class="related-grid">
+						<article class="product-card-mini">
+							<div class="product-image-mini">
+								<img src="assets/products/wardrobe-2.jpg" alt="Шкаф Классик" />
+							</div>
+							<div class="product-info-mini">
+								<h4><a href="product.html?id=7">Шкаф «Классик»</a></h4>
+								<span class="price-mini">165 000 ₽</span>
+							</div>
+						</article>
+						<article class="product-card-mini">
+							<div class="product-image-mini">
+								<img src="assets/products/wardrobe-3.jpg" alt="Шкаф Модерн" />
+							</div>
+							<div class="product-info-mini">
+								<h4><a href="product.html?id=8">Шкаф «Модерн»</a></h4>
+								<span class="price-mini">195 000 ₽</span>
+							</div>
+						</article>
+						<article class="product-card-mini">
+							<div class="product-image-mini">
+								<img
+									src="assets/products/wardrobe-4.jpg"
+									alt="Гардеробная Люкс"
+								/>
+							</div>
+							<div class="product-info-mini">
+								<h4><a href="product.html?id=9">Гардеробная «Люкс»</a></h4>
+								<span class="price-mini">320 000 ₽</span>
+							</div>
+						</article>
+						<article class="product-card-mini">
+							<div class="product-image-mini">
+								<img src="assets/products/wardrobe-5.jpg" alt="Шкаф Империя" />
+							</div>
+							<div class="product-info-mini">
+								<h4><a href="product.html?id=10">Шкаф «Империя»</a></h4>
+								<span class="price-mini">285 000 ₽</span>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-grid">
+					<div class="footer-brand">
+						<a href="/" class="footer-logo">
+							<span class="logo-icon">
+								<svg viewBox="0 0 50 50">
+									<path
+										d="M25 2 L15 17 L20 17 L12 30 L20 30 L8 45 L42 45 L30 30 L38 30 L30 17 L35 17 Z"
+										fill="currentColor"
+									/>
+								</svg>
+							</span>
+							<span class="logo-text">ДРЕВО<br />МАСТЕРОВ</span>
+						</a>
+						<p class="footer-tagline">
+							Создаём мебель, которая становится наследием
+						</p>
+					</div>
+
+					<div class="footer-contacts">
+						<h4>Контакты</h4>
+						<a href="tel:+74951234567" class="footer-phone"
+							>+7 (495) 123-45-67</a
+						>
+						<a href="mailto:info@drevo-masterov.ru" class="footer-email"
+							>info@drevo-masterov.ru</a
+						>
+						<p class="footer-address">Москва, ул. Столярная, 15</p>
+					</div>
+				</div>
+
+				<div class="footer-bottom">
+					<p class="footer-copyright">
+						© 2024 ДРЕВО МАСТЕРОВ. Все права защищены.
+					</p>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Order Modal -->
+		<div class="modal" id="orderModal">
+			<div class="modal-backdrop"></div>
+			<div class="modal-content">
+				<button class="modal-close">&times;</button>
+				<h3>Оформление заказа</h3>
+				<p>
+					Оставьте контактные данные, и мы свяжемся с вами для подтверждения
+					заказа
+				</p>
+				<form class="order-form" id="orderForm">
+					<div class="form-group">
+						<label>Ваше имя</label>
+						<input type="text" required placeholder="Как к вам обращаться?" />
+					</div>
+					<div class="form-group">
+						<label>Телефон</label>
+						<input type="tel" required placeholder="+7 (___) ___-__-__" />
+					</div>
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" placeholder="email@example.com" />
+					</div>
+					<div class="order-summary">
+						<h4>Ваш заказ:</h4>
+						<div class="order-item">
+							<span>Шкаф «Аристократ»</span>
+							<span id="orderPrice">185 000 ₽</span>
+						</div>
+						<div class="order-config" id="orderConfig"></div>
+					</div>
+					<button type="submit" class="btn btn-primary btn-full">
+						Подтвердить заказ
+					</button>
+				</form>
+			</div>
+		</div>
+
+		<!-- Scripts -->
+		<script src="js/main.js"></script>
+		<script src="js/product.js"></script>
+	</body>
+</html>

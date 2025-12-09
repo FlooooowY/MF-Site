@@ -1,0 +1,257 @@
+/* =====================================================
+   Team Section Styles
+   ===================================================== */
+
+.team {
+	position: relative;
+	background: var(--bg-secondary);
+}
+
+.team__grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: var(--space-lg);
+	margin-bottom: var(--space-4xl);
+}
+
+/* Team Card */
+.team-card {
+	position: relative;
+	background: var(--bg-card);
+	border-radius: var(--radius-lg);
+	padding: var(--space-xl);
+	text-align: center;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	transition: all 0.4s var(--ease-out);
+	overflow: hidden;
+}
+
+.team-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background: var(--gradient-button);
+	transform: scaleX(0);
+	transition: transform 0.4s var(--ease-out);
+}
+
+.team-card:hover::before {
+	transform: scaleX(1);
+}
+
+.team-card:hover {
+	background: var(--bg-card-hover);
+	border-color: rgba(0, 102, 204, 0.2);
+	box-shadow: var(--shadow-lg);
+}
+
+/* Avatar */
+.team-card__avatar {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto var(--space-lg);
+}
+
+.avatar-placeholder {
+	width: 100%;
+	height: 100%;
+	border-radius: var(--radius-full);
+	background: linear-gradient(
+		135deg,
+		var(--accent-blue) 0%,
+		var(--accent-cyan) 100%
+	);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--font-heading);
+	font-size: var(--text-2xl);
+	font-weight: 700;
+	color: var(--text-primary);
+}
+
+.avatar-badge {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 28px;
+	height: 28px;
+	background: var(--accent-green);
+	border-radius: var(--radius-full);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	border: 3px solid var(--bg-card);
+}
+
+/* Info */
+.team-card__info {
+	margin-bottom: var(--space-lg);
+}
+
+.team-card__name {
+	font-size: var(--text-lg);
+	font-weight: 600;
+	margin-bottom: var(--space-xs);
+}
+
+.team-card__role {
+	font-size: var(--text-sm);
+	color: var(--accent-blue);
+	display: block;
+	margin-bottom: var(--space-sm);
+}
+
+.team-card__rating {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-xs);
+	color: var(--accent-orange);
+}
+
+.rating-value {
+	font-family: var(--font-mono);
+	font-weight: 600;
+	color: var(--text-primary);
+}
+
+.rating-reviews {
+	font-size: var(--text-xs);
+	color: var(--text-muted);
+}
+
+/* Details */
+.team-card__details {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+	margin-bottom: var(--space-lg);
+	padding: var(--space-md);
+	background: rgba(255, 255, 255, 0.02);
+	border-radius: var(--radius-sm);
+}
+
+.detail-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-sm);
+	font-size: var(--text-sm);
+	color: var(--text-secondary);
+}
+
+.detail-row svg {
+	color: var(--accent-blue);
+	flex-shrink: 0;
+}
+
+/* Certifications */
+.team-card__certs {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--space-xs);
+}
+
+.cert-badge {
+	padding: var(--space-xs) var(--space-sm);
+	background: rgba(0, 102, 204, 0.1);
+	border: 1px solid rgba(0, 102, 204, 0.2);
+	border-radius: var(--radius-xs);
+	font-size: var(--text-xs);
+	color: var(--accent-blue);
+	font-weight: 500;
+}
+
+/* Glow effect */
+.team-card__glow {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 150px;
+	height: 150px;
+	background: radial-gradient(
+		circle,
+		rgba(0, 102, 204, 0.2) 0%,
+		transparent 70%
+	);
+	border-radius: 50%;
+	filter: blur(40px);
+	opacity: 0;
+	transition: opacity 0.4s ease;
+	pointer-events: none;
+}
+
+.team-card:hover .team-card__glow {
+	opacity: 1;
+}
+
+/* Stats */
+.team__stats {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-3xl);
+	padding: var(--space-2xl);
+	background: var(--bg-card);
+	border-radius: var(--radius-lg);
+}
+
+.stat-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-xs);
+}
+
+.stat-number {
+	font-size: var(--text-4xl);
+	font-weight: 700;
+	color: var(--accent-blue);
+}
+
+.stat-item .stat-label {
+	font-size: var(--text-sm);
+	color: var(--text-muted);
+}
+
+.stat-divider {
+	width: 1px;
+	height: 60px;
+	background: linear-gradient(
+		180deg,
+		transparent,
+		var(--primary-lighter),
+		transparent
+	);
+}
+
+/* Responsive */
+@media (max-width: 1280px) {
+	.team__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.team__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.team__stats {
+		flex-direction: column;
+		gap: var(--space-xl);
+	}
+
+	.stat-divider {
+		width: 60px;
+		height: 1px;
+	}
+}

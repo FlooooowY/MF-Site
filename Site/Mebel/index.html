@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="ДРЕВО МАСТЕРОВ — производство премиальной мебели на заказ. Создаём уникальные изделия из массива дерева с душой и любовью к ремеслу."
+		/>
+		<title>ДРЕВО МАСТЕРОВ | Премиальная мебель на заказ</title>
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- GSAP -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+		<!-- Three.js -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+		<!-- Styles -->
+		<link rel="stylesheet" href="css/styles.css" />
+		<link rel="stylesheet" href="css/animations.css" />
+	</head>
+	<body>
+		<!-- Wood Grain Background -->
+		<div class="wood-grain-bg"></div>
+
+		<!-- Sawdust Particles -->
+		<div class="sawdust-container" id="sawdustContainer"></div>
+
+		<!-- Preloader -->
+		<div class="preloader" id="preloader">
+			<div class="preloader-content">
+				<div class="preloader-logo">
+					<svg viewBox="0 0 100 100" class="tree-icon">
+						<path
+							d="M50 5 L30 35 L40 35 L25 60 L40 60 L20 90 L80 90 L60 60 L75 60 L60 35 L70 35 Z"
+							fill="currentColor"
+						/>
+						<rect x="45" y="85" width="10" height="15" fill="currentColor" />
+					</svg>
+				</div>
+				<div class="preloader-text">ДРЕВО МАСТЕРОВ</div>
+				<div class="preloader-bar">
+					<div class="preloader-progress"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Header -->
+		<header class="header" id="header">
+			<div class="header-container">
+				<a href="/" class="logo">
+					<span class="logo-icon">
+						<svg viewBox="0 0 50 50">
+							<path
+								d="M25 2 L15 17 L20 17 L12 30 L20 30 L8 45 L42 45 L30 30 L38 30 L30 17 L35 17 Z"
+								fill="currentColor"
+							/>
+						</svg>
+					</span>
+					<span class="logo-text">ДРЕВО<br />МАСТЕРОВ</span>
+				</a>
+
+				<nav class="nav" id="mainNav">
+					<ul class="nav-list">
+						<li><a href="#craftsmanship" class="nav-link">Мастерство</a></li>
+						<li><a href="#gallery" class="nav-link">Галерея</a></li>
+						<li><a href="#materials" class="nav-link">Материалы</a></li>
+						<li><a href="#constructor" class="nav-link">Конструктор</a></li>
+						<li><a href="catalog.html" class="nav-link">Каталог</a></li>
+						<li>
+							<a href="#contact" class="nav-link nav-link--cta">Заказать</a>
+						</li>
+					</ul>
+				</nav>
+
+				<button class="burger" id="burger" aria-label="Меню">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+		</header>
+
+		<!-- Mobile Menu -->
+		<div class="mobile-menu" id="mobileMenu">
+			<nav class="mobile-nav">
+				<ul class="mobile-nav-list">
+					<li><a href="#craftsmanship">Мастерство</a></li>
+					<li><a href="#gallery">Галерея</a></li>
+					<li><a href="#materials">Материалы</a></li>
+					<li><a href="#constructor">Конструктор</a></li>
+					<li><a href="catalog.html">Каталог</a></li>
+					<li>
+						<a href="#contact" class="btn btn-primary">Заказать мебель</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		<main>
+			<!-- Hero Section -->
+			<section class="hero" id="hero">
+				<div class="hero-video-container">
+					<video
+						class="hero-video"
+						autoplay
+						muted
+						loop
+						playsinline
+						poster="assets/hero-poster.jpg"
+					>
+						<source src="assets/woodworking.mp4" type="video/mp4" />
+					</video>
+					<div class="hero-video-overlay"></div>
+				</div>
+
+				<div class="hero-content">
+					<div class="hero-badge">
+						<span class="hero-badge-icon">✦</span>
+						<span>С 1998 года создаём мебель мечты</span>
+					</div>
+
+					<h1 class="hero-title">
+						<span class="hero-title-line">Мебель,</span>
+						<span class="hero-title-line">созданная</span>
+						<span class="hero-title-line hero-title-accent">с душой</span>
+					</h1>
+
+					<p class="hero-subtitle">
+						Премиальная мебель из массива дерева, воплощающая ваши идеи в
+						уникальные изделия ручной работы
+					</p>
+
+					<div class="hero-cta">
+						<a href="#constructor" class="btn btn-primary btn-chisel">
+							<span class="btn-text">Создать свою мебель</span>
+							<span class="btn-icon">
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<path d="M5 12h14M12 5l7 7-7 7" />
+								</svg>
+							</span>
+						</a>
+						<a href="#gallery" class="btn btn-secondary">
+							<span class="btn-text">Смотреть работы</span>
+						</a>
+					</div>
+
+					<div class="hero-stats">
+						<div class="hero-stat">
+							<span class="hero-stat-number" data-count="25">0</span>
+							<span class="hero-stat-label">лет опыта</span>
+						</div>
+						<div class="hero-stat">
+							<span class="hero-stat-number" data-count="3500">0</span>
+							<span class="hero-stat-label">проектов</span>
+						</div>
+						<div class="hero-stat">
+							<span class="hero-stat-number" data-count="12">0</span>
+							<span class="hero-stat-label">пород дерева</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="hero-3d" id="hero3d">
+					<!-- Three.js 3D Model -->
+				</div>
+
+				<div class="hero-scroll">
+					<span>Прокрутите вниз</span>
+					<div class="hero-scroll-line"></div>
+				</div>
+
+				<div class="hero-tools">
+					<div class="tool tool-chisel" data-tool="chisel">
+						<svg viewBox="0 0 40 100">
+							<rect x="15" y="0" width="10" height="60" fill="#8B4513" />
+							<polygon points="10,60 30,60 25,100 15,100" fill="#C0C0C0" />
+						</svg>
+					</div>
+					<div class="tool tool-plane" data-tool="plane">
+						<svg viewBox="0 0 100 40">
+							<rect
+								x="0"
+								y="10"
+								width="100"
+								height="20"
+								rx="2"
+								fill="#8B4513"
+							/>
+							<rect x="40" y="5" width="20" height="30" fill="#654321" />
+							<rect x="10" y="30" width="80" height="5" fill="#C0C0C0" />
+						</svg>
+					</div>
+				</div>
+			</section>
+
+			<!-- Craftsmanship Section -->
+			<section class="craftsmanship" id="craftsmanship">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag">Наше мастерство</span>
+						<h2 class="section-title">От дерева к шедевру</h2>
+						<p class="section-subtitle">
+							Каждое изделие проходит путь от отбора древесины до финальной
+							полировки в руках наших мастеров с многолетним опытом
+						</p>
+					</div>
+
+					<div class="craft-process">
+						<div class="craft-step" data-step="1">
+							<div class="craft-step-media">
+								<div
+									class="craft-step-image"
+									style="background-image: url('assets/process-1.jpg')"
+								></div>
+								<div class="craft-step-overlay">
+									<span class="craft-step-play">▶</span>
+								</div>
+							</div>
+							<div class="craft-step-content">
+								<span class="craft-step-number">01</span>
+								<h3 class="craft-step-title">Отбор материала</h3>
+								<p class="craft-step-text">
+									Лично отбираем каждую доску на лесопилках Сибири. Только
+									массив с идеальной текстурой и влажностью не более 8%.
+								</p>
+							</div>
+						</div>
+
+						<div class="craft-step" data-step="2">
+							<div class="craft-step-media">
+								<div
+									class="craft-step-image"
+									style="background-image: url('assets/process-2.jpg')"
+								></div>
+							</div>
+							<div class="craft-step-content">
+								<span class="craft-step-number">02</span>
+								<h3 class="craft-step-title">Проектирование</h3>
+								<p class="craft-step-text">
+									3D-моделирование с учётом ваших пожеланий и особенностей
+									помещения. Визуализация до начала производства.
+								</p>
+							</div>
+						</div>
+
+						<div class="craft-step" data-step="3">
+							<div class="craft-step-media">
+								<div
+									class="craft-step-image"
+									style="background-image: url('assets/process-3.jpg')"
+								></div>
+							</div>
+							<div class="craft-step-content">
+								<span class="craft-step-number">03</span>
+								<h3 class="craft-step-title">Ручная работа</h3>
+								<p class="craft-step-text">
+									Столярные соединения без металлических креплений. Каждый шов —
+									результат многочасовой работы мастера.
+								</p>
+							</div>
+						</div>
+
+						<div class="craft-step" data-step="4">
+							<div class="craft-step-media">
+								<div
+									class="craft-step-image"
+									style="background-image: url('assets/process-4.jpg')"
+								></div>
+							</div>
+							<div class="craft-step-content">
+								<span class="craft-step-number">04</span>
+								<h3 class="craft-step-title">Финишная отделка</h3>
+								<p class="craft-step-text">
+									7 слоёв масла и воска для защиты древесины. Экологичные
+									материалы, безопасные для детей.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="craft-cta">
+						<a href="#contact" class="btn btn-outline">
+							Заказать экскурсию в мастерскую
+						</a>
+					</div>
+				</div>
+
+				<div class="craft-divider">
+					<svg class="tool-divider" viewBox="0 0 200 30">
+						<line
+							x1="0"
+							y1="15"
+							x2="70"
+							y2="15"
+							stroke="currentColor"
+							stroke-width="1"
+						/>
+						<path d="M80 5 L90 15 L80 25 L95 15 Z" fill="currentColor" />
+						<rect x="95" y="12" width="30" height="6" fill="currentColor" />
+						<line
+							x1="130"
+							y1="15"
+							x2="200"
+							y2="15"
+							stroke="currentColor"
+							stroke-width="1"
+						/>
+					</svg>
+				</div>
+			</section>
+
+			<!-- Gallery Section -->
+			<section class="gallery" id="gallery">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag">Галерея работ</span>
+						<h2 class="section-title">Воплощённые идеи</h2>
+						<p class="section-subtitle">
+							Более 3500 уникальных проектов, каждый из которых — история
+							сотрудничества с клиентом
+						</p>
+					</div>
+
+					<div class="gallery-filters">
+						<button class="gallery-filter active" data-filter="all">
+							Все работы
+						</button>
+						<button class="gallery-filter" data-filter="living">
+							Гостиные
+						</button>
+						<button class="gallery-filter" data-filter="bedroom">
+							Спальни
+						</button>
+						<button class="gallery-filter" data-filter="kitchen">Кухни</button>
+						<button class="gallery-filter" data-filter="office">
+							Кабинеты
+						</button>
+						<button class="gallery-filter" data-filter="kids">Детские</button>
+					</div>
+
+					<div class="gallery-grid">
+						<div class="gallery-item" data-category="living">
+							<div class="gallery-item-inner">
+								<div class="gallery-item-front">
+									<img
+										src="assets/gallery/living-1.jpg"
+										alt="Гостиная из дуба"
+										loading="lazy"
+									/>
+									<div class="gallery-item-overlay">
+										<span class="gallery-item-tag">В мастерской</span>
+									</div>
+								</div>
+								<div class="gallery-item-back">
+									<img
+										src="assets/gallery/living-1-installed.jpg"
+										alt="Гостиная в интерьере"
+										loading="lazy"
+									/>
+									<div class="gallery-item-overlay">
+										<span class="gallery-item-tag">В интерьере</span>
+									</div>
+								</div>
+							</div>
+							<div class="gallery-item-info">
+								<h4>Гостиная «Аристократ»</h4>
+								<p>Дуб, 45 м² • Москва</p>
+							</div>
+						</div>
+
+						<div
+							class="gallery-item gallery-item--large"
+							data-category="bedroom"
+						>
+							<div class="gallery-item-inner">
+								<div class="gallery-item-front">
+									<img
+										src="assets/gallery/bedroom-1.jpg"
+										alt="Спальня из ореха"
+										loading="lazy"
+									/>
+									<div class="gallery-item-overlay">
+										<span class="gallery-item-tag">В мастерской</span>
+									</div>
+								</div>
+								<div class="gallery-item-back">
+									<img
+										src="assets/gallery/bedroom-1-installed.jpg"
+										alt="Спальня в интерьере"
+										loading="lazy"
+									/>
+									<div class="gallery-item-overlay">
+										<span class="gallery-item-tag">В интерьере</span>
+									</div>
+								</div>
+							</div>
+							<div class="gallery-item-info">
+								<h4>Спальня «Венеция»</h4>
+								<p>Американский орех, 30 м² • Санкт-Петербург</p>
+							</div>
+						</div>
+
+						<div class="gallery-item" data-category="kitchen">
+							<div class="gallery-item-inner">
+								<div class="gallery-item-front">
+									<img
+										src="assets/gallery/kitchen-1.jpg"
+										alt="Кухня из ясеня"
+										loading="lazy"
+									/>
+								</div>
+								<div class="gallery-item-back">
+									<img
+										src="assets/gallery/kitchen-1-installed.jpg"
+										alt="Кухня в интерьере"
+										loading="lazy"
+									/>
+								</div>
+							</div>
+							<div class="gallery-item-info">
+								<h4>Кухня «Прованс»</h4>
+								<p>Ясень, 25 м² • Казань</p>
+							</div>
+						</div>
+
+						<div class="gallery-item" data-category="office">
+							<div class="gallery-item-inner">
+								<div class="gallery-item-front">
+									<img
+										src="assets/gallery/office-1.jpg"
+										alt="Кабинет из красного дерева"
+										loading="lazy"
+									/>
+								</div>
+								<div class="gallery-item-back">
+									<img
+										src="assets/gallery/office-1-installed.jpg"
+										alt="Кабинет в интерьере"
+										loading="lazy"
+									/>
+								</div>
+							</div>
+							<div class="gallery-item-info">
+								<h4>Кабинет «Империя»</h4>
+								<p>Красное дерево, 20 м² • Сочи</p>
+							</div>
+						</div>
+
+						<div class="gallery-item" data-category="kids">
+							<div class="gallery-item-inner">
+								<div class="gallery-item-front">
+									<img
+										src="assets/gallery/kids-1.jpg"
+										alt="Детская из берёзы"
+										loading="lazy"
+									/>
+								</div>
+								<div class="gallery-item-back">
+									<img
+										src="assets/gallery/kids-1-installed.jpg"
+										alt="Детская в интерьере"
+										loading="lazy"
+									/>
+								</div>
+							</div>
+							<div class="gallery-item-info">
+								<h4>Детская «Сказка»</h4>
+								<p>Берёза, 18 м² • Екатеринбург</p>
+							</div>
+						</div>
+
+						<div class="gallery-item gallery-item--wide" data-category="living">
+							<div class="gallery-item-inner">
+								<div class="gallery-item-front">
+									<img
+										src="assets/gallery/living-2.jpg"
+										alt="Библиотека"
+										loading="lazy"
+									/>
+								</div>
+								<div class="gallery-item-back">
+									<img
+										src="assets/gallery/living-2-installed.jpg"
+										alt="Библиотека в интерьере"
+										loading="lazy"
+									/>
+								</div>
+							</div>
+							<div class="gallery-item-info">
+								<h4>Библиотека «Оксфорд»</h4>
+								<p>Вишня, 60 м² • Москва</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="gallery-cta">
+						<a href="catalog.html" class="btn btn-primary">
+							Смотреть все проекты
+							<span class="btn-arrow">→</span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Materials Section -->
+			<section class="materials" id="materials">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag">Материалы</span>
+						<h2 class="section-title">Благородство древесины</h2>
+						<p class="section-subtitle">
+							Работаем только с премиальными породами дерева из экологически
+							чистых регионов
+						</p>
+					</div>
+
+					<div class="materials-showcase">
+						<div class="material-card active" data-wood="oak">
+							<div class="material-texture">
+								<div class="material-grain"></div>
+							</div>
+							<div class="material-info">
+								<h3 class="material-name">Дуб</h3>
+								<p class="material-origin">Россия, Кавказ</p>
+								<ul class="material-props">
+									<li>
+										<span>Твёрдость:</span>
+										<span class="material-bar"
+											><span style="width: 90%"></span
+										></span>
+									</li>
+									<li>
+										<span>Долговечность:</span>
+										<span class="material-bar"
+											><span style="width: 95%"></span
+										></span>
+									</li>
+									<li>
+										<span>Текстура:</span>
+										<span class="material-bar"
+											><span style="width: 85%"></span
+										></span>
+									</li>
+								</ul>
+								<p class="material-price">от 45 000 ₽/м²</p>
+							</div>
+						</div>
+
+						<div class="material-card" data-wood="walnut">
+							<div class="material-texture material-texture--walnut">
+								<div class="material-grain"></div>
+							</div>
+							<div class="material-info">
+								<h3 class="material-name">Орех</h3>
+								<p class="material-origin">США, Калифорния</p>
+								<ul class="material-props">
+									<li>
+										<span>Твёрдость:</span>
+										<span class="material-bar"
+											><span style="width: 75%"></span
+										></span>
+									</li>
+									<li>
+										<span>Долговечность:</span>
+										<span class="material-bar"
+											><span style="width: 88%"></span
+										></span>
+									</li>
+									<li>
+										<span>Текстура:</span>
+										<span class="material-bar"
+											><span style="width: 95%"></span
+										></span>
+									</li>
+								</ul>
+								<p class="material-price">от 65 000 ₽/м²</p>
+							</div>
+						</div>
+
+						<div class="material-card" data-wood="ash">
+							<div class="material-texture material-texture--ash">
+								<div class="material-grain"></div>
+							</div>
+							<div class="material-info">
+								<h3 class="material-name">Ясень</h3>
+								<p class="material-origin">Россия, Поволжье</p>
+								<ul class="material-props">
+									<li>
+										<span>Твёрдость:</span>
+										<span class="material-bar"
+											><span style="width: 82%"></span
+										></span>
+									</li>
+									<li>
+										<span>Долговечность:</span>
+										<span class="material-bar"
+											><span style="width: 85%"></span
+										></span>
+									</li>
+									<li>
+										<span>Текстура:</span>
+										<span class="material-bar"
+											><span style="width: 80%"></span
+										></span>
+									</li>
+								</ul>
+								<p class="material-price">от 38 000 ₽/м²</p>
+							</div>
+						</div>
+
+						<div class="material-card" data-wood="cherry">
+							<div class="material-texture material-texture--cherry">
+								<div class="material-grain"></div>
+							</div>
+							<div class="material-info">
+								<h3 class="material-name">Вишня</h3>
+								<p class="material-origin">США, Пенсильвания</p>
+								<ul class="material-props">
+									<li>
+										<span>Твёрдость:</span>
+										<span class="material-bar"
+											><span style="width: 65%"></span
+										></span>
+									</li>
+									<li>
+										<span>Долговечность:</span>
+										<span class="material-bar"
+											><span style="width: 80%"></span
+										></span>
+									</li>
+									<li>
+										<span>Текстура:</span>
+										<span class="material-bar"
+											><span style="width: 92%"></span
+										></span>
+									</li>
+								</ul>
+								<p class="material-price">от 55 000 ₽/м²</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="fabrics-section">
+						<h3 class="fabrics-title">Обивочные ткани</h3>
+						<div class="fabrics-grid">
+							<div class="fabric-item" data-fabric="linen">
+								<div class="fabric-swatch fabric-swatch--linen"></div>
+								<span class="fabric-name">Натуральный лён</span>
+							</div>
+							<div class="fabric-item" data-fabric="velvet">
+								<div class="fabric-swatch fabric-swatch--velvet"></div>
+								<span class="fabric-name">Бархат</span>
+							</div>
+							<div class="fabric-item" data-fabric="leather">
+								<div class="fabric-swatch fabric-swatch--leather"></div>
+								<span class="fabric-name">Итальянская кожа</span>
+							</div>
+							<div class="fabric-item" data-fabric="cotton">
+								<div class="fabric-swatch fabric-swatch--cotton"></div>
+								<span class="fabric-name">Хлопок</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Constructor Section -->
+			<section class="constructor" id="constructor">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag">3D Конструктор</span>
+						<h2 class="section-title">Создайте свою мебель</h2>
+						<p class="section-subtitle">
+							Интерактивный конфигуратор с визуализацией в реальном времени
+						</p>
+					</div>
+
+					<div class="constructor-app">
+						<div class="constructor-preview">
+							<div class="constructor-3d" id="constructor3d">
+								<!-- Three.js 3D Constructor -->
+							</div>
+							<div class="constructor-controls-3d">
+								<button
+									class="control-btn"
+									id="rotateLeft"
+									title="Повернуть влево"
+								>
+									<svg
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+									>
+										<path d="M2.5 2v6h6M2.66 15.57a10 10 0 1 0 .57-8.38" />
+									</svg>
+								</button>
+								<button
+									class="control-btn"
+									id="rotateRight"
+									title="Повернуть вправо"
+								>
+									<svg
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+									>
+										<path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38" />
+									</svg>
+								</button>
+								<button class="control-btn" id="zoomIn" title="Приблизить">
+									<svg
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+									>
+										<circle cx="11" cy="11" r="8" />
+										<path d="m21 21-4.35-4.35M11 8v6M8 11h6" />
+									</svg>
+								</button>
+								<button class="control-btn" id="zoomOut" title="Отдалить">
+									<svg
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+									>
+										<circle cx="11" cy="11" r="8" />
+										<path d="m21 21-4.35-4.35M8 11h6" />
+									</svg>
+								</button>
+								<button class="control-btn" id="arView" title="AR просмотр">
+									<svg
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+									>
+										<path
+											d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"
+										/>
+										<path d="m9 12 2 2 4-4" />
+									</svg>
+								</button>
+							</div>
+						</div>
+
+						<div class="constructor-panel">
+							<div class="constructor-section">
+								<h4 class="constructor-section-title">Тип изделия</h4>
+								<div class="constructor-types">
+									<button class="type-btn active" data-type="wardrobe">
+										<svg viewBox="0 0 40 40">
+											<rect
+												x="5"
+												y="5"
+												width="30"
+												height="30"
+												rx="2"
+												fill="none"
+												stroke="currentColor"
+												stroke-width="2"
+											/>
+											<line
+												x1="20"
+												y1="5"
+												x2="20"
+												y2="35"
+												stroke="currentColor"
+												stroke-width="2"
+											/>
+											<circle cx="15" cy="20" r="1.5" fill="currentColor" />
+											<circle cx="25" cy="20" r="1.5" fill="currentColor" />
+										</svg>
+										<span>Шкаф</span>
+									</button>
+									<button class="type-btn" data-type="table">
+										<svg viewBox="0 0 40 40">
+											<rect
+												x="5"
+												y="12"
+												width="30"
+												height="4"
+												fill="currentColor"
+											/>
+											<rect
+												x="8"
+												y="16"
+												width="3"
+												height="16"
+												fill="currentColor"
+											/>
+											<rect
+												x="29"
+												y="16"
+												width="3"
+												height="16"
+												fill="currentColor"
+											/>
+										</svg>
+										<span>Стол</span>
+									</button>
+									<button class="type-btn" data-type="bed">
+										<svg viewBox="0 0 40 40">
+											<rect
+												x="3"
+												y="20"
+												width="34"
+												height="10"
+												rx="2"
+												fill="none"
+												stroke="currentColor"
+												stroke-width="2"
+											/>
+											<rect
+												x="5"
+												y="15"
+												width="10"
+												height="5"
+												rx="1"
+												fill="currentColor"
+											/>
+											<rect
+												x="5"
+												y="30"
+												width="4"
+												height="5"
+												fill="currentColor"
+											/>
+											<rect
+												x="31"
+												y="30"
+												width="4"
+												height="5"
+												fill="currentColor"
+											/>
+										</svg>
+										<span>Кровать</span>
+									</button>
+									<button class="type-btn" data-type="shelf">
+										<svg viewBox="0 0 40 40">
+											<rect
+												x="5"
+												y="8"
+												width="30"
+												height="3"
+												fill="currentColor"
+											/>
+											<rect
+												x="5"
+												y="18"
+												width="30"
+												height="3"
+												fill="currentColor"
+											/>
+											<rect
+												x="5"
+												y="28"
+												width="30"
+												height="3"
+												fill="currentColor"
+											/>
+											<rect
+												x="5"
+												y="8"
+												width="3"
+												height="23"
+												fill="currentColor"
+											/>
+											<rect
+												x="32"
+												y="8"
+												width="3"
+												height="23"
+												fill="currentColor"
+											/>
+										</svg>
+										<span>Стеллаж</span>
+									</button>
+								</div>
+							</div>
+
+							<div class="constructor-section">
+								<h4 class="constructor-section-title">Размеры (см)</h4>
+								<div class="constructor-dimensions">
+									<div class="dimension-control">
+										<label for="dimWidth">Ширина</label>
+										<input
+											type="range"
+											id="dimWidth"
+											min="60"
+											max="300"
+											value="180"
+										/>
+										<span class="dimension-value" id="dimWidthValue">180</span>
+									</div>
+									<div class="dimension-control">
+										<label for="dimHeight">Высота</label>
+										<input
+											type="range"
+											id="dimHeight"
+											min="60"
+											max="280"
+											value="220"
+										/>
+										<span class="dimension-value" id="dimHeightValue">220</span>
+									</div>
+									<div class="dimension-control">
+										<label for="dimDepth">Глубина</label>
+										<input
+											type="range"
+											id="dimDepth"
+											min="30"
+											max="80"
+											value="60"
+										/>
+										<span class="dimension-value" id="dimDepthValue">60</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="constructor-section">
+								<h4 class="constructor-section-title">Материал</h4>
+								<div class="constructor-materials">
+									<button class="material-btn active" data-material="oak">
+										<span class="material-preview material-preview--oak"></span>
+										<span class="material-label">Дуб</span>
+									</button>
+									<button class="material-btn" data-material="walnut">
+										<span
+											class="material-preview material-preview--walnut"
+										></span>
+										<span class="material-label">Орех</span>
+									</button>
+									<button class="material-btn" data-material="ash">
+										<span class="material-preview material-preview--ash"></span>
+										<span class="material-label">Ясень</span>
+									</button>
+									<button class="material-btn" data-material="cherry">
+										<span
+											class="material-preview material-preview--cherry"
+										></span>
+										<span class="material-label">Вишня</span>
+									</button>
+								</div>
+							</div>
+
+							<div class="constructor-section">
+								<h4 class="constructor-section-title">Дополнительно</h4>
+								<div class="constructor-options">
+									<label class="option-checkbox">
+										<input type="checkbox" id="optLighting" />
+										<span class="checkbox-custom"></span>
+										<span class="option-text">LED подсветка</span>
+										<span class="option-price">+15 000 ₽</span>
+									</label>
+									<label class="option-checkbox">
+										<input type="checkbox" id="optSoftClose" />
+										<span class="checkbox-custom"></span>
+										<span class="option-text">Доводчики</span>
+										<span class="option-price">+8 000 ₽</span>
+									</label>
+									<label class="option-checkbox">
+										<input type="checkbox" id="optMirror" />
+										<span class="checkbox-custom"></span>
+										<span class="option-text">Зеркало</span>
+										<span class="option-price">+12 000 ₽</span>
+									</label>
+								</div>
+							</div>
+
+							<div class="constructor-result">
+								<div class="result-price">
+									<span class="price-label">Стоимость:</span>
+									<span class="price-value" id="totalPrice">185 000 ₽</span>
+								</div>
+								<div class="result-time">
+									<svg
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+									>
+										<circle cx="12" cy="12" r="10" />
+										<path d="M12 6v6l4 2" />
+									</svg>
+									<span>Срок изготовления: <strong>21-28 дней</strong></span>
+								</div>
+								<button class="btn btn-primary btn-full" id="orderBtn">
+									Оформить заказ
+								</button>
+								<button class="btn btn-secondary btn-full" id="saveConfigBtn">
+									Сохранить конфигурацию
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Reviews Section -->
+			<section class="reviews" id="reviews">
+				<div class="container">
+					<div class="section-header">
+						<span class="section-tag">Отзывы</span>
+						<h2 class="section-title">Говорят наши клиенты</h2>
+						<p class="section-subtitle">
+							Реальные истории от людей, которые доверили нам создание мебели
+							мечты
+						</p>
+					</div>
+
+					<div class="reviews-slider">
+						<div class="reviews-track" id="reviewsTrack">
+							<div class="review-card">
+								<div class="review-image">
+									<img
+										src="assets/reviews/review-1.jpg"
+										alt="Интерьер клиента"
+										loading="lazy"
+									/>
+								</div>
+								<div class="review-content">
+									<div class="review-rating">★★★★★</div>
+									<blockquote class="review-text">
+										"Заказывали гостиную из дуба. Результат превзошёл все
+										ожидания! Мастера учли каждую деталь, даже те, о которых мы
+										сами не подумали. Мебель служит уже 5 лет — как новая."
+									</blockquote>
+									<div class="review-author">
+										<img
+											src="assets/reviews/avatar-1.jpg"
+											alt="Анна Петрова"
+											class="review-avatar"
+										/>
+										<div class="review-author-info">
+											<span class="review-name">Анна Петрова</span>
+											<span class="review-location">Москва, Хамовники</span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="review-card">
+								<div class="review-image">
+									<img
+										src="assets/reviews/review-2.jpg"
+										alt="Интерьер клиента"
+										loading="lazy"
+									/>
+								</div>
+								<div class="review-content">
+									<div class="review-rating">★★★★★</div>
+									<blockquote class="review-text">
+										"Спальня из американского ореха — это произведение
+										искусства. Текстура дерева уникальна в каждом элементе.
+										Спасибо за терпение и профессионализм!"
+									</blockquote>
+									<div class="review-author">
+										<img
+											src="assets/reviews/avatar-2.jpg"
+											alt="Михаил Сидоров"
+											class="review-avatar"
+										/>
+										<div class="review-author-info">
+											<span class="review-name">Михаил Сидоров</span>
+											<span class="review-location">Санкт-Петербург</span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="review-card">
+								<div class="review-image">
+									<img
+										src="assets/reviews/review-3.jpg"
+										alt="Интерьер клиента"
+										loading="lazy"
+									/>
+								</div>
+								<div class="review-content">
+									<div class="review-rating">★★★★★</div>
+									<blockquote class="review-text">
+										"Детская комната для двоих детей. Безопасные материалы,
+										продуманная эргономика, и главное — детям нравится!
+										Рекомендую всем родителям."
+									</blockquote>
+									<div class="review-author">
+										<img
+											src="assets/reviews/avatar-3.jpg"
+											alt="Елена Козлова"
+											class="review-avatar"
+										/>
+										<div class="review-author-info">
+											<span class="review-name">Елена Козлова</span>
+											<span class="review-location">Казань</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="reviews-nav">
+							<button class="reviews-nav-btn prev" id="reviewsPrev">
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<path d="M19 12H5M12 19l-7-7 7-7" />
+								</svg>
+							</button>
+							<div class="reviews-dots" id="reviewsDots">
+								<span class="dot active"></span>
+								<span class="dot"></span>
+								<span class="dot"></span>
+							</div>
+							<button class="reviews-nav-btn next" id="reviewsNext">
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<path d="M5 12h14M12 5l7 7-7 7" />
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Contact Section -->
+			<section class="contact" id="contact">
+				<div class="container">
+					<div class="contact-grid">
+						<div class="contact-info">
+							<span class="section-tag">Свяжитесь с нами</span>
+							<h2 class="section-title">Начните путь к мебели мечты</h2>
+							<p class="contact-text">
+								Оставьте заявку, и наш дизайнер свяжется с вами в течение 2
+								часов для бесплатной консультации и расчёта стоимости.
+							</p>
+
+							<div class="contact-details">
+								<div class="contact-item">
+									<div class="contact-icon">
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<path
+												d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+											/>
+										</svg>
+									</div>
+									<div class="contact-item-content">
+										<span class="contact-label">Телефон</span>
+										<a href="tel:+74951234567" class="contact-value"
+											>+7 (495) 123-45-67</a
+										>
+									</div>
+								</div>
+
+								<div class="contact-item">
+									<div class="contact-icon">
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<path
+												d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+											/>
+											<polyline points="22,6 12,13 2,6" />
+										</svg>
+									</div>
+									<div class="contact-item-content">
+										<span class="contact-label">Email</span>
+										<a
+											href="mailto:info@drevo-masterov.ru"
+											class="contact-value"
+											>info@drevo-masterov.ru</a
+										>
+									</div>
+								</div>
+
+								<div class="contact-item">
+									<div class="contact-icon">
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<path
+												d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+											/>
+											<circle cx="12" cy="10" r="3" />
+										</svg>
+									</div>
+									<div class="contact-item-content">
+										<span class="contact-label">Адрес мастерской</span>
+										<span class="contact-value">Москва, ул. Столярная, 15</span>
+									</div>
+								</div>
+
+								<div class="contact-item">
+									<div class="contact-icon">
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<circle cx="12" cy="12" r="10" />
+											<polyline points="12 6 12 12 16 14" />
+										</svg>
+									</div>
+									<div class="contact-item-content">
+										<span class="contact-label">Время работы</span>
+										<span class="contact-value">Пн-Сб: 9:00 - 20:00</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="contact-socials">
+								<a href="#" class="social-link" aria-label="WhatsApp">
+									<svg viewBox="0 0 24 24" fill="currentColor">
+										<path
+											d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+										/>
+									</svg>
+								</a>
+								<a href="#" class="social-link" aria-label="Telegram">
+									<svg viewBox="0 0 24 24" fill="currentColor">
+										<path
+											d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"
+										/>
+									</svg>
+								</a>
+								<a href="#" class="social-link" aria-label="VK">
+									<svg viewBox="0 0 24 24" fill="currentColor">
+										<path
+											d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.203.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.814-.542 1.27-1.422 2.18-3.61 2.18-3.61.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"
+										/>
+									</svg>
+								</a>
+								<a href="#" class="social-link" aria-label="Instagram">
+									<svg viewBox="0 0 24 24" fill="currentColor">
+										<path
+											d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
+										/>
+									</svg>
+								</a>
+							</div>
+						</div>
+
+						<div class="contact-form-wrapper">
+							<form class="contact-form" id="contactForm">
+								<div class="form-group">
+									<label for="formName">Ваше имя</label>
+									<input
+										type="text"
+										id="formName"
+										name="name"
+										required
+										placeholder="Как к вам обращаться?"
+									/>
+								</div>
+
+								<div class="form-group">
+									<label for="formPhone">Телефон</label>
+									<input
+										type="tel"
+										id="formPhone"
+										name="phone"
+										required
+										placeholder="+7 (___) ___-__-__"
+									/>
+								</div>
+
+								<div class="form-group">
+									<label for="formType">Тип мебели</label>
+									<select id="formType" name="type">
+										<option value="">Выберите тип мебели</option>
+										<option value="wardrobe">Шкафы и гардеробные</option>
+										<option value="kitchen">Кухни</option>
+										<option value="bedroom">Спальни</option>
+										<option value="living">Гостиные</option>
+										<option value="office">Кабинеты</option>
+										<option value="kids">Детские</option>
+										<option value="other">Другое</option>
+									</select>
+								</div>
+
+								<div class="form-group">
+									<label for="formMessage">Расскажите о проекте</label>
+									<textarea
+										id="formMessage"
+										name="message"
+										rows="4"
+										placeholder="Опишите вашу идею, размеры помещения, пожелания по материалам..."
+									></textarea>
+								</div>
+
+								<div class="form-group form-group--upload">
+									<label>Прикрепите фото или эскиз</label>
+									<div class="upload-area" id="uploadArea">
+										<input
+											type="file"
+											id="formFiles"
+											name="files"
+											multiple
+											accept="image/*,.pdf"
+										/>
+										<div class="upload-content">
+											<svg
+												viewBox="0 0 24 24"
+												fill="none"
+												stroke="currentColor"
+												stroke-width="2"
+											>
+												<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+												<polyline points="17 8 12 3 7 8" />
+												<line x1="12" y1="3" x2="12" y2="15" />
+											</svg>
+											<span>Перетащите файлы или нажмите для выбора</span>
+											<small>JPG, PNG, PDF до 10MB</small>
+										</div>
+									</div>
+									<div class="upload-preview" id="uploadPreview"></div>
+								</div>
+
+								<div class="form-group form-group--date">
+									<label for="formDate">Желаемая дата консультации</label>
+									<input type="date" id="formDate" name="date" />
+								</div>
+
+								<div class="form-agreement">
+									<label class="checkbox-label">
+										<input type="checkbox" required />
+										<span class="checkbox-custom"></span>
+										<span
+											>Согласен на обработку
+											<a href="#">персональных данных</a></span
+										>
+									</label>
+								</div>
+
+								<button
+									type="submit"
+									class="btn btn-primary btn-full btn-chisel"
+								>
+									<span class="btn-text">Отправить заявку</span>
+									<span class="btn-loading">
+										<svg class="spinner" viewBox="0 0 24 24">
+											<circle
+												cx="12"
+												cy="12"
+												r="10"
+												fill="none"
+												stroke="currentColor"
+												stroke-width="3"
+											/>
+										</svg>
+									</span>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-grid">
+					<div class="footer-brand">
+						<a href="/" class="footer-logo">
+							<span class="logo-icon">
+								<svg viewBox="0 0 50 50">
+									<path
+										d="M25 2 L15 17 L20 17 L12 30 L20 30 L8 45 L42 45 L30 30 L38 30 L30 17 L35 17 Z"
+										fill="currentColor"
+									/>
+								</svg>
+							</span>
+							<span class="logo-text">ДРЕВО<br />МАСТЕРОВ</span>
+						</a>
+						<p class="footer-tagline">
+							Создаём мебель, которая становится наследием
+						</p>
+					</div>
+
+					<div class="footer-nav">
+						<h4>Навигация</h4>
+						<ul>
+							<li><a href="#craftsmanship">Мастерство</a></li>
+							<li><a href="#gallery">Галерея</a></li>
+							<li><a href="#materials">Материалы</a></li>
+							<li><a href="#constructor">Конструктор</a></li>
+							<li><a href="catalog.html">Каталог</a></li>
+						</ul>
+					</div>
+
+					<div class="footer-nav">
+						<h4>Каталог</h4>
+						<ul>
+							<li><a href="catalog.html?cat=wardrobes">Шкафы</a></li>
+							<li><a href="catalog.html?cat=kitchens">Кухни</a></li>
+							<li><a href="catalog.html?cat=bedrooms">Спальни</a></li>
+							<li><a href="catalog.html?cat=tables">Столы</a></li>
+							<li><a href="catalog.html?cat=shelves">Стеллажи</a></li>
+						</ul>
+					</div>
+
+					<div class="footer-nav">
+						<h4>Информация</h4>
+						<ul>
+							<li><a href="#">О компании</a></li>
+							<li><a href="#">Доставка и монтаж</a></li>
+							<li><a href="#">Гарантии</a></li>
+							<li><a href="#">Оплата</a></li>
+							<li><a href="#">Контакты</a></li>
+						</ul>
+					</div>
+
+					<div class="footer-contacts">
+						<h4>Контакты</h4>
+						<a href="tel:+74951234567" class="footer-phone"
+							>+7 (495) 123-45-67</a
+						>
+						<a href="mailto:info@drevo-masterov.ru" class="footer-email"
+							>info@drevo-masterov.ru</a
+						>
+						<p class="footer-address">Москва, ул. Столярная, 15</p>
+						<div class="footer-socials">
+							<a href="#" aria-label="WhatsApp">WA</a>
+							<a href="#" aria-label="Telegram">TG</a>
+							<a href="#" aria-label="VK">VK</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="footer-bottom">
+					<p class="footer-copyright">
+						© 2024 ДРЕВО МАСТЕРОВ. Все права защищены.
+					</p>
+					<div class="footer-links">
+						<a href="#">Политика конфиденциальности</a>
+						<a href="#">Пользовательское соглашение</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- AR Modal -->
+		<div class="modal" id="arModal">
+			<div class="modal-backdrop"></div>
+			<div class="modal-content">
+				<button class="modal-close" id="arModalClose">&times;</button>
+				<h3>AR-просмотр</h3>
+				<p>Наведите камеру на пол, чтобы разместить мебель в вашем интерьере</p>
+				<div class="ar-preview" id="arPreview">
+					<!-- AR content -->
+				</div>
+				<div class="ar-upload">
+					<p>Или загрузите фото комнаты:</p>
+					<input type="file" accept="image/*" id="arUpload" />
+				</div>
+			</div>
+		</div>
+
+		<!-- Success Modal -->
+		<div class="modal" id="successModal">
+			<div class="modal-backdrop"></div>
+			<div class="modal-content modal-content--success">
+				<div class="success-icon">
+					<svg
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+						<polyline points="22 4 12 14.01 9 11.01" />
+					</svg>
+				</div>
+				<h3>Заявка отправлена!</h3>
+				<p>Наш дизайнер свяжется с вами в течение 2 часов</p>
+				<button class="btn btn-primary" id="successModalClose">Отлично!</button>
+			</div>
+		</div>
+
+		<!-- Scripts -->
+		<script src="js/main.js"></script>
+		<script src="js/three-scene.js"></script>
+		<script src="js/constructor.js"></script>
+		<script src="js/animations.js"></script>
+	</body>
+</html>

@@ -1,0 +1,236 @@
+/* =====================================================
+   About Page Styles
+   ===================================================== */
+
+.about-page {
+	padding-top: 80px;
+}
+
+/* Stats */
+.about-stats {
+	margin-top: calc(var(--space-4xl) * -1);
+	padding-top: 0;
+}
+
+.stats-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: var(--space-lg);
+}
+
+.stat-card {
+	background: var(--bg-card);
+	border-radius: var(--radius-lg);
+	padding: var(--space-2xl);
+	text-align: center;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-md);
+}
+
+.stat-card .stat-icon {
+	color: var(--accent-blue);
+}
+
+.stat-card .stat-value {
+	font-size: var(--text-4xl);
+	font-weight: 700;
+	color: var(--text-primary);
+}
+
+.stat-card .stat-label {
+	font-size: var(--text-sm);
+	color: var(--text-muted);
+}
+
+/* Story */
+.story-content {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--space-4xl);
+	align-items: center;
+}
+
+.story-text h2 {
+	font-size: var(--text-4xl);
+	margin-bottom: var(--space-xl);
+}
+
+.story-text p {
+	font-size: var(--text-lg);
+	color: var(--text-secondary);
+	line-height: 1.8;
+	margin-bottom: var(--space-lg);
+}
+
+.story-image {
+	display: flex;
+	justify-content: center;
+}
+
+.image-placeholder {
+	width: 100%;
+	max-width: 500px;
+	aspect-ratio: 4/3;
+	background: var(--bg-card);
+	border-radius: var(--radius-xl);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-md);
+	color: var(--text-muted);
+	border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.image-placeholder svg {
+	color: var(--accent-blue);
+	opacity: 0.5;
+}
+
+/* Values */
+.about-values {
+	background: var(--bg-secondary);
+}
+
+.values-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: var(--space-lg);
+}
+
+.value-card {
+	background: var(--bg-card);
+	border-radius: var(--radius-lg);
+	padding: var(--space-xl);
+	text-align: center;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.value-icon {
+	color: var(--accent-blue);
+	margin-bottom: var(--space-md);
+}
+
+.value-card h3 {
+	font-size: var(--text-xl);
+	margin-bottom: var(--space-sm);
+}
+
+.value-card p {
+	font-size: var(--text-sm);
+	color: var(--text-muted);
+	line-height: 1.6;
+}
+
+/* Equipment */
+.equipment-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--space-md);
+}
+
+.equipment-item {
+	display: flex;
+	align-items: center;
+	gap: var(--space-sm);
+	padding: var(--space-md) var(--space-xl);
+	background: var(--bg-card);
+	border-radius: var(--radius-full);
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	font-family: var(--font-mono);
+	font-size: var(--text-sm);
+	color: var(--text-secondary);
+}
+
+.equipment-item svg {
+	color: var(--accent-orange);
+}
+
+/* Certificates */
+.about-certs {
+	background: var(--bg-secondary);
+}
+
+.certs-grid {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: var(--space-lg);
+}
+
+.cert-card {
+	background: var(--bg-card);
+	border-radius: var(--radius-lg);
+	padding: var(--space-xl);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-md);
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	transition: all 0.3s ease;
+}
+
+.cert-card:hover {
+	border-color: rgba(0, 102, 204, 0.3);
+	transform: translateY(-4px);
+}
+
+.cert-card svg {
+	color: var(--accent-blue);
+	opacity: 0.5;
+}
+
+.cert-card span {
+	font-size: var(--text-xs);
+	color: var(--text-muted);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+	.stats-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.story-content {
+		grid-template-columns: 1fr;
+		gap: var(--space-2xl);
+	}
+
+	.values-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.certs-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.about-page {
+		padding-top: 70px;
+	}
+
+	.stats-grid {
+		grid-template-columns: 1fr 1fr;
+		gap: var(--space-md);
+	}
+
+	.stat-card {
+		padding: var(--space-lg);
+	}
+
+	.stat-card .stat-value {
+		font-size: var(--text-2xl);
+	}
+
+	.values-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.certs-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}

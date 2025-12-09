@@ -1,0 +1,189 @@
+// ========================================
+// APEX DETAILING — Design System Variables
+// Концепция: "Liquid Chrome"
+// ========================================
+
+// ----------------------------------------
+// ЦВЕТОВАЯ ПАЛИТРА
+// ----------------------------------------
+
+// Основные цвета (Primary)
+$deep-space: #0a0f22;
+$midnight-indigo: #1a237e;
+$midnight-fade: #12194d;
+
+// Акцентные цвета
+$electric-blue: #2196f3;
+$neon-cyan: #00e5ff;
+
+// Металлик
+$chrome-silver: #c0c0c0;
+$chrome-highlight: #e8e8e8;
+$chrome-shadow: #8a8a8a;
+
+// Утилитарные цвета
+$amber-alert: #ffb300;
+$emerald-success: #00e676;
+$error-red: #ff5252;
+
+// Текстовые цвета
+$platinum-white: #f5f5f7;
+$platinum-muted: rgba(245, 245, 247, 0.7);
+$platinum-dim: rgba(245, 245, 247, 0.5);
+
+// ----------------------------------------
+// ГРАДИЕНТЫ
+// ----------------------------------------
+
+$gradient-deep-space: linear-gradient(
+	135deg,
+	$deep-space 0%,
+	$midnight-indigo 100%
+);
+$gradient-hero: linear-gradient(
+	180deg,
+	rgba($deep-space, 0.95) 0%,
+	rgba($midnight-indigo, 0.85) 50%,
+	rgba($deep-space, 0.98) 100%
+);
+$gradient-card: linear-gradient(
+	145deg,
+	rgba($midnight-indigo, 0.4) 0%,
+	rgba($deep-space, 0.8) 100%
+);
+$gradient-cta: linear-gradient(
+	90deg,
+	$electric-blue 0%,
+	$neon-cyan 50%,
+	$electric-blue 100%
+);
+$gradient-chrome: linear-gradient(
+	135deg,
+	$chrome-highlight 0%,
+	$chrome-silver 25%,
+	$chrome-shadow 50%,
+	$chrome-silver 75%,
+	$chrome-highlight 100%
+);
+$gradient-laser: linear-gradient(
+	90deg,
+	transparent 0%,
+	$electric-blue 20%,
+	$neon-cyan 50%,
+	$electric-blue 80%,
+	transparent 100%
+);
+
+// ----------------------------------------
+// ТИПОГРАФИКА
+// ----------------------------------------
+
+$font-display: 'Bebas Neue', sans-serif;
+$font-body: 'Poppins', sans-serif;
+$font-tech: 'Orbitron', sans-serif;
+
+// Размеры шрифтов (Desktop)
+$h1-size: 72px;
+$h2-size: 56px;
+$h3-size: 36px;
+$h4-size: 24px;
+$body-size: 18px;
+$caption-size: 14px;
+$tech-numbers: 48px;
+
+// Line heights
+$h1-line-height: 1.1;
+$h2-line-height: 1.15;
+$h3-line-height: 1.2;
+$body-line-height: 1.6;
+
+// Letter spacing
+$h1-letter-spacing: 2px;
+$h2-letter-spacing: 1.5px;
+
+// ----------------------------------------
+// SPACING (8px модуль)
+// ----------------------------------------
+
+$space-xs: 8px;
+$space-sm: 16px;
+$space-md: 24px;
+$space-lg: 32px;
+$space-xl: 48px;
+$space-2xl: 64px;
+$space-3xl: 96px;
+$space-4xl: 128px;
+
+// ----------------------------------------
+// LAYOUT
+// ----------------------------------------
+
+$container-max: 1440px;
+$container-padding: 80px;
+$grid-gap: 32px;
+$section-padding: 120px 0;
+
+// ----------------------------------------
+// BREAKPOINTS
+// ----------------------------------------
+
+$breakpoints: (
+	'xs': 0,
+	'sm': 480px,
+	'md': 768px,
+	'lg': 1024px,
+	'xl': 1280px,
+	'xxl': 1536px,
+);
+
+// ----------------------------------------
+// SHADOWS & EFFECTS
+// ----------------------------------------
+
+$shadow-card: 0 20px 40px rgba(0, 0, 0, 0.3);
+$shadow-card-hover: 0 30px 60px rgba(0, 0, 0, 0.4);
+$shadow-neon: 0 0 30px rgba($electric-blue, 0.2),
+	0 0 60px rgba($electric-blue, 0.1);
+$shadow-neon-strong: 0 0 20px $electric-blue, 0 0 40px rgba($electric-blue, 0.5),
+	0 0 60px rgba($electric-blue, 0.3);
+$shadow-chrome: 0 0 20px rgba($electric-blue, 0.4),
+	0 0 40px rgba($electric-blue, 0.2);
+
+// ----------------------------------------
+// TRANSITIONS & ANIMATIONS
+// ----------------------------------------
+
+$transition-instant: 0.1s;
+$transition-fast: 0.2s;
+$transition-normal: 0.4s;
+$transition-slow: 0.6s;
+$transition-cinematic: 1s;
+$transition-dramatic: 1.5s;
+
+$ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+
+// ----------------------------------------
+// BORDERS & RADIUS
+// ----------------------------------------
+
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 24px;
+$border-radius-full: 9999px;
+
+$border-card: 1px solid rgba($electric-blue, 0.2);
+$border-input: 1px solid rgba($platinum-white, 0.2);
+
+// ----------------------------------------
+// Z-INDEX SCALE
+// ----------------------------------------
+
+$z-base: 1;
+$z-dropdown: 100;
+$z-sticky: 200;
+$z-overlay: 300;
+$z-modal: 400;
+$z-toast: 500;

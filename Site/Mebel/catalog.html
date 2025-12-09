@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Каталог премиальной мебели ДРЕВО МАСТЕРОВ. Шкафы, столы, кровати, стеллажи из массива дерева на заказ."
+		/>
+		<title>Каталог мебели | ДРЕВО МАСТЕРОВ</title>
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- GSAP -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+		<!-- Styles -->
+		<link rel="stylesheet" href="css/styles.css" />
+		<link rel="stylesheet" href="css/animations.css" />
+		<link rel="stylesheet" href="css/catalog.css" />
+	</head>
+	<body>
+		<!-- Wood Grain Background -->
+		<div class="wood-grain-bg"></div>
+
+		<!-- Header -->
+		<header class="header header--light" id="header">
+			<div class="header-container">
+				<a href="/" class="logo">
+					<span class="logo-icon">
+						<svg viewBox="0 0 50 50">
+							<path
+								d="M25 2 L15 17 L20 17 L12 30 L20 30 L8 45 L42 45 L30 30 L38 30 L30 17 L35 17 Z"
+								fill="currentColor"
+							/>
+						</svg>
+					</span>
+					<span class="logo-text">ДРЕВО<br />МАСТЕРОВ</span>
+				</a>
+
+				<nav class="nav" id="mainNav">
+					<ul class="nav-list">
+						<li>
+							<a href="index.html#craftsmanship" class="nav-link">Мастерство</a>
+						</li>
+						<li><a href="index.html#gallery" class="nav-link">Галерея</a></li>
+						<li>
+							<a href="index.html#materials" class="nav-link">Материалы</a>
+						</li>
+						<li>
+							<a href="index.html#constructor" class="nav-link">Конструктор</a>
+						</li>
+						<li><a href="catalog.html" class="nav-link active">Каталог</a></li>
+						<li>
+							<a href="index.html#contact" class="nav-link nav-link--cta"
+								>Заказать</a
+							>
+						</li>
+					</ul>
+				</nav>
+
+				<button class="burger" id="burger" aria-label="Меню">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+		</header>
+
+		<!-- Mobile Menu -->
+		<div class="mobile-menu" id="mobileMenu">
+			<nav class="mobile-nav">
+				<ul class="mobile-nav-list">
+					<li><a href="index.html#craftsmanship">Мастерство</a></li>
+					<li><a href="index.html#gallery">Галерея</a></li>
+					<li><a href="index.html#materials">Материалы</a></li>
+					<li><a href="index.html#constructor">Конструктор</a></li>
+					<li><a href="catalog.html">Каталог</a></li>
+					<li>
+						<a href="index.html#contact" class="btn btn-primary"
+							>Заказать мебель</a
+						>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		<main class="catalog-page">
+			<!-- Catalog Hero -->
+			<section class="catalog-hero">
+				<div class="container">
+					<div class="catalog-hero-content">
+						<nav class="breadcrumb">
+							<a href="/">Главная</a>
+							<span>/</span>
+							<span>Каталог</span>
+						</nav>
+						<h1 class="catalog-title">Каталог мебели</h1>
+						<p class="catalog-subtitle">
+							Откройте для себя коллекцию уникальной мебели ручной работы из
+							массива дерева
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Catalog Content -->
+			<section class="catalog-content">
+				<div class="container">
+					<div class="catalog-layout">
+						<!-- Sidebar Filters -->
+						<aside class="catalog-sidebar">
+							<div class="filter-section">
+								<h3 class="filter-title">Категории</h3>
+								<ul class="filter-list">
+									<li>
+										<label class="filter-checkbox">
+											<input
+												type="checkbox"
+												data-filter="category"
+												value="all"
+												checked
+											/>
+											<span class="checkbox-custom"></span>
+											<span>Все товары</span>
+											<span class="filter-count">48</span>
+										</label>
+									</li>
+									<li>
+										<label class="filter-checkbox">
+											<input
+												type="checkbox"
+												data-filter="category"
+												value="wardrobes"
+											/>
+											<span class="checkbox-custom"></span>
+											<span>Шкафы и гардеробные</span>
+											<span class="filter-count">12</span>
+										</label>
+									</li>
+									<li>
+										<label class="filter-checkbox">
+											<input
+												type="checkbox"
+												data-filter="category"
+												value="tables"
+											/>
+											<span class="checkbox-custom"></span>
+											<span>Столы</span>
+											<span class="filter-count">9</span>
+										</label>
+									</li>
+									<li>
+										<label class="filter-checkbox">
+											<input
+												type="checkbox"
+												data-filter="category"
+												value="beds"
+											/>
+											<span class="checkbox-custom"></span>
+											<span>Кровати</span>
+											<span class="filter-count">8</span>
+										</label>
+									</li>
+									<li>
+										<label class="filter-checkbox">
+											<input
+												type="checkbox"
+												data-filter="category"
+												value="shelves"
+											/>
+											<span class="checkbox-custom"></span>
+											<span>Стеллажи</span>
+											<span class="filter-count">7</span>
+										</label>
+									</li>
+									<li>
+										<label class="filter-checkbox">
+											<input
+												type="checkbox"
+												data-filter="category"
+												value="kitchens"
+											/>
+											<span class="checkbox-custom"></span>
+											<span>Кухни</span>
+											<span class="filter-count">6</span>
+										</label>
+									</li>
+									<li>
+										<label class="filter-checkbox">
+											<input
+												type="checkbox"
+												data-filter="category"
+												value="chairs"
+											/>
+											<span class="checkbox-custom"></span>
+											<span>Стулья и кресла</span>
+											<span class="filter-count">6</span>
+										</label>
+									</li>
+								</ul>
+							</div>
+
+							<div class="filter-section">
+								<h3 class="filter-title">Материал</h3>
+								<ul class="filter-list">
+									<li>
+										<label class="filter-checkbox">
+											<input
+												type="checkbox"
+												data-filter="material"
+												value="oak"
+											/>
+											<span class="checkbox-custom"></span>
+											<span class="material-swatch material-swatch--oak"></span>
+											<span>Дуб</span>
+										</label>
+									</li>
+									<li>
+										<label class="filter-checkbox">
+											<input
+												type="checkbox"
+												data-filter="material"
+												value="walnut"
+											/>
+											<span class="checkbox-custom"></span>
+											<span
+												class="material-swatch material-swatch--walnut"
+											></span>
+											<span>Орех</span>
+										</label>
+									</li>
+									<li>
+										<label class="filter-checkbox">
+											<input
+												type="checkbox"
+												data-filter="material"
+												value="ash"
+											/>
+											<span class="checkbox-custom"></span>
+											<span class="material-swatch material-swatch--ash"></span>
+											<span>Ясень</span>
+										</label>
+									</li>
+									<li>
+										<label class="filter-checkbox">
+											<input
+												type="checkbox"
+												data-filter="material"
+												value="cherry"
+											/>
+											<span class="checkbox-custom"></span>
+											<span
+												class="material-swatch material-swatch--cherry"
+											></span>
+											<span>Вишня</span>
+										</label>
+									</li>
+								</ul>
+							</div>
+
+							<div class="filter-section">
+								<h3 class="filter-title">Стиль</h3>
+								<ul class="filter-list">
+									<li>
+										<label class="filter-checkbox">
+											<input
+												type="checkbox"
+												data-filter="style"
+												value="classic"
+											/>
+											<span class="checkbox-custom"></span>
+											<span>Классика</span>
+										</label>
+									</li>
+									<li>
+										<label class="filter-checkbox">
+											<input
+												type="checkbox"
+												data-filter="style"
+												value="modern"
+											/>
+											<span class="checkbox-custom"></span>
+											<span>Модерн</span>
+										</label>
+									</li>
+									<li>
+										<label class="filter-checkbox">
+											<input
+												type="checkbox"
+												data-filter="style"
+												value="scandinavian"
+											/>
+											<span class="checkbox-custom"></span>
+											<span>Скандинавский</span>
+										</label>
+									</li>
+									<li>
+										<label class="filter-checkbox">
+											<input type="checkbox" data-filter="style" value="loft" />
+											<span class="checkbox-custom"></span>
+											<span>Лофт</span>
+										</label>
+									</li>
+								</ul>
+							</div>
+
+							<div class="filter-section">
+								<h3 class="filter-title">Цена</h3>
+								<div class="price-range">
+									<div class="price-inputs">
+										<input
+											type="number"
+											id="priceMin"
+											placeholder="От"
+											value="30000"
+										/>
+										<span>—</span>
+										<input
+											type="number"
+											id="priceMax"
+											placeholder="До"
+											value="500000"
+										/>
+									</div>
+									<div class="price-slider">
+										<input
+											type="range"
+											id="priceRangeMin"
+											min="0"
+											max="500000"
+											value="30000"
+										/>
+										<input
+											type="range"
+											id="priceRangeMax"
+											min="0"
+											max="500000"
+											value="500000"
+										/>
+										<div class="price-track"></div>
+									</div>
+								</div>
+							</div>
+
+							<div class="filter-section">
+								<h3 class="filter-title">Размеры (см)</h3>
+								<div class="size-filters">
+									<div class="size-input">
+										<label>Ширина</label>
+										<div class="size-range">
+											<input type="number" placeholder="От" min="0" />
+											<input type="number" placeholder="До" max="400" />
+										</div>
+									</div>
+									<div class="size-input">
+										<label>Высота</label>
+										<div class="size-range">
+											<input type="number" placeholder="От" min="0" />
+											<input type="number" placeholder="До" max="300" />
+										</div>
+									</div>
+									<div class="size-input">
+										<label>Глубина</label>
+										<div class="size-range">
+											<input type="number" placeholder="От" min="0" />
+											<input type="number" placeholder="До" max="100" />
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<button class="btn btn-primary btn-full" id="applyFilters">
+								Применить фильтры
+							</button>
+							<button class="btn btn-secondary btn-full" id="resetFilters">
+								Сбросить
+							</button>
+						</aside>
+
+						<!-- Products Grid -->
+						<div class="catalog-main">
+							<!-- Toolbar -->
+							<div class="catalog-toolbar">
+								<div class="catalog-results">
+									Найдено: <strong>48 товаров</strong>
+								</div>
+								<div class="catalog-sort">
+									<label>Сортировать:</label>
+									<select id="sortSelect">
+										<option value="popular">По популярности</option>
+										<option value="price-asc">Сначала дешевле</option>
+										<option value="price-desc">Сначала дороже</option>
+										<option value="new">Новинки</option>
+									</select>
+								</div>
+								<div class="catalog-view">
+									<button
+										class="view-btn active"
+										data-view="grid"
+										title="Сетка"
+									>
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<rect x="3" y="3" width="7" height="7" />
+											<rect x="14" y="3" width="7" height="7" />
+											<rect x="3" y="14" width="7" height="7" />
+											<rect x="14" y="14" width="7" height="7" />
+										</svg>
+									</button>
+									<button class="view-btn" data-view="list" title="Список">
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<line x1="8" y1="6" x2="21" y2="6" />
+											<line x1="8" y1="12" x2="21" y2="12" />
+											<line x1="8" y1="18" x2="21" y2="18" />
+											<line x1="3" y1="6" x2="3.01" y2="6" />
+											<line x1="3" y1="12" x2="3.01" y2="12" />
+											<line x1="3" y1="18" x2="3.01" y2="18" />
+										</svg>
+									</button>
+								</div>
+							</div>
+
+							<!-- Products Grid -->
+							<div class="products-grid" id="productsGrid">
+								<!-- Product Card 1 -->
+								<article
+									class="product-card"
+									data-category="wardrobes"
+									data-material="oak"
+									data-style="classic"
+									data-price="185000"
+								>
+									<div class="product-image">
+										<img
+											src="assets/products/wardrobe-1.jpg"
+											alt="Шкаф Аристократ"
+											loading="lazy"
+										/>
+										<div class="product-badge">Хит продаж</div>
+										<div class="product-actions">
+											<button class="action-btn" title="В избранное">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+													/>
+												</svg>
+											</button>
+											<button class="action-btn" title="3D просмотр">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+													/>
+													<polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+													<line x1="12" y1="22.08" x2="12" y2="12" />
+												</svg>
+											</button>
+											<button class="action-btn" title="Быстрый просмотр">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+													/>
+													<circle cx="12" cy="12" r="3" />
+												</svg>
+											</button>
+										</div>
+									</div>
+									<div class="product-info">
+										<span class="product-category">Шкафы</span>
+										<h3 class="product-name">
+											<a href="product.html?id=1">Шкаф «Аристократ»</a>
+										</h3>
+										<p class="product-material">Массив дуба</p>
+										<div class="product-sizes">180 × 220 × 60 см</div>
+										<div class="product-footer">
+											<div class="product-price">
+												<span class="price-current">185 000 ₽</span>
+											</div>
+											<button class="btn btn-primary btn-sm">Подробнее</button>
+										</div>
+									</div>
+								</article>
+
+								<!-- Product Card 2 -->
+								<article
+									class="product-card"
+									data-category="tables"
+									data-material="walnut"
+									data-style="modern"
+									data-price="95000"
+								>
+									<div class="product-image">
+										<img
+											src="assets/products/table-1.jpg"
+											alt="Стол Модерн"
+											loading="lazy"
+										/>
+										<div class="product-badge product-badge--new">Новинка</div>
+										<div class="product-actions">
+											<button class="action-btn" title="В избранное">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+													/>
+												</svg>
+											</button>
+											<button class="action-btn" title="3D просмотр">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+													/>
+													<polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+													<line x1="12" y1="22.08" x2="12" y2="12" />
+												</svg>
+											</button>
+											<button class="action-btn" title="Быстрый просмотр">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+													/>
+													<circle cx="12" cy="12" r="3" />
+												</svg>
+											</button>
+										</div>
+									</div>
+									<div class="product-info">
+										<span class="product-category">Столы</span>
+										<h3 class="product-name">
+											<a href="product.html?id=2">Стол «Модерн»</a>
+										</h3>
+										<p class="product-material">Американский орех</p>
+										<div class="product-sizes">160 × 75 × 90 см</div>
+										<div class="product-footer">
+											<div class="product-price">
+												<span class="price-current">95 000 ₽</span>
+											</div>
+											<button class="btn btn-primary btn-sm">Подробнее</button>
+										</div>
+									</div>
+								</article>
+
+								<!-- Product Card 3 -->
+								<article
+									class="product-card"
+									data-category="beds"
+									data-material="cherry"
+									data-style="classic"
+									data-price="245000"
+								>
+									<div class="product-image">
+										<img
+											src="assets/products/bed-1.jpg"
+											alt="Кровать Венеция"
+											loading="lazy"
+										/>
+										<div class="product-actions">
+											<button class="action-btn" title="В избранное">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+													/>
+												</svg>
+											</button>
+											<button class="action-btn" title="3D просмотр">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+													/>
+													<polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+													<line x1="12" y1="22.08" x2="12" y2="12" />
+												</svg>
+											</button>
+											<button class="action-btn" title="Быстрый просмотр">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+													/>
+													<circle cx="12" cy="12" r="3" />
+												</svg>
+											</button>
+										</div>
+									</div>
+									<div class="product-info">
+										<span class="product-category">Кровати</span>
+										<h3 class="product-name">
+											<a href="product.html?id=3">Кровать «Венеция»</a>
+										</h3>
+										<p class="product-material">Вишня</p>
+										<div class="product-sizes">200 × 120 × 220 см</div>
+										<div class="product-footer">
+											<div class="product-price">
+												<span class="price-current">245 000 ₽</span>
+											</div>
+											<button class="btn btn-primary btn-sm">Подробнее</button>
+										</div>
+									</div>
+								</article>
+
+								<!-- Product Card 4 -->
+								<article
+									class="product-card"
+									data-category="shelves"
+									data-material="ash"
+									data-style="scandinavian"
+									data-price="65000"
+								>
+									<div class="product-image">
+										<img
+											src="assets/products/shelf-1.jpg"
+											alt="Стеллаж Скандинавия"
+											loading="lazy"
+										/>
+										<div class="product-actions">
+											<button class="action-btn" title="В избранное">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+													/>
+												</svg>
+											</button>
+											<button class="action-btn" title="3D просмотр">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+													/>
+													<polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+													<line x1="12" y1="22.08" x2="12" y2="12" />
+												</svg>
+											</button>
+											<button class="action-btn" title="Быстрый просмотр">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+													/>
+													<circle cx="12" cy="12" r="3" />
+												</svg>
+											</button>
+										</div>
+									</div>
+									<div class="product-info">
+										<span class="product-category">Стеллажи</span>
+										<h3 class="product-name">
+											<a href="product.html?id=4">Стеллаж «Скандинавия»</a>
+										</h3>
+										<p class="product-material">Ясень</p>
+										<div class="product-sizes">120 × 200 × 35 см</div>
+										<div class="product-footer">
+											<div class="product-price">
+												<span class="price-current">65 000 ₽</span>
+											</div>
+											<button class="btn btn-primary btn-sm">Подробнее</button>
+										</div>
+									</div>
+								</article>
+
+								<!-- Product Card 5 -->
+								<article
+									class="product-card"
+									data-category="kitchens"
+									data-material="oak"
+									data-style="modern"
+									data-price="450000"
+								>
+									<div class="product-image">
+										<img
+											src="assets/products/kitchen-1.jpg"
+											alt="Кухня Прованс"
+											loading="lazy"
+										/>
+										<div class="product-badge product-badge--sale">-15%</div>
+										<div class="product-actions">
+											<button class="action-btn" title="В избранное">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+													/>
+												</svg>
+											</button>
+											<button class="action-btn" title="3D просмотр">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+													/>
+													<polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+													<line x1="12" y1="22.08" x2="12" y2="12" />
+												</svg>
+											</button>
+											<button class="action-btn" title="Быстрый просмотр">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+													/>
+													<circle cx="12" cy="12" r="3" />
+												</svg>
+											</button>
+										</div>
+									</div>
+									<div class="product-info">
+										<span class="product-category">Кухни</span>
+										<h3 class="product-name">
+											<a href="product.html?id=5">Кухня «Прованс»</a>
+										</h3>
+										<p class="product-material">Массив дуба</p>
+										<div class="product-sizes">Модульная система</div>
+										<div class="product-footer">
+											<div class="product-price">
+												<span class="price-old">530 000 ₽</span>
+												<span class="price-current">450 000 ₽</span>
+											</div>
+											<button class="btn btn-primary btn-sm">Подробнее</button>
+										</div>
+									</div>
+								</article>
+
+								<!-- Product Card 6 -->
+								<article
+									class="product-card"
+									data-category="chairs"
+									data-material="walnut"
+									data-style="loft"
+									data-price="45000"
+								>
+									<div class="product-image">
+										<img
+											src="assets/products/chair-1.jpg"
+											alt="Кресло Лофт"
+											loading="lazy"
+										/>
+										<div class="product-actions">
+											<button class="action-btn" title="В избранное">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+													/>
+												</svg>
+											</button>
+											<button class="action-btn" title="3D просмотр">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+													/>
+													<polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+													<line x1="12" y1="22.08" x2="12" y2="12" />
+												</svg>
+											</button>
+											<button class="action-btn" title="Быстрый просмотр">
+												<svg
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+												>
+													<path
+														d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+													/>
+													<circle cx="12" cy="12" r="3" />
+												</svg>
+											</button>
+										</div>
+									</div>
+									<div class="product-info">
+										<span class="product-category">Стулья и кресла</span>
+										<h3 class="product-name">
+											<a href="product.html?id=6">Кресло «Лофт»</a>
+										</h3>
+										<p class="product-material">Орех + кожа</p>
+										<div class="product-sizes">70 × 85 × 75 см</div>
+										<div class="product-footer">
+											<div class="product-price">
+												<span class="price-current">45 000 ₽</span>
+											</div>
+											<button class="btn btn-primary btn-sm">Подробнее</button>
+										</div>
+									</div>
+								</article>
+							</div>
+
+							<!-- Pagination -->
+							<nav class="pagination">
+								<button class="pagination-btn pagination-prev" disabled>
+									<svg
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+									>
+										<path d="M19 12H5M12 19l-7-7 7-7" />
+									</svg>
+								</button>
+								<div class="pagination-numbers">
+									<button class="pagination-num active">1</button>
+									<button class="pagination-num">2</button>
+									<button class="pagination-num">3</button>
+									<span class="pagination-dots">...</span>
+									<button class="pagination-num">8</button>
+								</div>
+								<button class="pagination-btn pagination-next">
+									<svg
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+									>
+										<path d="M5 12h14M12 5l7 7-7 7" />
+									</svg>
+								</button>
+							</nav>
+
+							<!-- Measurement Guide -->
+							<div class="measurement-guide">
+								<div class="guide-header">
+									<h3>Инструкция по замерам</h3>
+									<button class="guide-toggle" id="guideToggle">
+										<span>Развернуть</span>
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="2"
+										>
+											<path d="M6 9l6 6 6-6" />
+										</svg>
+									</button>
+								</div>
+								<div class="guide-content" id="guideContent">
+									<div class="guide-steps">
+										<div class="guide-step">
+											<div class="guide-step-icon">1</div>
+											<h4>Измерьте ширину</h4>
+											<p>
+												Измерьте расстояние между стенами или границами
+												пространства для мебели
+											</p>
+										</div>
+										<div class="guide-step">
+											<div class="guide-step-icon">2</div>
+											<h4>Измерьте высоту</h4>
+											<p>Учитывайте высоту потолка и наличие плинтусов</p>
+										</div>
+										<div class="guide-step">
+											<div class="guide-step-icon">3</div>
+											<h4>Измерьте глубину</h4>
+											<p>
+												Определите доступное пространство с учётом открывания
+												дверей
+											</p>
+										</div>
+										<div class="guide-step">
+											<div class="guide-step-icon">4</div>
+											<h4>Сфотографируйте</h4>
+											<p>Сделайте фото помещения с разных ракурсов</p>
+										</div>
+									</div>
+									<div class="guide-schema">
+										<svg viewBox="0 0 400 250" class="schema-svg">
+											<!-- Room outline -->
+											<rect
+												x="50"
+												y="50"
+												width="300"
+												height="150"
+												fill="none"
+												stroke="currentColor"
+												stroke-width="2"
+											/>
+											<!-- Width arrow -->
+											<line
+												x1="50"
+												y1="220"
+												x2="350"
+												y2="220"
+												stroke="var(--emerald)"
+												stroke-width="2"
+												marker-end="url(#arrowhead)"
+												marker-start="url(#arrowhead-reverse)"
+											/>
+											<text
+												x="200"
+												y="240"
+												text-anchor="middle"
+												fill="var(--emerald)"
+												font-size="14"
+											>
+												Ширина
+											</text>
+											<!-- Height arrow -->
+											<line
+												x1="30"
+												y1="50"
+												x2="30"
+												y2="200"
+												stroke="var(--wood-dark)"
+												stroke-width="2"
+												marker-end="url(#arrowhead)"
+												marker-start="url(#arrowhead-reverse)"
+											/>
+											<text
+												x="15"
+												y="125"
+												text-anchor="middle"
+												fill="var(--wood-dark)"
+												font-size="14"
+												transform="rotate(-90 15 125)"
+											>
+												Высота
+											</text>
+											<!-- Depth arrow -->
+											<line
+												x1="350"
+												y1="50"
+												x2="380"
+												y2="30"
+												stroke="var(--charcoal)"
+												stroke-width="2"
+												stroke-dasharray="5,5"
+											/>
+											<text
+												x="385"
+												y="35"
+												fill="var(--charcoal)"
+												font-size="12"
+											>
+												Глубина
+											</text>
+											<!-- Furniture placeholder -->
+											<rect
+												x="100"
+												y="80"
+												width="100"
+												height="100"
+												fill="rgba(139, 69, 19, 0.2)"
+												stroke="var(--wood-dark)"
+												stroke-width="1"
+												stroke-dasharray="4"
+											/>
+											<text
+												x="150"
+												y="135"
+												text-anchor="middle"
+												fill="var(--wood-dark)"
+												font-size="12"
+											>
+												Мебель
+											</text>
+											<!-- Arrow markers -->
+											<defs>
+												<marker
+													id="arrowhead"
+													markerWidth="10"
+													markerHeight="7"
+													refX="9"
+													refY="3.5"
+													orient="auto"
+												>
+													<polygon
+														points="0 0, 10 3.5, 0 7"
+														fill="currentColor"
+													/>
+												</marker>
+												<marker
+													id="arrowhead-reverse"
+													markerWidth="10"
+													markerHeight="7"
+													refX="1"
+													refY="3.5"
+													orient="auto-start-reverse"
+												>
+													<polygon
+														points="0 0, 10 3.5, 0 7"
+														fill="currentColor"
+													/>
+												</marker>
+											</defs>
+										</svg>
+									</div>
+									<a href="index.html#contact" class="btn btn-primary">
+										Заказать бесплатный замер
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="container">
+				<div class="footer-grid">
+					<div class="footer-brand">
+						<a href="/" class="footer-logo">
+							<span class="logo-icon">
+								<svg viewBox="0 0 50 50">
+									<path
+										d="M25 2 L15 17 L20 17 L12 30 L20 30 L8 45 L42 45 L30 30 L38 30 L30 17 L35 17 Z"
+										fill="currentColor"
+									/>
+								</svg>
+							</span>
+							<span class="logo-text">ДРЕВО<br />МАСТЕРОВ</span>
+						</a>
+						<p class="footer-tagline">
+							Создаём мебель, которая становится наследием
+						</p>
+					</div>
+
+					<div class="footer-nav">
+						<h4>Навигация</h4>
+						<ul>
+							<li><a href="index.html#craftsmanship">Мастерство</a></li>
+							<li><a href="index.html#gallery">Галерея</a></li>
+							<li><a href="index.html#materials">Материалы</a></li>
+							<li><a href="index.html#constructor">Конструктор</a></li>
+							<li><a href="catalog.html">Каталог</a></li>
+						</ul>
+					</div>
+
+					<div class="footer-nav">
+						<h4>Каталог</h4>
+						<ul>
+							<li><a href="catalog.html?cat=wardrobes">Шкафы</a></li>
+							<li><a href="catalog.html?cat=kitchens">Кухни</a></li>
+							<li><a href="catalog.html?cat=beds">Кровати</a></li>
+							<li><a href="catalog.html?cat=tables">Столы</a></li>
+							<li><a href="catalog.html?cat=shelves">Стеллажи</a></li>
+						</ul>
+					</div>
+
+					<div class="footer-contacts">
+						<h4>Контакты</h4>
+						<a href="tel:+74951234567" class="footer-phone"
+							>+7 (495) 123-45-67</a
+						>
+						<a href="mailto:info@drevo-masterov.ru" class="footer-email"
+							>info@drevo-masterov.ru</a
+						>
+						<p class="footer-address">Москва, ул. Столярная, 15</p>
+					</div>
+				</div>
+
+				<div class="footer-bottom">
+					<p class="footer-copyright">
+						© 2024 ДРЕВО МАСТЕРОВ. Все права защищены.
+					</p>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Scripts -->
+		<script src="js/main.js"></script>
+		<script src="js/catalog.js"></script>
+	</body>
+</html>

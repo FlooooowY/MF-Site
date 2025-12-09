@@ -1,0 +1,349 @@
+/* =====================================================
+   Calculator Modal Styles
+   ===================================================== */
+
+.calculator-modal {
+	width: 100%;
+	max-width: 900px;
+	max-height: 90vh;
+	background: var(--bg-secondary);
+	border-radius: var(--radius-xl);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.calculator-modal::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		var(--accent-cyan),
+		transparent
+	);
+}
+
+.calculator-header {
+	display: flex;
+	align-items: center;
+	gap: var(--space-lg);
+	padding: var(--space-xl) var(--space-2xl);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calculator-icon {
+	width: 56px;
+	height: 56px;
+	background: var(--gradient-button);
+	border-radius: var(--radius-md);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-primary);
+}
+
+.calculator-header h2 {
+	font-size: var(--text-2xl);
+	margin-bottom: var(--space-xs);
+}
+
+.calculator-header p {
+	color: var(--text-muted);
+	font-size: var(--text-sm);
+}
+
+.calculator-body {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: var(--space-2xl);
+	padding: var(--space-2xl);
+	overflow-y: auto;
+}
+
+/* Form */
+.calculator-form {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-lg);
+}
+
+.form-select {
+	appearance: none;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23808080' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 12px center;
+	background-size: 20px;
+	padding-right: 44px;
+}
+
+.form-select:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+/* Service List */
+.service-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+	max-height: 300px;
+	overflow-y: auto;
+	padding-right: var(--space-sm);
+}
+
+.service-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--space-md);
+	background: var(--primary-dark);
+	border: 2px solid transparent;
+	border-radius: var(--radius-sm);
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-align: left;
+}
+
+.service-item:hover {
+	background: var(--primary-light);
+	border-color: rgba(255, 255, 255, 0.1);
+}
+
+.service-item.selected {
+	border-color: var(--accent-blue);
+	background: rgba(0, 102, 204, 0.1);
+}
+
+.service-info {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.service-item .service-name {
+	font-size: var(--text-base);
+	font-weight: 500;
+	color: var(--text-primary);
+}
+
+.service-desc {
+	font-size: var(--text-xs);
+	color: var(--text-muted);
+}
+
+.service-item .service-check {
+	color: var(--accent-blue);
+	flex-shrink: 0;
+}
+
+/* Results */
+.calculator-results {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-md);
+}
+
+.result-card {
+	padding: var(--space-lg);
+	background: var(--primary-dark);
+	border-radius: var(--radius-md);
+	position: relative;
+	overflow: hidden;
+}
+
+.result-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 2px;
+}
+
+.result-card.main-price::before {
+	background: var(--gradient-button);
+}
+
+.result-card.dealer-price::before {
+	background: var(--primary-lighter);
+}
+
+.result-card.savings::before {
+	background: var(--accent-green);
+}
+
+.result-label {
+	font-size: var(--text-sm);
+	color: var(--text-muted);
+	display: block;
+	margin-bottom: var(--space-sm);
+}
+
+.result-value {
+	display: flex;
+	align-items: baseline;
+	gap: var(--space-xs);
+}
+
+.price-amount {
+	font-size: var(--text-4xl);
+	font-weight: 700;
+	color: var(--text-primary);
+	letter-spacing: -0.02em;
+}
+
+.main-price .price-amount {
+	color: var(--accent-blue);
+}
+
+.price-currency {
+	font-size: var(--text-xl);
+	color: var(--text-secondary);
+}
+
+.result-value.crossed .price-amount {
+	text-decoration: line-through;
+	color: var(--text-muted);
+	font-size: var(--text-2xl);
+}
+
+.result-value.crossed .price-currency {
+	text-decoration: line-through;
+	color: var(--text-muted);
+	font-size: var(--text-base);
+}
+
+.price-breakdown {
+	font-size: var(--text-xs);
+	color: var(--text-muted);
+	margin-top: var(--space-sm);
+}
+
+/* Savings Card */
+.result-card.savings {
+	display: flex;
+	align-items: center;
+	gap: var(--space-md);
+	background: rgba(0, 200, 83, 0.1);
+	border: 1px solid rgba(0, 200, 83, 0.2);
+}
+
+.savings-icon {
+	width: 48px;
+	height: 48px;
+	background: var(--accent-green);
+	border-radius: var(--radius-full);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	flex-shrink: 0;
+}
+
+.savings-info {
+	flex: 1;
+}
+
+.savings-info .result-value {
+	margin-top: var(--space-xs);
+}
+
+.savings-info .price-amount {
+	font-size: var(--text-2xl);
+	color: var(--accent-green);
+}
+
+.savings-percent {
+	font-family: var(--font-heading);
+	font-size: var(--text-xl);
+	font-weight: 700;
+	color: var(--accent-green);
+	background: rgba(0, 200, 83, 0.2);
+	padding: var(--space-sm) var(--space-md);
+	border-radius: var(--radius-sm);
+}
+
+/* Guarantee Badge */
+.guarantee-badge {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-sm);
+	padding: var(--space-md);
+	background: rgba(0, 102, 204, 0.1);
+	border: 1px solid rgba(0, 102, 204, 0.2);
+	border-radius: var(--radius-sm);
+	color: var(--accent-blue);
+	font-size: var(--text-sm);
+	font-weight: 500;
+}
+
+/* CTA */
+.calculator-cta {
+	width: 100%;
+	margin-top: var(--space-md);
+}
+
+/* Placeholder */
+.calculator-placeholder {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: var(--space-md);
+	padding: var(--space-4xl);
+	background: var(--primary-dark);
+	border-radius: var(--radius-md);
+	border: 2px dashed var(--primary-lighter);
+	color: var(--text-muted);
+	text-align: center;
+}
+
+/* Footer */
+.calculator-footer {
+	padding: var(--space-md) var(--space-2xl);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	background: var(--primary-dark);
+}
+
+.calculator-footer p {
+	font-size: var(--text-xs);
+	color: var(--text-muted);
+	margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.calculator-modal {
+		max-height: 95vh;
+		border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+	}
+
+	.calculator-body {
+		grid-template-columns: 1fr;
+		padding: var(--space-lg);
+	}
+
+	.calculator-results {
+		order: -1;
+	}
+
+	.calculator-header {
+		padding: var(--space-lg);
+	}
+
+	.service-list {
+		max-height: 200px;
+	}
+
+	.price-amount {
+		font-size: var(--text-3xl);
+	}
+}

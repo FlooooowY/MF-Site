@@ -1,0 +1,128 @@
+@import 'tailwindcss';
+
+/* ===== M&F DIGITAL - MONOCHROME DESIGN SYSTEM ===== */
+
+/* ===== CSS VARIABLES ===== */
+:root {
+	/* Primary Colors - Monochrome Palette */
+	--color-black: #0a0a0a;
+	--color-graphite: #1a1a1a;
+	--color-dark-gray: #2a2a2a;
+	--color-medium-gray: #666666;
+	--color-light-gray: #d4d4d4;
+	--color-silver: #a3a3a3;
+	--color-white: #ffffff;
+	--color-off-white: #fafafa;
+
+	/* Background */
+	--background: #ffffff;
+	--background-secondary: #f5f5f5;
+	--foreground: #0a0a0a;
+
+	/* Typography */
+	--font-heading: 'Clash Grotesk', system-ui, sans-serif;
+	--font-body: 'Satoshi', system-ui, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Night Mode */
+.night-mode {
+	--background: #0a0a0a;
+	--background-secondary: #1a1a1a;
+	--foreground: #ffffff;
+	--color-medium-gray: #a3a3a3;
+}
+
+/* ===== BASE STYLES ===== */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--background);
+	color: var(--foreground);
+	font-family: var(--font-body);
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	min-height: 100vh;
+}
+
+/* Paper Texture */
+body::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: -1;
+	opacity: 0.02;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-heading);
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	line-height: 1.1;
+	color: var(--foreground);
+}
+
+p {
+	color: var(--color-medium-gray);
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--color-light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--color-dark-gray);
+	border-radius: 4px;
+}
+
+/* ===== SELECTION ===== */
+::selection {
+	background: var(--color-black);
+	color: var(--color-white);
+}
+
+/* ===== FOCUS ===== */
+:focus-visible {
+	outline: 2px solid var(--color-black);
+	outline-offset: 2px;
+}
+
+/* ===== CUSTOM CURSOR ===== */
+@media (pointer: fine) {
+	body.custom-cursor-active,
+	body.custom-cursor-active * {
+		cursor: none !important;
+	}
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		transition-duration: 0.01ms !important;
+	}
+}
