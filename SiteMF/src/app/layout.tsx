@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { CustomCursor } from '@/components/ui/CustomCursor'
+import { FloatingContactButton } from '@/components/ui/FloatingContactButton'
 import { NightModeProvider } from '@/components/providers/NightModeProvider'
 
 const geistSans = Geist({
@@ -90,6 +91,7 @@ export default function RootLayout({
 			>
 				<NightModeProvider>
 					<CustomCursor />
+					<FloatingContactButton />
 					{children}
 				</NightModeProvider>
 			</body>

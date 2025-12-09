@@ -70,9 +70,9 @@ export function ContactForm({ variant = 'full' }: ContactFormProps) {
 	}
 
 	const inputStyles = `
-		w-full px-4 py-3 bg-white
-		border border-neutral-200 focus:border-black
-		text-black placeholder-neutral-400
+		w-full px-5 py-4 bg-[var(--background)]
+		border border-[var(--foreground)]/10 focus:border-[var(--foreground)]/30
+		text-[var(--foreground)] placeholder-[var(--color-medium-gray)]
 		outline-none transition-colors
 		text-base
 	`
@@ -80,17 +80,17 @@ export function ContactForm({ variant = 'full' }: ContactFormProps) {
 	if (isSubmitted) {
 		return (
 			<motion.div
-				className='text-center py-12'
+				className='text-center py-16'
 				initial={{ opacity: 0, scale: 0.9 }}
 				animate={{ opacity: 1, scale: 1 }}
 			>
-				<div className='w-16 h-16 mx-auto mb-6 bg-black rounded-full flex items-center justify-center'>
-					<svg className='w-8 h-8 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+				<div className='w-20 h-20 mx-auto mb-8 border-2 border-[var(--foreground)]/10 rounded-full flex items-center justify-center'>
+					<svg className='w-10 h-10 text-[var(--foreground)]' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
 						<path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M5 13l4 4L19 7' />
 					</svg>
 				</div>
-				<h3 className='text-2xl font-bold text-black mb-4'>Заявка отправлена!</h3>
-				<p className='text-neutral-600 mb-8'>
+				<h3 className='text-3xl font-bold text-[var(--foreground)] mb-4 tracking-tight'>Заявка отправлена!</h3>
+				<p className='text-[var(--color-medium-gray)] mb-10 text-lg'>
 					Мы свяжемся с вами в течение 2 часов.
 				</p>
 				<Button variant='secondary' onClick={() => setIsSubmitted(false)}>
@@ -101,10 +101,10 @@ export function ContactForm({ variant = 'full' }: ContactFormProps) {
 	}
 
 	return (
-		<form className='space-y-4' onSubmit={handleSubmit}>
+		<form className='space-y-8' onSubmit={handleSubmit}>
 			{/* Name */}
 			<div>
-				<label className='block mb-2 text-sm text-neutral-600'>Имя *</label>
+				<label className='block mb-3 text-sm text-[var(--color-medium-gray)] uppercase tracking-wider'>Имя *</label>
 				<input
 					type='text'
 					name='name'
@@ -113,12 +113,12 @@ export function ContactForm({ variant = 'full' }: ContactFormProps) {
 					className={`${inputStyles} ${errors.name ? 'border-red-500' : ''}`}
 					placeholder='Как к вам обращаться?'
 				/>
-				{errors.name && <p className='mt-1 text-red-500 text-xs'>{errors.name}</p>}
+				{errors.name && <p className='mt-2 text-red-500 text-xs'>{errors.name}</p>}
 			</div>
 
 			{/* Email */}
 			<div>
-				<label className='block mb-2 text-sm text-neutral-600'>Email *</label>
+				<label className='block mb-3 text-sm text-[var(--color-medium-gray)] uppercase tracking-wider'>Email *</label>
 				<input
 					type='email'
 					name='email'
@@ -127,12 +127,12 @@ export function ContactForm({ variant = 'full' }: ContactFormProps) {
 					className={`${inputStyles} ${errors.email ? 'border-red-500' : ''}`}
 					placeholder='email@company.com'
 				/>
-				{errors.email && <p className='mt-1 text-red-500 text-xs'>{errors.email}</p>}
+				{errors.email && <p className='mt-2 text-red-500 text-xs'>{errors.email}</p>}
 			</div>
 
 			{/* Phone */}
 			<div>
-				<label className='block mb-2 text-sm text-neutral-600'>Телефон *</label>
+				<label className='block mb-3 text-sm text-[var(--color-medium-gray)] uppercase tracking-wider'>Телефон *</label>
 				<input
 					type='tel'
 					name='phone'
@@ -141,12 +141,12 @@ export function ContactForm({ variant = 'full' }: ContactFormProps) {
 					className={`${inputStyles} ${errors.phone ? 'border-red-500' : ''}`}
 					placeholder='+7 (___) ___-__-__'
 				/>
-				{errors.phone && <p className='mt-1 text-red-500 text-xs'>{errors.phone}</p>}
+				{errors.phone && <p className='mt-2 text-red-500 text-xs'>{errors.phone}</p>}
 			</div>
 
 			{/* Service */}
 			<div>
-				<label className='block mb-2 text-sm text-neutral-600'>Услуга</label>
+				<label className='block mb-3 text-sm text-[var(--color-medium-gray)] uppercase tracking-wider'>Услуга</label>
 				<select
 					name='service'
 					value={formData.service}
@@ -162,12 +162,12 @@ export function ContactForm({ variant = 'full' }: ContactFormProps) {
 			{/* Message - only for full variant */}
 			{variant === 'full' && (
 				<div>
-					<label className='block mb-2 text-sm text-neutral-600'>Сообщение</label>
+					<label className='block mb-3 text-sm text-[var(--color-medium-gray)] uppercase tracking-wider'>Сообщение</label>
 					<textarea
 						name='message'
 						value={formData.message}
 						onChange={handleChange}
-						className={`${inputStyles} min-h-[120px] resize-none`}
+						className={`${inputStyles} min-h-[140px] resize-none`}
 						placeholder='Расскажите о вашем проекте...'
 					/>
 				</div>
@@ -179,14 +179,14 @@ export function ContactForm({ variant = 'full' }: ContactFormProps) {
 				variant='primary'
 				size='lg'
 				loading={isSubmitting}
-				className='w-full'
+				className='w-full mt-8'
 			>
 				{isSubmitting ? 'Отправка...' : 'Отправить заявку'}
 			</Button>
 
-			<p className='text-xs text-neutral-500'>
+			<p className='text-xs text-[var(--color-medium-gray)] text-center'>
 				Нажимая кнопку, вы соглашаетесь с{' '}
-				<a href='/privacy' className='underline hover:text-black'>
+				<a href='/privacy' className='underline hover:text-[var(--foreground)]'>
 					политикой конфиденциальности
 				</a>
 			</p>

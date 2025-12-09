@@ -30,25 +30,25 @@ export function Button({
 
 	const variants = {
 		primary: `
-			bg-black text-white
-			hover:bg-neutral-800
+			bg-[var(--foreground)] text-[var(--background)]
+			hover:opacity-80
 			hover:shadow-lg hover:-translate-y-0.5
 		`,
 		secondary: `
-			bg-transparent text-black
-			border-2 border-black
-			hover:bg-black hover:text-white
+			bg-transparent text-[var(--foreground)]
+			border-2 border-[var(--foreground)]
+			hover:bg-[var(--foreground)] hover:text-[var(--background)]
 		`,
 		ghost: `
-			bg-transparent text-black
-			hover:bg-neutral-100
+			bg-transparent text-[var(--foreground)]
+			hover:bg-[var(--foreground)]/5
 		`,
 	}
 
 	const sizes = {
-		sm: 'px-5 py-2.5 text-xs',
-		md: 'px-7 py-3.5 text-sm',
-		lg: 'px-10 py-4 text-base',
+		sm: 'px-6 py-3 text-xs',
+		md: 'px-8 py-4 text-sm',
+		lg: 'px-12 py-5 text-base',
 	}
 
 	return (

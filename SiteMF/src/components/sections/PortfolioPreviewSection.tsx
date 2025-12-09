@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
@@ -16,49 +15,47 @@ export function PortfolioPreviewSection() {
 	const previewProjects = portfolioProjects.slice(0, 6)
 
 	return (
-		<section className='py-24 lg:py-32 bg-white' ref={ref}>
+		<section className='py-40 lg:py-48 bg-[var(--background)] relative' ref={ref}>
 			<div className='max-w-7xl mx-auto px-6 lg:px-8'>
 				{/* Header */}
-				<div className='flex flex-col lg:flex-row lg:items-end lg:justify-between mb-12'>
-					<div>
-						<motion.span
-							className='inline-block text-xs font-mono tracking-widest text-neutral-500 uppercase mb-4'
-							initial={{ opacity: 0, y: 20 }}
-							animate={isInView ? { opacity: 1, y: 0 } : {}}
-						>
-							Портфолио
-						</motion.span>
-						<motion.h2
-							className='text-4xl lg:text-5xl font-bold text-black mb-4'
-							initial={{ opacity: 0, y: 20 }}
-							animate={isInView ? { opacity: 1, y: 0 } : {}}
-							transition={{ delay: 0.1 }}
-						>
-							Наши проекты
-						</motion.h2>
-						<motion.p
-							className='text-neutral-600 text-lg max-w-xl'
-							initial={{ opacity: 0, y: 20 }}
-							animate={isInView ? { opacity: 1, y: 0 } : {}}
-							transition={{ delay: 0.2 }}
-						>
-							Каждый проект — это история успеха. Реальные результаты для реального бизнеса.
-						</motion.p>
-					</div>
+				<div className='text-center mb-32 lg:mb-40'>
+					<motion.span
+						className='inline-block text-xs font-mono tracking-[0.3em] text-[var(--color-medium-gray)] uppercase mb-8'
+						initial={{ opacity: 0, y: 20 }}
+						animate={isInView ? { opacity: 1, y: 0 } : {}}
+					>
+						Портфолио
+					</motion.span>
+					<motion.h2
+						className='text-5xl lg:text-7xl font-bold text-[var(--foreground)] mb-10 tracking-tight'
+						style={{ lineHeight: '1.2' }}
+						initial={{ opacity: 0, y: 20 }}
+						animate={isInView ? { opacity: 1, y: 0 } : {}}
+						transition={{ delay: 0.1 }}
+					>
+						Наши проекты
+					</motion.h2>
+					<motion.p
+						className='max-w-2xl mx-auto text-[var(--color-medium-gray)] text-xl leading-relaxed mb-12'
+						initial={{ opacity: 0, y: 20 }}
+						animate={isInView ? { opacity: 1, y: 0 } : {}}
+						transition={{ delay: 0.2 }}
+					>
+						Каждый проект — это история успеха. Реальные результаты для реального бизнеса.
+					</motion.p>
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
 						animate={isInView ? { opacity: 1, y: 0 } : {}}
 						transition={{ delay: 0.3 }}
-						className='mt-6 lg:mt-0'
 					>
 						<Link href='/portfolio'>
-							<Button variant='secondary'>Все проекты →</Button>
+							<Button variant='secondary' size='lg'>Все проекты →</Button>
 						</Link>
 					</motion.div>
 				</div>
 
 				{/* Projects Grid */}
-				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+				<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16'>
 					{previewProjects.map((project, index) => (
 						<motion.div
 							key={project.id}
@@ -67,53 +64,53 @@ export function PortfolioPreviewSection() {
 							transition={{ delay: 0.1 * index }}
 							className='group'
 						>
-							<div className='bg-white border border-neutral-200 hover:border-neutral-400 transition-all hover:shadow-lg overflow-hidden'>
+							<div className='bg-neutral-50/50 hover:bg-neutral-100/50 transition-all duration-300 overflow-hidden hover:shadow-2xl hover:-translate-y-1'>
 								{/* Image */}
-								<div className='relative h-48 bg-gradient-to-br from-neutral-900 to-neutral-800 overflow-hidden'>
+								<div className='relative h-64 bg-[var(--foreground)]/5 overflow-hidden'>
 									{/* Category badge */}
-									<div className='absolute top-4 left-4 z-10'>
-										<span className='px-3 py-1 bg-white/90 text-black text-xs font-medium'>
+									<div className='absolute top-6 left-6 z-10'>
+										<span className='px-4 py-2 bg-[var(--foreground)] text-[var(--background)] text-xs font-mono tracking-wider uppercase'>
 											{project.categoryLabel}
 										</span>
 									</div>
 
 									{/* Pattern */}
 									<div 
-										className='absolute inset-0 opacity-10'
+										className='absolute inset-0 opacity-[0.03]'
 										style={{
-											backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-											backgroundSize: '24px 24px',
+											backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
+											backgroundSize: '32px 32px',
 										}}
 									/>
 
 									{/* Hover overlay */}
-									<div className='absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity'>
-										<span className='text-white font-medium text-sm'>
+									<div className='absolute inset-0 bg-[var(--foreground)]/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+										<span className='text-[var(--background)] font-medium text-sm tracking-wider uppercase'>
 											Смотреть проект →
 										</span>
 									</div>
 								</div>
 
 								{/* Content */}
-								<div className='p-6'>
-									<p className='text-xs font-mono text-neutral-500 mb-2'>
+								<div className='p-12'>
+									<p className='text-xs font-mono text-[var(--color-medium-gray)] mb-5 uppercase tracking-wider'>
 										{project.client}
 									</p>
-									<h3 className='text-lg font-bold text-black mb-2 group-hover:text-neutral-600 transition-colors'>
+									<h3 className='text-2xl lg:text-3xl font-bold text-[var(--foreground)] mb-6 tracking-tight' style={{ lineHeight: '1.3' }}>
 										{project.title}
 									</h3>
-									<p className='text-neutral-600 text-sm mb-4 line-clamp-2'>
+									<p className='text-[var(--color-medium-gray)] text-base lg:text-lg mb-10 leading-relaxed line-clamp-2'>
 										{project.shortDescription}
 									</p>
 
 									{/* Results */}
-									<div className='flex items-center gap-6 pt-4 border-t border-neutral-100'>
+									<div className='flex items-center gap-10 pt-10 border-t border-[var(--foreground)]/5'>
 										{project.results.slice(0, 2).map((result, i) => (
 											<div key={i}>
-												<div className='text-lg font-bold text-black'>
+												<div className='text-xl font-bold text-[var(--foreground)]'>
 													{result.value}
 												</div>
-												<div className='text-xs text-neutral-500'>
+												<div className='text-xs text-[var(--color-medium-gray)] uppercase tracking-wider'>
 													{result.metric}
 												</div>
 											</div>

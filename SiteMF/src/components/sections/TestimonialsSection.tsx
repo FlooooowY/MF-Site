@@ -48,19 +48,30 @@ export function TestimonialsSection() {
 	const currentTestimonial = testimonials[activeIndex]
 
 	return (
-		<section className='py-24 lg:py-32 bg-neutral-50' ref={ref}>
-			<div className='max-w-7xl mx-auto px-6 lg:px-8'>
+		<section className='py-40 lg:py-48 bg-[var(--background)] relative' ref={ref}>
+			{/* Subtle background */}
+			<div className='absolute inset-0 opacity-[0.02]'>
+				<div className='absolute inset-0' 
+					style={{
+						backgroundImage: 'radial-gradient(circle at 50% 50%, currentColor 1px, transparent 1px)',
+						backgroundSize: '64px 64px'
+					}}
+				/>
+			</div>
+
+			<div className='max-w-7xl mx-auto px-6 lg:px-8 relative'>
 				{/* Header */}
-				<div className='text-center mb-16'>
+				<div className='text-center mb-32 lg:mb-40'>
 					<motion.span
-						className='inline-block text-xs font-mono tracking-widest text-neutral-500 uppercase mb-4'
+						className='inline-block text-xs font-mono tracking-[0.3em] text-[var(--color-medium-gray)] uppercase mb-8'
 						initial={{ opacity: 0, y: 20 }}
 						animate={isInView ? { opacity: 1, y: 0 } : {}}
 					>
 						Отзывы
 					</motion.span>
 					<motion.h2
-						className='text-4xl lg:text-5xl font-bold text-black'
+						className='text-5xl lg:text-7xl font-bold text-[var(--foreground)] tracking-tight'
+						style={{ lineHeight: '1.2' }}
 						initial={{ opacity: 0, y: 20 }}
 						animate={isInView ? { opacity: 1, y: 0 } : {}}
 						transition={{ delay: 0.1 }}
@@ -70,7 +81,7 @@ export function TestimonialsSection() {
 				</div>
 
 				{/* Testimonial */}
-				<div className='max-w-4xl mx-auto'>
+				<div className='max-w-5xl mx-auto mb-20'>
 					<AnimatePresence mode='wait'>
 						<motion.div
 							key={currentTestimonial.id}
@@ -80,19 +91,16 @@ export function TestimonialsSection() {
 							className='text-center'
 						>
 							{/* Quote */}
-							<div className='relative mb-8'>
-								<span className='absolute -top-6 left-0 text-8xl text-neutral-200 font-serif'>
-									"
-								</span>
-								<p className='text-xl lg:text-2xl text-black leading-relaxed relative z-10 px-8'>
-									{currentTestimonial.text}
+							<div className='relative mb-20'>
+								<p className='text-2xl lg:text-3xl text-[var(--foreground)] leading-relaxed font-light tracking-tight px-8'>
+									"{currentTestimonial.text}"
 								</p>
 							</div>
 
 							{/* Author */}
-							<div className='flex flex-col items-center gap-4 mt-12'>
-								<div className='w-16 h-16 bg-black rounded-full flex items-center justify-center'>
-									<span className='text-white font-bold text-xl'>
+							<div className='flex flex-col items-center gap-6 mt-20'>
+								<div className='w-20 h-20 border-2 border-[var(--foreground)]/10 rounded-full flex items-center justify-center'>
+									<span className='text-[var(--foreground)] font-bold text-2xl'>
 										{currentTestimonial.author
 											.split(' ')
 											.map(n => n[0])
@@ -100,20 +108,20 @@ export function TestimonialsSection() {
 									</span>
 								</div>
 								<div>
-									<p className='font-bold text-lg text-black'>
+									<p className='font-bold text-xl text-[var(--foreground)] tracking-tight'>
 										{currentTestimonial.author}
 									</p>
-									<p className='text-sm text-neutral-500'>
+									<p className='text-sm text-[var(--color-medium-gray)] mt-1'>
 										{currentTestimonial.position}
 									</p>
 								</div>
 
 								{/* Metric */}
-								<div className='flex items-center gap-2 px-4 py-2 bg-black text-white mt-2'>
-									<span className='font-bold text-xl'>
+								<div className='flex items-center gap-3 px-6 py-3 border border-[var(--foreground)]/10 mt-4'>
+									<span className='font-bold text-2xl text-[var(--foreground)]'>
 										{currentTestimonial.metric}
 									</span>
-									<span className='text-xs text-neutral-400'>
+									<span className='text-xs text-[var(--color-medium-gray)] uppercase tracking-wider'>
 										{currentTestimonial.metricLabel}
 									</span>
 								</div>
@@ -122,24 +130,24 @@ export function TestimonialsSection() {
 					</AnimatePresence>
 
 					{/* Navigation */}
-					<div className='flex items-center justify-center gap-3 mt-12'>
+					<div className='flex items-center justify-center gap-4 mt-24'>
 						{testimonials.map((_, index) => (
 							<button
 								key={index}
 								onClick={() => setActiveIndex(index)}
 								className={`h-2 rounded-full transition-all ${
 									index === activeIndex
-										? 'bg-black w-8'
-										: 'bg-neutral-300 w-2 hover:bg-neutral-400'
+										? 'bg-[var(--foreground)] w-12'
+										: 'bg-[var(--foreground)]/20 w-2 hover:bg-[var(--foreground)]/40'
 								}`}
 							/>
 						))}
 					</div>
 
 					{/* Progress bar */}
-					<div className='mt-8 h-0.5 bg-neutral-200 overflow-hidden'>
+					<div className='mt-12 h-px bg-[var(--foreground)]/10 overflow-hidden'>
 						<motion.div
-							className='h-full bg-black'
+							className='h-full bg-[var(--foreground)]'
 							initial={{ width: '0%' }}
 							animate={{ width: '100%' }}
 							transition={{ duration: 6, ease: 'linear' }}
@@ -150,15 +158,15 @@ export function TestimonialsSection() {
 
 				{/* Logos */}
 				<motion.div
-					className='mt-16 pt-16 border-t border-neutral-200'
+					className='mt-20 pt-20 border-t border-[var(--foreground)]/5'
 					initial={{ opacity: 0, y: 20 }}
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ delay: 0.4 }}
 				>
-					<p className='text-center text-neutral-500 text-sm mb-8'>
+					<p className='text-center text-[var(--color-medium-gray)] text-sm mb-12 uppercase tracking-[0.3em]'>
 						Нам доверяют
 					</p>
-					<div className='flex flex-wrap items-center justify-center gap-8 lg:gap-16'>
+					<div className='flex flex-wrap items-center justify-center gap-12 lg:gap-20'>
 						{[
 							'LuxAuto',
 							'TechStart',
@@ -169,7 +177,7 @@ export function TestimonialsSection() {
 						].map(company => (
 							<span
 								key={company}
-								className='text-neutral-400 font-bold text-lg hover:text-black transition-colors cursor-default'
+								className='text-[var(--foreground)]/30 font-bold text-xl hover:text-[var(--foreground)] transition-colors cursor-default tracking-tight'
 							>
 								{company}
 							</span>

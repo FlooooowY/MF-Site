@@ -19,7 +19,7 @@ export function CustomCursor() {
 	const cursorX = useMotionValue(-100)
 	const cursorY = useMotionValue(-100)
 
-	const springConfig = { damping: 25, stiffness: 400 }
+	const springConfig = { damping: 30, stiffness: 300 }
 	const cursorXSpring = useSpring(cursorX, springConfig)
 	const cursorYSpring = useSpring(cursorY, springConfig)
 
@@ -32,7 +32,7 @@ export function CustomCursor() {
 				life: 1,
 			}
 			setParticleId(prev => prev + 1)
-			setParticles(prev => [...prev.slice(-15), newParticle])
+			setParticles(prev => [...prev.slice(-8), newParticle])
 		},
 		[particleId]
 	)
@@ -59,7 +59,7 @@ export function CustomCursor() {
 				Math.pow(e.clientX - lastX, 2) + Math.pow(e.clientY - lastY, 2)
 			)
 
-			if (distance > 20 && frameCount % 3 === 0) {
+			if (distance > 30 && frameCount % 5 === 0) {
 				addParticle(e.clientX, e.clientY)
 				lastX = e.clientX
 				lastY = e.clientY
@@ -102,13 +102,22 @@ export function CustomCursor() {
 
 	// Remove old particles
 	useEffect(() => {
-		const interval = setInterval(() => {
-			setParticles(prev =>
-				prev.map(p => ({ ...p, life: p.life - 0.1 })).filter(p => p.life > 0)
-			)
-		}, 50)
+		let animationFrame: number
+		let lastTime = Date.now()
 
-		return () => clearInterval(interval)
+		const animate = () => {
+			const now = Date.now()
+			if (now - lastTime > 60) {
+				setParticles(prev =>
+					prev.map(p => ({ ...p, life: p.life - 0.15 })).filter(p => p.life > 0)
+				)
+				lastTime = now
+			}
+			animationFrame = requestAnimationFrame(animate)
+		}
+
+		animationFrame = requestAnimationFrame(animate)
+		return () => cancelAnimationFrame(animationFrame)
 	}, [])
 
 	if (!isVisible) return null
