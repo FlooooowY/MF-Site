@@ -162,11 +162,11 @@ export default function Checkout() {
 
 					{/* Checkout Panel */}
 					<motion.div
-						initial={{ opacity: 0, scale: 0.95, y: 20 }}
-						animate={{ opacity: 1, scale: 1, y: 0 }}
-						exit={{ opacity: 0, scale: 0.95, y: 20 }}
+						initial={{ opacity: 0, scale: 0.95 }}
+						animate={{ opacity: 1, scale: 1 }}
+						exit={{ opacity: 0, scale: 0.95 }}
 						transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-						className='fixed inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-lg bg-coffee-dark border border-gold-primary/20 rounded-2xl z-50 flex flex-col max-h-[90vh] overflow-hidden'
+						className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] md:w-full md:max-w-lg bg-coffee-dark border border-gold-primary/20 rounded-2xl z-50 flex flex-col max-h-[90vh] overflow-hidden shadow-2xl'
 					>
 						{/* Success State */}
 						<AnimatePresence>

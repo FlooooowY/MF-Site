@@ -302,6 +302,16 @@ export default function Loyalty() {
 						<motion.button
 							whileHover={{ scale: 1.02 }}
 							whileTap={{ scale: 0.98 }}
+							onClick={() => {
+								alert(
+									'🎉 Добро пожаловать в программу лояльности AROMA CRAFT!\n\n' +
+										'Для регистрации:\n' +
+										'1. Посетите нашу кофейню по адресу: ул. Кофейная, 42\n' +
+										'2. Назовите промокод: AROMASTART\n' +
+										'3. Получите свою персональную карту\n\n' +
+										'Ваша первая чашка кофе - со скидкой 20%!'
+								)
+							}}
 							className='w-full btn-shine relative px-8 py-4 bg-terracotta text-cream font-semibold rounded-full shadow-button overflow-hidden flex items-center justify-center gap-2'
 						>
 							<Gift className='w-5 h-5' />

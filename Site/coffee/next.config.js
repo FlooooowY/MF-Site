@@ -14,6 +14,22 @@ const nextConfig = {
 				protocol: 'https',
 				hostname: 'cdn.coverr.co',
 			},
+			{
+				protocol: 'https',
+				hostname: 'picsum.photos',
+			},
+			{
+				protocol: 'https',
+				hostname: 'i.pravatar.cc',
+			},
+			{
+				protocol: 'https',
+				hostname: 'via.placeholder.com',
+			},
+			{
+				protocol: 'https',
+				hostname: 'placeholder.com',
+			},
 		],
 	},
 	// Performance optimizations

@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { MapPin, Phone, Clock, Mail, Instagram, Send } from 'lucide-react'
 
@@ -34,6 +34,19 @@ const contactInfo = [
 export default function Contact() {
 	const ref = useRef(null)
 	const isInView = useInView(ref, { once: true, margin: '-100px' })
+	const [email, setEmail] = useState('')
+	const [isSubscribed, setIsSubscribed] = useState(false)
+
+	const handleSubscribe = (e: React.FormEvent) => {
+		e.preventDefault()
+		if (email) {
+			setIsSubscribed(true)
+			setTimeout(() => {
+				setEmail('')
+				setIsSubscribed(false)
+			}, 3000)
+		}
+	}
 
 	return (
 		<section id='contact' ref={ref} className='py-24 md:py-32 relative'>
@@ -162,15 +175,22 @@ export default function Contact() {
 							</h3>
 							<div className='flex gap-4'>
 								{[
-									{ icon: Instagram, label: 'Instagram', href: '#' },
-									{ icon: Send, label: 'Telegram', href: '#' },
+									{
+										icon: Instagram,
+										label: 'Instagram',
+										href: 'https://instagram.com',
+									},
+									{ icon: Send, label: 'Telegram', href: 'https://t.me' },
 								].map(social => (
 									<motion.a
 										key={social.label}
 										href={social.href}
+										target='_blank'
+										rel='noopener noreferrer'
 										whileHover={{ scale: 1.1 }}
 										whileTap={{ scale: 0.95 }}
 										className='w-12 h-12 bg-gold-primary/10 hover:bg-gold-primary/20 border border-gold-primary/30 rounded-xl flex items-center justify-center text-gold-primary transition-colors'
+										title={social.label}
 									>
 										<social.icon className='w-5 h-5' />
 									</motion.a>
@@ -191,20 +211,30 @@ export default function Contact() {
 							<p className='text-cream/60 text-sm mb-4'>
 								Получайте специальные предложения и акции первыми
 							</p>
-							<div className='flex gap-2'>
+							<form onSubmit={handleSubscribe} className='flex gap-2'>
 								<input
 									type='email'
+									value={email}
+									onChange={e => setEmail(e.target.value)}
 									placeholder='Ваш email'
-									className='flex-1 px-4 py-3 bg-coffee-dark/50 border border-cream/20 rounded-lg text-cream placeholder:text-cream/40 focus:border-gold-primary focus:outline-none transition-colors'
+									required
+									disabled={isSubscribed}
+									className='flex-1 px-4 py-3 bg-coffee-dark/50 border border-cream/20 rounded-lg text-cream placeholder:text-cream/40 focus:border-gold-primary focus:outline-none transition-colors disabled:opacity-50'
 								/>
 								<motion.button
-									whileHover={{ scale: 1.05 }}
-									whileTap={{ scale: 0.95 }}
-									className='px-6 py-3 bg-terracotta hover:bg-terracotta-hover text-white font-semibold rounded-lg transition-colors'
+									type='submit'
+									whileHover={{ scale: isSubscribed ? 1 : 1.05 }}
+									whileTap={{ scale: isSubscribed ? 1 : 0.95 }}
+									disabled={isSubscribed}
+									className={`px-6 py-3 font-semibold rounded-lg transition-colors ${
+										isSubscribed
+											? 'bg-green-600 text-white'
+											: 'bg-terracotta hover:bg-terracotta-hover text-white'
+									}`}
 								>
-									Подписаться
+									{isSubscribed ? '✓ Готово' : 'Подписаться'}
 								</motion.button>
-							</div>
+							</form>
 						</motion.div>
 					</motion.div>
 				</div>

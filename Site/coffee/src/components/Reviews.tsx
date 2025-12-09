@@ -9,8 +9,7 @@ const reviews = [
 	{
 		id: 1,
 		name: 'Мария Петрова',
-		avatar:
-			'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80',
+		avatar: 'https://i.pravatar.cc/150?img=5',
 		rating: 5,
 		text: 'Лучший кофе в городе! Атмосфера невероятная, бариста — настоящие профессионалы. Мой любимый капучино просто идеален каждый раз.',
 		date: '2 дня назад',
@@ -18,8 +17,7 @@ const reviews = [
 	{
 		id: 2,
 		name: 'Алексей Смирнов',
-		avatar:
-			'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80',
+		avatar: 'https://i.pravatar.cc/150?img=12',
 		rating: 5,
 		text: 'Открыл для себя Cold Brew — это любовь с первого глотка! Программа лояльности — отличный бонус. Захожу сюда каждое утро.',
 		date: '5 дней назад',
@@ -27,8 +25,7 @@ const reviews = [
 	{
 		id: 3,
 		name: 'Елена Козлова',
-		avatar:
-			'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80',
+		avatar: 'https://i.pravatar.cc/150?img=9',
 		rating: 5,
 		text: 'Уютное место с душой! Здесь можно не только выпить отличный кофе, но и поработать в приятной атмосфере. Рекомендую раф с лавандой!',
 		date: '1 неделю назад',
@@ -36,8 +33,7 @@ const reviews = [
 	{
 		id: 4,
 		name: 'Дмитрий Волков',
-		avatar:
-			'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80',
+		avatar: 'https://i.pravatar.cc/150?img=33',
 		rating: 4,
 		text: 'Отличное качество кофе и быстрое обслуживание. Единственное — хотелось бы больше десертов в меню. Но кофе выше всяких похвал!',
 		date: '2 недели назад',

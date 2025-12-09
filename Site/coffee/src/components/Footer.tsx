@@ -143,17 +143,25 @@ export default function Footer() {
 						и кофе
 					</div>
 
-					<div className='flex items-center gap-6'>
-						<span className='text-cream/40 text-sm'>Принимаем к оплате:</span>
-						<div className='flex gap-3'>
-							{['Visa', 'MC', 'Mir', 'SBP'].map(card => (
-								<div
-									key={card}
-									className='px-3 py-1 bg-cream/10 rounded text-cream/60 text-xs font-medium'
-								>
-									{card}
-								</div>
-							))}
+					<div className='flex flex-col md:flex-row items-center gap-6'>
+						<div className='flex items-center gap-6'>
+							<span className='text-cream/40 text-sm'>Принимаем к оплате:</span>
+							<div className='flex gap-3'>
+								{['Visa', 'MC', 'Mir', 'SBP'].map(card => (
+									<div
+										key={card}
+										className='px-3 py-1 bg-cream/10 rounded text-cream/60 text-xs font-medium'
+									>
+										{card}
+									</div>
+								))}
+							</div>
+						</div>
+						
+						{/* Watermark */}
+						<div className='text-cream/30 text-xs font-medium tracking-wider'>
+							made by{' '}
+							<span className='text-gold-primary/60 font-semibold'>M&F</span>
 						</div>
 					</div>
 				</div>

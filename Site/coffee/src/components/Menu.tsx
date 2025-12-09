@@ -23,7 +23,7 @@ const menuItems = [
 		price: 290,
 		rating: 4.8,
 		image:
-			'https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400&q=80',
+			'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%233E2723" width="400" height="300"/%3E%3Ccircle cx="200" cy="150" r="80" fill="%23D4AF37" opacity="0.3"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="24" fill="%23D4AF37" text-anchor="middle" dominant-baseline="middle"%3ECappuccino%3C/text%3E%3C/svg%3E',
 		category: 'hot',
 		isPopular: true,
 	},
@@ -34,7 +34,7 @@ const menuItems = [
 		price: 350,
 		rating: 5.0,
 		image:
-			'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&q=80',
+			'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%232C1810" width="400" height="300"/%3E%3Ccircle cx="200" cy="150" r="80" fill="%2387CEEB" opacity="0.3"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="24" fill="%2387CEEB" text-anchor="middle" dominant-baseline="middle"%3ECold Brew%3C/text%3E%3C/svg%3E',
 		category: 'cold',
 		isPopular: true,
 	},
@@ -45,7 +45,7 @@ const menuItems = [
 		price: 320,
 		rating: 4.7,
 		image:
-			'https://images.unsplash.com/photo-1577968897966-3d4325b36b61?w=400&q=80',
+			'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%234A2C1C" width="400" height="300"/%3E%3Ccircle cx="200" cy="150" r="80" fill="%23F5E6D3" opacity="0.3"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="24" fill="%23F5E6D3" text-anchor="middle" dominant-baseline="middle"%3EFlat White%3C/text%3E%3C/svg%3E',
 		category: 'hot',
 		isPopular: false,
 	},
@@ -56,7 +56,7 @@ const menuItems = [
 		price: 380,
 		rating: 4.9,
 		image:
-			'https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=400&q=80',
+			'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%236B4C8A" width="400" height="300"/%3E%3Ccircle cx="200" cy="150" r="80" fill="%23E6E6FA" opacity="0.3"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="24" fill="%23E6E6FA" text-anchor="middle" dominant-baseline="middle"%3ERaf Lavender%3C/text%3E%3C/svg%3E',
 		category: 'hot',
 		isPopular: true,
 	},
@@ -67,7 +67,7 @@ const menuItems = [
 		price: 310,
 		rating: 4.6,
 		image:
-			'https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=400&q=80',
+			'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%235D4E37" width="400" height="300"/%3E%3Ccircle cx="200" cy="150" r="80" fill="%23ADD8E6" opacity="0.3"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="24" fill="%23ADD8E6" text-anchor="middle" dominant-baseline="middle"%3EIce Latte%3C/text%3E%3C/svg%3E',
 		category: 'cold',
 		isPopular: false,
 	},
@@ -78,7 +78,7 @@ const menuItems = [
 		price: 180,
 		rating: 4.8,
 		image:
-			'https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=400&q=80',
+			'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%231A0F0A" width="400" height="300"/%3E%3Ccircle cx="200" cy="150" r="80" fill="%23D4AF37" opacity="0.3"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="24" fill="%23D4AF37" text-anchor="middle" dominant-baseline="middle"%3EEspresso%3C/text%3E%3C/svg%3E',
 		category: 'hot',
 		isPopular: false,
 	},
@@ -89,7 +89,7 @@ const menuItems = [
 		price: 420,
 		rating: 4.9,
 		image:
-			'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&q=80',
+			'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%238B4513" width="400" height="300"/%3E%3Ccircle cx="200" cy="150" r="80" fill="%23F5DEB3" opacity="0.3"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="24" fill="%23F5DEB3" text-anchor="middle" dominant-baseline="middle"%3ETiramisu%3C/text%3E%3C/svg%3E',
 		category: 'dessert',
 		isPopular: true,
 	},
@@ -100,7 +100,7 @@ const menuItems = [
 		price: 180,
 		rating: 4.7,
 		image:
-			'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&q=80',
+			'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23D2691E" width="400" height="300"/%3E%3Ccircle cx="200" cy="150" r="80" fill="%23FFE4B5" opacity="0.3"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="24" fill="%23FFE4B5" text-anchor="middle" dominant-baseline="middle"%3ECroissant%3C/text%3E%3C/svg%3E',
 		category: 'dessert',
 		isPopular: true,
 	},
@@ -111,7 +111,7 @@ const menuItems = [
 		price: 380,
 		rating: 4.8,
 		image:
-			'https://images.unsplash.com/photo-1524351199678-941a58a3df50?w=400&q=80',
+			'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23F4A460" width="400" height="300"/%3E%3Ccircle cx="200" cy="150" r="80" fill="%23FFF8DC" opacity="0.3"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="24" fill="%23FFF8DC" text-anchor="middle" dominant-baseline="middle"%3ECheesecake%3C/text%3E%3C/svg%3E',
 		category: 'dessert',
 		isPopular: false,
 	},
@@ -122,7 +122,7 @@ const menuItems = [
 		price: 390,
 		rating: 4.7,
 		image:
-			'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400&q=80',
+			'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23CD853F" width="400" height="300"/%3E%3Ccircle cx="200" cy="150" r="80" fill="%23F0E68C" opacity="0.3"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="24" fill="%23F0E68C" text-anchor="middle" dominant-baseline="middle"%3EFrappuccino%3C/text%3E%3C/svg%3E',
 		category: 'cold',
 		isPopular: false,
 	},
@@ -200,7 +200,7 @@ function MenuCard({ item, index }: MenuCardProps) {
 			className='group relative bg-coffee-dark/60 backdrop-blur-sm border border-cream/10 rounded-2xl overflow-hidden hover:border-gold-primary/50 transition-all duration-500'
 		>
 			{/* Image container */}
-			<div className='relative h-48 overflow-hidden'>
+			<div className='relative h-56 overflow-hidden'>
 				<Image
 					src={item.image}
 					alt={item.name}
@@ -418,6 +418,7 @@ export default function Menu() {
 					<motion.button
 						whileHover={{ scale: 1.05 }}
 						whileTap={{ scale: 0.95 }}
+						onClick={() => setActiveCategory('all')}
 						className='px-8 py-4 border-2 border-gold-primary text-gold-primary hover:bg-gold-primary hover:text-coffee-dark font-semibold rounded-full transition-all duration-300'
 					>
 						Смотреть всё меню
