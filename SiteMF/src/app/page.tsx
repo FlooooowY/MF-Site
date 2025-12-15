@@ -12,7 +12,7 @@ export default function Home() {
 	return (
 		<>
 			<Header />
-			<main>
+			<main style={{ paddingTop: '120px' }}>
 				<HeroSection />
 				<ServicesSection />
 				<AdvantagesSection />

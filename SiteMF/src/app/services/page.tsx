@@ -4,7 +4,6 @@ import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Header } from '@/components/ui/Header'
 import { Footer } from '@/components/ui/Footer'
-import { Button } from '@/components/ui/Button'
 import { AnimatedHeading } from '@/components/ui/AnimatedText'
 import { Card3D } from '@/components/ui/Card3D'
 import { services } from '@/data/services'
@@ -15,7 +14,7 @@ export default function ServicesPage() {
 	return (
 		<>
 			<Header />
-			<main className='pt-24 lg:pt-32'>
+			<main style={{ paddingTop: '120px' }}>
 				{/* Hero */}
 				<section className='py-16 lg:py-24'>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12'>
@@ -49,7 +48,10 @@ export default function ServicesPage() {
 				))}
 
 				{/* Process Section */}
-				<section className='py-24 lg:py-32 bg-[#FAFAFA]'>
+				<section 
+					className='py-32 lg:py-48 bg-white'
+					style={{ marginTop: '50px', marginBottom: '50px' }}
+				>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12'>
 						<div className='text-center mb-16'>
 							<AnimatedHeading tag='h2' className='text-4xl lg:text-5xl'>
@@ -86,19 +88,21 @@ export default function ServicesPage() {
 							].map((phase, i) => (
 								<motion.div
 									key={phase.step}
-									className='relative p-8 bg-white border border-[#E0E0E0]'
+									className='relative p-8 bg-white border-2 border-gray-200 rounded-lg hover:border-gray-300 hover:shadow-lg transition-all duration-300'
 									initial={{ opacity: 0, y: 40 }}
 									whileInView={{ opacity: 1, y: 0 }}
 									viewport={{ once: true }}
 									transition={{ delay: i * 0.1 }}
 								>
-									<span className='font-[family-name:var(--font-mono)] text-5xl font-bold text-[#F5F5F5] absolute top-4 right-4'>
-										{phase.step}
-									</span>
-									<h3 className='font-[family-name:var(--font-heading)] text-xl font-bold mb-3 relative z-10'>
-										{phase.title}
-									</h3>
-									<p className='text-[#757575] text-sm relative z-10'>
+									<div className='flex items-center gap-3 mb-4'>
+										<span className='text-2xl font-bold text-gray-300'>
+											{phase.step}
+										</span>
+										<h3 className='text-xl font-bold text-black'>
+											{phase.title}
+										</h3>
+									</div>
+									<p className='text-gray-600 text-sm leading-relaxed'>
 										{phase.description}
 									</p>
 								</motion.div>
@@ -108,10 +112,14 @@ export default function ServicesPage() {
 				</section>
 
 				{/* CTA */}
-				<section className='py-24 lg:py-32 bg-black text-white'>
+				<section 
+					className='py-32 lg:py-48'
+					style={{ backgroundColor: '#000000', marginTop: '50px', paddingTop: '80px', paddingBottom: '80px' }}
+				>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12 text-center'>
 						<motion.h2
 							className='font-[family-name:var(--font-heading)] text-4xl lg:text-6xl font-bold mb-6'
+							style={{ color: '#ffffff' }}
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
@@ -119,7 +127,8 @@ export default function ServicesPage() {
 							Не знаете, что выбрать?
 						</motion.h2>
 						<motion.p
-							className='text-[#757575] text-lg mb-8 max-w-2xl mx-auto'
+							className='text-lg mb-8 max-w-2xl mx-auto'
+							style={{ color: 'rgba(255, 255, 255, 0.7)' }}
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
@@ -136,18 +145,24 @@ export default function ServicesPage() {
 							transition={{ delay: 0.2 }}
 						>
 							<Link href='/contacts'>
-								<Button
-									variant='secondary'
-									size='lg'
-									className='border-white text-white hover:bg-white hover:text-black'
+								<motion.button
+									whileHover={{ scale: 1.02 }}
+									whileTap={{ scale: 0.98 }}
+									className='px-8 py-3 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+									style={{ backgroundColor: '#ffffff', color: '#000000' }}
 								>
 									Получить консультацию →
-								</Button>
+								</motion.button>
 							</Link>
 							<Link href='/pricing'>
-								<Button variant='ghost' size='lg' className='text-white'>
+								<motion.button
+									whileHover={{ scale: 1.02 }}
+									whileTap={{ scale: 0.98 }}
+									className='px-8 py-3 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+									style={{ backgroundColor: '#ffffff', color: '#000000' }}
+								>
 									Смотреть цены
-								</Button>
+								</motion.button>
 							</Link>
 						</motion.div>
 					</div>
@@ -184,9 +199,8 @@ function ServiceSection({ service, index }: ServiceSectionProps) {
 		<section
 			ref={sectionRef}
 			id={service.id}
-			className={`py-24 lg:py-32 scroll-mt-32 ${
-				isEven ? 'bg-white' : 'bg-[#FAFAFA]'
-			}`}
+			className='scroll-mt-32 bg-white'
+			style={{ paddingTop: '50px', paddingBottom: '50px' }}
 		>
 			<div className='max-w-[1440px] mx-auto px-6 lg:px-12'>
 				<motion.div
@@ -199,23 +213,21 @@ function ServiceSection({ service, index }: ServiceSectionProps) {
 					{/* Content */}
 					<div className={isEven ? 'lg:order-1' : 'lg:order-2'}>
 						<motion.div
-							className='flex items-center gap-4 mb-6'
-							initial={{ opacity: 0, x: -20 }}
-							animate={isInView ? { opacity: 1, x: 0 } : {}}
+							className='flex flex-col items-center mb-6'
+							initial={{ opacity: 0, y: -20 }}
+							animate={isInView ? { opacity: 1, y: 0 } : {}}
 							transition={{ duration: 0.6 }}
 						>
 							<motion.span
-								className='text-5xl'
-								whileHover={{ scale: 1.2, rotate: 10 }}
+								className='text-6xl mb-4'
+								whileHover={{ scale: 1.1, rotate: 5 }}
 								transition={{ type: 'spring', stiffness: 300 }}
 							>
 								{service.icon}
 							</motion.span>
-							<div>
-								<span className='font-[family-name:var(--font-mono)] text-xs text-[#757575] tracking-wider'>
-									0{index + 1} / 0{services.length}
-								</span>
-							</div>
+							<span className='font-[family-name:var(--font-mono)] text-xs text-[#757575] tracking-wider'>
+								0{index + 1} / 0{services.length}
+							</span>
 						</motion.div>
 
 						<motion.h2
@@ -265,7 +277,7 @@ function ServiceSection({ service, index }: ServiceSectionProps) {
 								{service.technologies.map(tech => (
 									<span
 										key={tech}
-										className='px-3 py-1 bg-black text-white font-[family-name:var(--font-mono)] text-xs'
+										className='px-3 py-1 border border-gray-300 text-black font-[family-name:var(--font-mono)] text-xs rounded'
 									>
 										{tech}
 									</span>
@@ -297,7 +309,14 @@ function ServiceSection({ service, index }: ServiceSectionProps) {
 								</span>
 							</div>
 							<Link href='/contacts' className='ml-auto'>
-								<Button variant='primary'>Заказать →</Button>
+								<motion.button
+									whileHover={{ scale: 1.02 }}
+									whileTap={{ scale: 0.98 }}
+									className='px-6 py-2.5 text-sm font-medium rounded-md transition-all duration-200'
+									style={{ backgroundColor: '#ffffff', color: '#000000', border: '2px solid #e5e5e5' }}
+								>
+									Заказать →
+								</motion.button>
 							</Link>
 						</motion.div>
 					</div>
@@ -312,10 +331,10 @@ function ServiceSection({ service, index }: ServiceSectionProps) {
 						transition={{ duration: 0.8, delay: 0.3 }}
 					>
 						<Card3D className='h-full w-full overflow-hidden' intensity={5}>
-							<div className='relative h-full w-full bg-gradient-to-br from-[#121212] to-[#1a1a1a]'>
+							<div className='relative h-full w-full bg-gradient-to-br from-white to-gray-50 border-2 border-gray-100'>
 								{/* Animated pattern */}
 								<motion.div
-									className='absolute inset-0 opacity-20'
+									className='absolute inset-0 opacity-5'
 									animate={{
 										backgroundPosition: ['0% 0%', '100% 100%'],
 									}}
@@ -325,7 +344,7 @@ function ServiceSection({ service, index }: ServiceSectionProps) {
 										repeatType: 'reverse',
 									}}
 									style={{
-										backgroundImage: `radial-gradient(circle at 2px 2px, #fff 1px, transparent 0)`,
+										backgroundImage: `radial-gradient(circle at 2px 2px, #000 1px, transparent 0)`,
 										backgroundSize: '20px 20px',
 									}}
 								/>
@@ -333,7 +352,7 @@ function ServiceSection({ service, index }: ServiceSectionProps) {
 								{/* Service icon */}
 								<div className='absolute inset-0 flex items-center justify-center'>
 									<motion.span
-										className='text-8xl lg:text-9xl opacity-30'
+										className='text-8xl lg:text-9xl opacity-20'
 										animate={{
 											y: [0, -10, 0],
 											rotate: [0, 5, 0, -5, 0],
@@ -350,7 +369,7 @@ function ServiceSection({ service, index }: ServiceSectionProps) {
 
 								{/* Decorative elements */}
 								<motion.div
-									className='absolute top-1/4 left-1/4 w-32 h-32 border border-white/10 rounded-full'
+									className='absolute top-1/4 left-1/4 w-32 h-32 border border-black/5 rounded-full'
 									animate={{ rotate: 360 }}
 									transition={{
 										duration: 20,
@@ -359,7 +378,7 @@ function ServiceSection({ service, index }: ServiceSectionProps) {
 									}}
 								/>
 								<motion.div
-									className='absolute bottom-1/4 right-1/4 w-48 h-48 border border-white/5 rounded-full'
+									className='absolute bottom-1/4 right-1/4 w-48 h-48 border border-black/3 rounded-full'
 									animate={{ rotate: -360 }}
 									transition={{
 										duration: 30,

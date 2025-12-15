@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Header } from '@/components/ui/Header'
 import { Footer } from '@/components/ui/Footer'
 import { Card3D } from '@/components/ui/Card3D'
-import { Button } from '@/components/ui/Button'
 import { Modal } from '@/components/ui/Modal'
 import { AnimatedHeading } from '@/components/ui/AnimatedText'
 import {
@@ -28,7 +27,7 @@ export default function PortfolioPage() {
 	return (
 		<>
 			<Header />
-			<main className='pt-24 lg:pt-32'>
+			<main style={{ paddingTop: '120px' }}>
 				{/* Hero */}
 				<section className='py-16 lg:py-24'>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12'>
@@ -80,23 +79,33 @@ export default function PortfolioPage() {
 				</section>
 
 				{/* Filters */}
-				<section className='py-8 border-y border-[#E0E0E0] sticky top-20 lg:top-24 bg-white/95 backdrop-blur-md z-30'>
+				<section className='py-8 lg:py-12 sticky top-20 lg:top-24 bg-white/95 backdrop-blur-md z-30' style={{ marginTop: '30px' }}>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12'>
-						<div className='flex flex-wrap items-center gap-3'>
+						<div className='flex flex-wrap items-center justify-center gap-6 lg:gap-8'>
 							{portfolioCategories.map(category => (
 								<motion.button
 									key={category.id}
-									className={`px-4 py-2 font-[family-name:var(--font-heading)] text-sm tracking-wide transition-all duration-300 ${
+									className={`px-8 py-4 lg:px-10 lg:py-5 font-[family-name:var(--font-heading)] text-lg lg:text-xl font-medium transition-all duration-300 flex items-center gap-3 ${
 										activeCategory === category.id
-											? 'bg-black text-white'
-											: 'bg-transparent text-[#757575] hover:text-black hover:bg-[#F5F5F5]'
+											? 'text-black'
+											: 'text-gray-400 hover:text-gray-600'
 									}`}
 									onClick={() => setActiveCategory(category.id)}
-									whileHover={{ scale: 1.02 }}
+									whileHover={{ scale: 1.05 }}
 									whileTap={{ scale: 0.98 }}
 								>
-									<span className='mr-2'>{category.icon}</span>
-									{category.label}
+									<span className='text-2xl lg:text-3xl'>{category.icon}</span>
+									<span className='relative'>
+										{category.label}
+										{activeCategory === category.id && (
+											<motion.div
+												className='absolute -bottom-2 left-0 right-0 h-0.5 bg-black'
+												layoutId='activeCategory'
+												initial={false}
+												transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+											/>
+										)}
+									</span>
 								</motion.button>
 							))}
 						</div>
@@ -104,7 +113,7 @@ export default function PortfolioPage() {
 				</section>
 
 				{/* Projects Grid */}
-				<section className='py-16 lg:py-24'>
+				<section className='py-16 lg:py-24' style={{ paddingTop: '80px' }}>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12'>
 						<motion.div
 							className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
@@ -191,17 +200,17 @@ export default function PortfolioPage() {
 												</p>
 
 												{/* Technologies */}
-												<div className='flex flex-wrap gap-1 mb-4'>
+												<div className='flex flex-wrap gap-2 mb-4'>
 													{project.technologies.slice(0, 3).map(tech => (
 														<span
 															key={tech}
-															className='px-2 py-0.5 bg-[#F5F5F5] font-[family-name:var(--font-mono)] text-[10px] text-[#757575]'
+															className='px-3 py-1 border border-gray-300 text-black font-[family-name:var(--font-mono)] text-xs rounded'
 														>
 															{tech}
 														</span>
 													))}
 													{project.technologies.length > 3 && (
-														<span className='px-2 py-0.5 font-[family-name:var(--font-mono)] text-[10px] text-[#757575]'>
+														<span className='px-3 py-1 border border-gray-300 text-black font-[family-name:var(--font-mono)] text-xs rounded'>
 															+{project.technologies.length - 3}
 														</span>
 													)}
@@ -242,10 +251,14 @@ export default function PortfolioPage() {
 				</section>
 
 				{/* CTA Section */}
-				<section className='py-24 lg:py-32 bg-black text-white'>
+				<section 
+					className='py-32 lg:py-48'
+					style={{ backgroundColor: '#000000', marginTop: '50px', paddingTop: '80px', paddingBottom: '80px' }}
+				>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12 text-center'>
 						<motion.h2
 							className='font-[family-name:var(--font-heading)] text-4xl lg:text-6xl font-bold mb-6'
+							style={{ color: '#ffffff' }}
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
@@ -253,7 +266,8 @@ export default function PortfolioPage() {
 							Хотите такой же результат?
 						</motion.h2>
 						<motion.p
-							className='text-[#757575] text-lg mb-8 max-w-2xl mx-auto'
+							className='text-lg mb-8 max-w-2xl mx-auto'
+							style={{ color: 'rgba(255, 255, 255, 0.7)' }}
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
@@ -263,19 +277,21 @@ export default function PortfolioPage() {
 							принесёт измеримый результат
 						</motion.p>
 						<motion.div
+							className='flex flex-col sm:flex-row items-center justify-center gap-4'
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							transition={{ delay: 0.2 }}
 						>
 							<Link href='/contacts'>
-								<Button
-									variant='secondary'
-									size='lg'
-									className='border-white text-white hover:bg-white hover:text-black'
+								<motion.button
+									whileHover={{ scale: 1.02 }}
+									whileTap={{ scale: 0.98 }}
+									className='px-8 py-3 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+									style={{ backgroundColor: '#ffffff', color: '#000000' }}
 								>
 									Обсудить проект →
-								</Button>
+								</motion.button>
 							</Link>
 						</motion.div>
 					</div>
@@ -291,26 +307,26 @@ export default function PortfolioPage() {
 				{selectedProject && (
 					<div className='grid grid-cols-1 lg:grid-cols-2'>
 						{/* Left side - Image */}
-						<div className='relative h-64 lg:h-auto min-h-[400px] bg-gradient-to-br from-[#121212] to-[#1a1a1a]'>
-							<div className='absolute inset-0 opacity-20'>
+						<div className='relative h-64 lg:h-auto min-h-[400px] bg-gradient-to-br from-white to-gray-50 border-r border-gray-200'>
+							<div className='absolute inset-0 opacity-5'>
 								<div
 									className='absolute inset-0'
 									style={{
-										backgroundImage: `radial-gradient(circle at 2px 2px, #fff 1px, transparent 0)`,
+										backgroundImage: `radial-gradient(circle at 2px 2px, #000 1px, transparent 0)`,
 										backgroundSize: '20px 20px',
 									}}
 								/>
 							</div>
 							<div className='absolute bottom-6 left-6 right-6'>
-								<span className='px-3 py-1 bg-white/10 backdrop-blur-sm text-white font-[family-name:var(--font-mono)] text-xs'>
+								<span className='px-3 py-1 border border-gray-300 text-black font-[family-name:var(--font-mono)] text-xs rounded'>
 									{selectedProject.categoryLabel}
 								</span>
 								{selectedProject.revenue && (
-									<div className='mt-4 p-4 bg-white/10 backdrop-blur-sm'>
-										<div className='font-[family-name:var(--font-mono)] text-xs text-white/60 mb-1'>
+									<div className='mt-4 p-4 border border-gray-200 bg-white'>
+										<div className='font-[family-name:var(--font-mono)] text-xs text-[#757575] mb-1'>
 											Принесли клиенту
 										</div>
-										<div className='font-[family-name:var(--font-heading)] text-2xl font-bold text-white'>
+										<div className='font-[family-name:var(--font-heading)] text-2xl font-bold text-black'>
 											₽{(selectedProject.revenue / 1000000).toFixed(1)}M+
 										</div>
 									</div>
@@ -319,57 +335,57 @@ export default function PortfolioPage() {
 						</div>
 
 						{/* Right side - Content */}
-						<div className='p-8 lg:p-12 max-h-[80vh] overflow-y-auto'>
+						<div className='p-12 lg:p-16 max-h-[80vh] overflow-y-auto'>
 							<span className='font-[family-name:var(--font-mono)] text-xs text-[#757575]'>
 								{selectedProject.client} • {selectedProject.year} •{' '}
 								{selectedProject.timeline}
 							</span>
-							<h2 className='font-[family-name:var(--font-heading)] text-3xl font-bold mt-2 mb-4'>
+							<h2 className='font-[family-name:var(--font-heading)] text-3xl font-bold mt-4 mb-8'>
 								{selectedProject.title}
 							</h2>
-							<p className='text-[#757575] mb-6'>
+							<p className='text-[#757575] mb-10'>
 								{selectedProject.fullDescription}
 							</p>
 
 							{/* Challenge & Solution */}
-							<div className='space-y-6 mb-8'>
-								<div className='p-4 bg-[#FAFAFA]'>
-									<h4 className='font-[family-name:var(--font-heading)] font-semibold mb-2 flex items-center gap-2'>
-										<span className='text-lg'>🎯</span> Задача
+							<div className='space-y-8 mb-12'>
+								<div className='p-8 border border-gray-200'>
+									<h4 className='font-[family-name:var(--font-heading)] font-semibold mb-4'>
+										Задача
 									</h4>
-									<p className='text-sm text-[#757575]'>
+									<p className='text-sm text-[#757575] leading-relaxed'>
 										{selectedProject.challenge}
 									</p>
 								</div>
-								<div className='p-4 bg-[#FAFAFA]'>
-									<h4 className='font-[family-name:var(--font-heading)] font-semibold mb-2 flex items-center gap-2'>
-										<span className='text-lg'>💡</span> Решение
+								<div className='p-8 border border-gray-200'>
+									<h4 className='font-[family-name:var(--font-heading)] font-semibold mb-4'>
+										Решения
 									</h4>
-									<p className='text-sm text-[#757575]'>
+									<p className='text-sm text-[#757575] leading-relaxed'>
 										{selectedProject.solution}
 									</p>
 								</div>
 							</div>
 
 							{/* Results */}
-							<div className='mb-8'>
-								<h4 className='font-[family-name:var(--font-heading)] font-semibold mb-4 flex items-center gap-2'>
-									<span className='text-lg'>📊</span> Результаты
+							<div className='mb-12'>
+								<h4 className='font-[family-name:var(--font-heading)] font-semibold mb-6'>
+									Результаты
 								</h4>
-								<div className='grid grid-cols-2 gap-4'>
+								<div className='grid grid-cols-2 gap-6'>
 									{selectedProject.results.map((result, i) => (
 										<motion.div
 											key={i}
-											className='p-4 bg-black text-white'
+											className='p-6 border border-gray-200'
 											initial={{ opacity: 0, y: 10 }}
 											animate={{ opacity: 1, y: 0 }}
 											transition={{ delay: i * 0.1 }}
 										>
-											<div className='font-[family-name:var(--font-heading)] text-2xl font-bold'>
+											<div className='font-[family-name:var(--font-heading)] text-2xl font-bold text-black'>
 												{result.value}
 											</div>
 											{result.growth && (
-												<div className='font-[family-name:var(--font-mono)] text-xs text-[#00ff00] mb-1'>
+												<div className='font-[family-name:var(--font-mono)] text-xs text-green-600 mb-1'>
 													{result.growth}
 												</div>
 											)}
@@ -382,19 +398,17 @@ export default function PortfolioPage() {
 							</div>
 
 							{/* Technologies */}
-							<div className='mb-8'>
-								<h4 className='font-[family-name:var(--font-heading)] font-semibold mb-3 flex items-center gap-2'>
-									<span className='text-lg'>⚙️</span> Технологии
+							<div className='mb-12'>
+								<h4 className='font-[family-name:var(--font-heading)] font-semibold mb-6'>
+									Технологии
 								</h4>
 								<div className='flex flex-wrap gap-2'>
 									{selectedProject.technologies.map(tech => (
 										<motion.span
 											key={tech}
-											className='px-3 py-1 bg-[#F5F5F5] font-[family-name:var(--font-mono)] text-xs'
+											className='px-3 py-1 border border-gray-300 text-black font-[family-name:var(--font-mono)] text-xs rounded'
 											whileHover={{
 												scale: 1.05,
-												backgroundColor: '#000',
-												color: '#fff',
 											}}
 										>
 											{tech}
@@ -405,12 +419,12 @@ export default function PortfolioPage() {
 
 							{/* Testimonial */}
 							{selectedProject.testimonial && (
-								<div className='mb-8 p-6 bg-[#FAFAFA] border-l-4 border-black'>
-									<p className='text-base italic mb-4'>
+								<div className='mb-12 p-8 border border-gray-200'>
+									<p className='text-base mb-6 leading-relaxed'>
 										"{selectedProject.testimonial.text}"
 									</p>
-									<div className='flex items-center gap-3'>
-										<div className='w-10 h-10 bg-black rounded-full flex items-center justify-center text-white font-bold'>
+									<div className='flex items-center gap-3 pt-4 border-t border-gray-200'>
+										<div className='w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center text-black font-bold'>
 											{selectedProject.testimonial.author[0]}
 										</div>
 										<div>
@@ -426,18 +440,26 @@ export default function PortfolioPage() {
 							)}
 
 							{/* CTA */}
-							<div className='flex flex-col sm:flex-row gap-4'>
+							<div className='flex flex-col sm:flex-row gap-6'>
 								<Link href='/contacts' className='flex-1'>
-									<Button variant='primary' className='w-full'>
-										Хочу так же
-									</Button>
+									<motion.button
+										whileHover={{ scale: 1.02 }}
+										whileTap={{ scale: 0.98 }}
+										className='w-full px-8 py-5 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+										style={{ backgroundColor: '#ffffff', color: '#000000' }}
+									>
+										Хочу так же →
+									</motion.button>
 								</Link>
-								<Button
-									variant='secondary'
+								<motion.button
+									whileHover={{ scale: 1.02 }}
+									whileTap={{ scale: 0.98 }}
+									className='px-8 py-5 text-sm font-medium rounded-md border-2 border-gray-300 transition-all duration-200'
+									style={{ backgroundColor: '#ffffff', color: '#000000' }}
 									onClick={() => setSelectedProject(null)}
 								>
 									Закрыть
-								</Button>
+								</motion.button>
 							</div>
 						</div>
 					</div>

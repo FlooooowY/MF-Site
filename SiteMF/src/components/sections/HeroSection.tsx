@@ -3,7 +3,6 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
-import { Button } from '@/components/ui/Button'
 
 export function HeroSection() {
 	const containerRef = useRef<HTMLDivElement>(null)
@@ -124,8 +123,8 @@ export function HeroSection() {
 				</motion.div>
 
 				{/* Main Heading */}
-				<div className='mb-32'>
-					<h1 className='text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--foreground)]' style={{ lineHeight: '1.4' }}>
+				<div className='mb-20'>
+					<h1 className='text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[var(--foreground)] text-center' style={{ lineHeight: '1.4' }}>
 						<motion.span
 							className='block mb-6'
 							initial={{ opacity: 0, y: 40 }}
@@ -143,37 +142,28 @@ export function HeroSection() {
 							продукты, которые
 						</motion.span>
 						<motion.span
-							className='block relative'
-							style={{ marginBottom: '3rem', paddingBottom: '1.5rem' }}
+							className='block'
 							initial={{ opacity: 0, y: 40 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.8, delay: 0.4 }}
 						>
-							<span className='relative inline-block' style={{ paddingBottom: '0.5rem' }}>
-								приносят деньги
-								<motion.span
-									className='absolute left-0 bg-yellow-300/50 -z-10'
-									style={{ bottom: '0.5rem', height: '0.75rem' }}
-									initial={{ width: 0 }}
-									animate={{ width: '100%' }}
-									transition={{ duration: 0.8, delay: 1 }}
-								/>
-							</span>
+							приносят деньги
 						</motion.span>
 					</h1>
 				</div>
 
 				{/* Subheading */}
 				<motion.div
-					className='max-w-2xl mx-auto text-center'
+					className='flex flex-col items-center justify-center text-center'
+					style={{ marginBottom: '64px' }}
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6, delay: 0.6 }}
 				>
-					<p className='text-lg md:text-xl text-[var(--color-medium-gray)] mb-6 leading-relaxed'>
+					<p className='text-lg md:text-xl text-[var(--color-medium-gray)] leading-relaxed max-w-2xl' style={{ marginBottom: '40px' }}>
 						Веб-разработка, ИИ-автоматизация, Telegram-боты и custom ПО.
 					</p>
-					<p className='text-[var(--foreground)] font-semibold text-xl md:text-2xl mb-20'>
+					<p className='text-[var(--foreground)] font-semibold text-xl md:text-2xl'>
 						Средний ROI наших клиентов — 340%
 					</p>
 				</motion.div>
@@ -181,25 +171,36 @@ export function HeroSection() {
 				{/* CTA Buttons */}
 				<motion.div
 					className='flex flex-col sm:flex-row items-center justify-center gap-6'
+					style={{ marginBottom: '96px' }}
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6, delay: 0.8 }}
 				>
 					<Link href='/contacts'>
-						<Button variant='primary' size='lg'>
+						<motion.button
+							whileHover={{ scale: 1.02 }}
+							whileTap={{ scale: 0.98 }}
+							className='px-6 py-2.5 text-sm font-medium rounded-md transition-all duration-200'
+							style={{ backgroundColor: '#ffffff', color: '#000000' }}
+						>
 							Обсудить проект →
-						</Button>
+						</motion.button>
 					</Link>
 					<Link href='/portfolio'>
-						<Button variant='secondary' size='lg'>
+						<motion.button
+							whileHover={{ scale: 1.02 }}
+							whileTap={{ scale: 0.98 }}
+							className='px-6 py-2.5 text-sm font-medium rounded-md transition-all duration-200'
+							style={{ backgroundColor: '#ffffff', color: '#000000' }}
+						>
 							Смотреть кейсы
-						</Button>
+						</motion.button>
 					</Link>
 				</motion.div>
 
 				{/* Stats */}
 				<motion.div
-					className='mt-40 grid grid-cols-2 md:grid-cols-4 gap-16 max-w-5xl mx-auto'
+					className='grid grid-cols-2 md:grid-cols-4 gap-16 max-w-5xl mx-auto'
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6, delay: 1 }}

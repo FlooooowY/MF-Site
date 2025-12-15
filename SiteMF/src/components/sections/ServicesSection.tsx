@@ -12,7 +12,11 @@ export function ServicesSection() {
 	})
 
 	return (
-		<section className='py-40 lg:py-48 bg-[var(--background)] relative' ref={ref}>
+		<section 
+			className='py-20 bg-[var(--background)] relative' 
+			ref={ref}
+			style={{ marginTop: '150px', marginBottom: '150px' }}
+		>
 			{/* Subtle background pattern */}
 			<div className='absolute inset-0 opacity-[0.02]'>
 				<div className='absolute inset-0' 
@@ -62,44 +66,35 @@ export function ServicesSection() {
 							transition={{ delay: 0.1 * index }}
 						>
 							<Link href={`/services#${service.id}`}>
-								<div className='group cursor-pointer h-full p-14 lg:p-20 bg-neutral-50/50 hover:bg-neutral-100/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1'>
+								<div className='group cursor-pointer h-full p-12 lg:p-16 bg-white hover:bg-neutral-50 border-2 border-[var(--foreground)]/5 hover:border-[var(--foreground)]/20 rounded-3xl transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] hover:-translate-y-2 text-center flex flex-col items-center relative overflow-hidden' style={{ textAlign: 'center', alignItems: 'center' }}>
+									{/* Gradient overlay on hover */}
+									<div className='absolute inset-0 bg-gradient-to-br from-[var(--foreground)]/0 via-[var(--foreground)]/0 to-[var(--foreground)]/0 group-hover:from-[var(--foreground)]/[0.02] group-hover:to-transparent transition-all duration-500 pointer-events-none' />
+									
 									{/* Icon */}
-									<div className='text-6xl mb-12 opacity-60 group-hover:opacity-100 transition-opacity'>
+									<div className='relative text-6xl mb-10 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500'>
 										{service.icon}
 									</div>
 
 									{/* Title */}
-									<h3 className='text-3xl lg:text-4xl font-bold text-[var(--foreground)] mb-10 tracking-tight' style={{ lineHeight: '1.3' }}>
+									<h3 className='relative text-3xl lg:text-4xl font-bold text-black mb-8 tracking-tight transition-colors duration-500' style={{ lineHeight: '1.3' }}>
 										{service.title}
 									</h3>
 
 									{/* Description */}
-									<p className='text-[var(--color-medium-gray)] mb-12 leading-relaxed text-lg lg:text-xl'>
+									<p className='relative text-black/60 group-hover:text-black/80 mb-12 leading-relaxed text-base lg:text-lg max-w-md transition-colors duration-500'>
 										{service.shortDescription}
 									</p>
 
-									{/* Technologies */}
-									<div className='flex flex-wrap gap-4 mb-12'>
-										{service.technologies.slice(0, 4).map(tech => (
-											<span
-												key={tech}
-												className='px-5 py-2.5 border border-[var(--foreground)]/10 text-xs font-mono text-[var(--color-medium-gray)] tracking-wider'
-											>
-												{tech}
-											</span>
-										))}
-									</div>
-
 									{/* Footer */}
-									<div className='flex items-center justify-between pt-12 border-t border-[var(--foreground)]/5'>
-										<div>
-											<span className='text-xs text-[var(--color-medium-gray)] uppercase tracking-wider'>от</span>
-											<span className='ml-3 text-2xl font-bold text-[var(--foreground)]'>
+									<div className='relative flex flex-col items-center gap-5 pt-10 border-t border-black/10 w-full mt-auto'>
+										<div className='flex items-baseline gap-2'>
+											<span className='text-xs text-black/40 group-hover:text-black/60 uppercase tracking-wider transition-colors duration-500'>от</span>
+											<span className='text-3xl font-bold text-black transition-colors duration-500'>
 												{service.startPrice.toLocaleString('ru-RU')} ₽
 											</span>
 										</div>
-										<span className='text-sm font-semibold text-[var(--foreground)] group-hover:translate-x-2 transition-transform inline-flex items-center gap-2'>
-											Подробнее <span>→</span>
+										<span className='text-sm font-semibold text-black group-hover:gap-3 transition-all duration-500 inline-flex items-center gap-2'>
+											Подробнее <span className='group-hover:translate-x-1 transition-transform'>→</span>
 										</span>
 									</div>
 								</div>

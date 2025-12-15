@@ -7,12 +7,14 @@ interface AnimatedHeadingProps {
 	children: ReactNode
 	className?: string
 	tag?: 'h1' | 'h2' | 'h3' | 'h4'
+	style?: React.CSSProperties
 }
 
 export function AnimatedHeading({
 	children,
 	className = '',
 	tag: Tag = 'h2',
+	style,
 }: AnimatedHeadingProps) {
 	return (
 		<div className='overflow-hidden'>
@@ -25,7 +27,7 @@ export function AnimatedHeading({
 					ease: [0.19, 1, 0.22, 1],
 				}}
 			>
-				<Tag className={`font-bold ${className}`}>{children}</Tag>
+				<Tag className={`font-bold ${className}`} style={style}>{children}</Tag>
 			</motion.div>
 		</div>
 	)

@@ -43,7 +43,11 @@ export function AdvantagesSection() {
 	})
 
 	return (
-		<section className='py-40 lg:py-48 bg-[var(--background)] relative' ref={ref}>
+		<section 
+			className='py-20 bg-[var(--background)] relative' 
+			ref={ref}
+			style={{ marginTop: '150px', marginBottom: '150px' }}
+		>
 			{/* Subtle background gradient */}
 			<div className='absolute inset-0 opacity-[0.03]'>
 				<div className='absolute inset-0' 
@@ -79,25 +83,29 @@ export function AdvantagesSection() {
 					{advantages.map((advantage, index) => (
 						<motion.div
 							key={advantage.number}
-							className='group p-14 bg-neutral-50/50 hover:bg-neutral-100/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-1'
+							className='group p-10 lg:p-12 bg-white hover:bg-neutral-50 border-2 border-[var(--foreground)]/5 hover:border-[var(--foreground)]/20 rounded-2xl transition-all duration-500 hover:shadow-[0_15px_40px_-15px_rgba(0,0,0,0.12)] hover:-translate-y-2 text-center flex flex-col items-center relative overflow-hidden'
+							style={{ textAlign: 'center', alignItems: 'center' }}
 							initial={{ opacity: 0, y: 40 }}
 							animate={isInView ? { opacity: 1, y: 0 } : {}}
 							transition={{ delay: 0.1 * index }}
 						>
+							{/* Gradient overlay */}
+							<div className='absolute inset-0 bg-gradient-to-br from-[var(--foreground)]/0 to-[var(--foreground)]/0 group-hover:from-[var(--foreground)]/[0.02] group-hover:to-transparent transition-all duration-500 pointer-events-none' />
+							
 							{/* Number */}
-							<div className='mb-12'>
-								<span className='text-5xl font-bold text-[var(--foreground)]/10'>
+							<div className='relative mb-10'>
+								<span className='text-6xl font-bold text-black/10 group-hover:text-black/20 transition-colors duration-500'>
 									{advantage.number}
 								</span>
 							</div>
 
 							{/* Title */}
-							<h3 className='text-2xl lg:text-3xl font-bold text-[var(--foreground)] mb-8 tracking-tight' style={{ lineHeight: '1.3' }}>
+							<h3 className='relative text-2xl lg:text-3xl font-bold text-black mb-6 tracking-tight transition-colors duration-500' style={{ lineHeight: '1.3' }}>
 								{advantage.title}
 							</h3>
 
 							{/* Description */}
-							<p className='text-[var(--color-medium-gray)] leading-relaxed text-base lg:text-lg'>
+							<p className='relative text-black/60 group-hover:text-black/80 leading-relaxed text-base lg:text-lg transition-colors duration-500'>
 								{advantage.description}
 							</p>
 						</motion.div>
@@ -107,6 +115,7 @@ export function AdvantagesSection() {
 				{/* Bottom Stat */}
 				<motion.div
 					className='text-center py-32 border-t border-[var(--foreground)]/5'
+					style={{ marginTop: '120px' }}
 					initial={{ opacity: 0, y: 20 }}
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ delay: 0.8 }}

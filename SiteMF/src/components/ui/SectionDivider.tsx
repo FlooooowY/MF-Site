@@ -34,14 +34,16 @@ export function SectionDivider({ variant = 'symbols' }: SectionDividerProps) {
 
 	if (variant === 'line') {
 		return (
-			<div className='flex items-center justify-center py-16'>
-				<motion.div
-					className='h-px bg-gradient-to-r from-transparent via-[#E0E0E0] to-transparent'
-					initial={{ width: 0 }}
-					whileInView={{ width: '80%' }}
-					viewport={{ once: true }}
-					transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
-				/>
+			<div className='flex items-center justify-center py-32 lg:py-40'>
+				<div className='w-full max-w-7xl px-6 lg:px-8'>
+					<motion.div
+						className='h-px bg-gradient-to-r from-transparent via-[var(--foreground)]/10 to-transparent'
+						initial={{ width: 0, opacity: 0 }}
+						whileInView={{ width: '100%', opacity: 1 }}
+						viewport={{ once: true }}
+						transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
+					/>
+				</div>
 			</div>
 		)
 	}

@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import { Header } from '@/components/ui/Header'
 import { Footer } from '@/components/ui/Footer'
-import { Button } from '@/components/ui/Button'
 import { AnimatedHeading, AnimatedCounter } from '@/components/ui/AnimatedText'
 import { Card3D } from '@/components/ui/Card3D'
 import { teamMembers, stats, values } from '@/data/team'
@@ -19,7 +18,7 @@ export default function AboutPage() {
 	return (
 		<>
 			<Header />
-			<main className='pt-24 lg:pt-32'>
+			<main style={{ paddingTop: '120px' }}>
 				{/* Hero */}
 				<section className='py-16 lg:py-24'>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12'>
@@ -33,7 +32,7 @@ export default function AboutPage() {
 								>
 									О НАС
 								</motion.span>
-								<AnimatedHeading tag='h1' className='text-5xl lg:text-7xl mb-6'>
+								<AnimatedHeading tag='h1' className='text-5xl lg:text-7xl mb-6' style={{ letterSpacing: '0.05em' }}>
 									M&F Digital
 								</AnimatedHeading>
 								<motion.p
@@ -52,9 +51,14 @@ export default function AboutPage() {
 									transition={{ duration: 0.6, delay: 0.3 }}
 								>
 									<Link href='/contacts'>
-										<Button variant='primary' size='lg'>
+										<motion.button
+											whileHover={{ scale: 1.02 }}
+											whileTap={{ scale: 0.98 }}
+											className='px-8 py-3 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+											style={{ backgroundColor: '#ffffff', color: '#000000' }}
+										>
 											Обсудить проект →
-										</Button>
+										</motion.button>
 									</Link>
 								</motion.div>
 							</div>
@@ -86,7 +90,7 @@ export default function AboutPage() {
 				</section>
 
 				{/* Stats */}
-				<section ref={statsRef} className='py-16 lg:py-24 bg-black text-white'>
+				<section ref={statsRef} className='py-16 lg:py-24' style={{ backgroundColor: '#000000', marginTop: '50px' }}>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12'>
 						<div className='grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12'>
 							{stats.map((stat, i) => (
@@ -97,10 +101,10 @@ export default function AboutPage() {
 									animate={statsInView ? { opacity: 1, y: 0 } : {}}
 									transition={{ delay: i * 0.1 }}
 								>
-									<div className='font-[family-name:var(--font-heading)] text-4xl lg:text-6xl font-bold mb-2'>
+									<div className='font-[family-name:var(--font-heading)] text-4xl lg:text-6xl font-bold mb-2' style={{ color: '#ffffff' }}>
 										{stat.value}
 									</div>
-									<div className='font-[family-name:var(--font-mono)] text-xs text-[#757575] tracking-wider uppercase'>
+									<div className='font-[family-name:var(--font-mono)] text-xs tracking-wider uppercase' style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
 										{stat.label}
 									</div>
 								</motion.div>
@@ -110,7 +114,7 @@ export default function AboutPage() {
 				</section>
 
 				{/* Values */}
-				<section className='py-24 lg:py-32'>
+				<section className='py-24 lg:py-32' style={{ marginTop: '50px' }}>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12'>
 						<div className='text-center mb-16'>
 							<motion.span
@@ -152,7 +156,7 @@ export default function AboutPage() {
 				</section>
 
 				{/* Team */}
-				<section className='py-24 lg:py-32 bg-[#FAFAFA]'>
+				<section className='py-24 lg:py-32 bg-white' style={{ marginTop: '50px' }}>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12'>
 						<div className='text-center mb-16'>
 							<motion.span
@@ -248,11 +252,11 @@ export default function AboutPage() {
 											<p className='text-[#757575] text-sm mb-4 line-clamp-2'>
 												{member.bio}
 											</p>
-											<div className='flex flex-wrap gap-1'>
+											<div className='flex flex-wrap gap-2'>
 												{member.skills.slice(0, 3).map(skill => (
 													<span
 														key={skill}
-														className='px-2 py-0.5 bg-[#F5F5F5] font-[family-name:var(--font-mono)] text-[10px] text-[#757575]'
+														className='px-3 py-1 border border-gray-300 text-black font-[family-name:var(--font-mono)] text-xs rounded'
 													>
 														{skill}
 													</span>
@@ -267,7 +271,7 @@ export default function AboutPage() {
 				</section>
 
 				{/* Process */}
-				<section className='py-24 lg:py-32'>
+				<section className='py-24 lg:py-32' style={{ marginTop: '50px' }}>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12'>
 						<div className='text-center mb-16'>
 							<motion.span
@@ -284,8 +288,8 @@ export default function AboutPage() {
 						</div>
 
 						<div className='relative'>
-							{/* Timeline line */}
-							<div className='absolute left-4 lg:left-1/2 top-0 bottom-0 w-px bg-[#E0E0E0] transform lg:-translate-x-1/2' />
+							{/* Timeline line - только на больших экранах */}
+							<div className='hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-[#E0E0E0] transform -translate-x-1/2' />
 
 							{[
 								{
@@ -341,26 +345,27 @@ export default function AboutPage() {
 									viewport={{ once: true }}
 									transition={{ delay: i * 0.1 }}
 								>
-									{/* Step number */}
-									<div className='absolute left-0 lg:left-1/2 transform lg:-translate-x-1/2 w-8 h-8 bg-black text-white rounded-full flex items-center justify-center font-[family-name:var(--font-mono)] text-xs z-10'>
+									{/* Step number - только на больших экранах */}
+									<div className='hidden lg:flex absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-black text-white rounded-full items-center justify-center font-[family-name:var(--font-mono)] text-xs z-10'>
 										{phase.step}
 									</div>
 
 									{/* Content */}
 									<div
-										className={`ml-16 lg:ml-0 lg:w-1/2 ${
-											i % 2 === 0 ? 'lg:pr-16 lg:text-right' : 'lg:pl-16'
+										className={`lg:w-[calc(50%-40px)] ${
+											i % 2 === 0 ? 'lg:mr-[80px] text-center lg:text-center' : 'lg:ml-[80px]'
 										}`}
 									>
-										<div
-											className={`p-6 border border-[#E0E0E0] bg-white ${
-												i % 2 === 0 ? '' : ''
-											}`}
-										>
-											<h3 className='font-[family-name:var(--font-heading)] text-xl font-bold mb-2'>
-												{phase.title}
-											</h3>
-											<p className='text-[#757575] text-sm mb-3'>
+										<div className='p-6 border border-[#E0E0E0] bg-white rounded-lg'>
+											<div className='flex items-center gap-3 mb-4'>
+												<span className='text-2xl font-bold text-gray-300'>
+													{phase.step}
+												</span>
+												<h3 className='font-[family-name:var(--font-heading)] text-xl font-bold'>
+													{phase.title}
+												</h3>
+											</div>
+											<p className='text-[#757575] text-sm mb-3 leading-relaxed'>
 												{phase.description}
 											</p>
 											<span className='font-[family-name:var(--font-mono)] text-xs text-[#C0C0C0]'>
@@ -375,10 +380,14 @@ export default function AboutPage() {
 				</section>
 
 				{/* CTA */}
-				<section className='py-24 lg:py-32 bg-black text-white'>
+				<section 
+					className='py-32 lg:py-48'
+					style={{ backgroundColor: '#000000', marginTop: '50px', paddingTop: '80px', paddingBottom: '80px' }}
+				>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12 text-center'>
 						<motion.h2
 							className='font-[family-name:var(--font-heading)] text-4xl lg:text-6xl font-bold mb-6'
+							style={{ color: '#ffffff' }}
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
@@ -386,7 +395,8 @@ export default function AboutPage() {
 							Готовы к результату?
 						</motion.h2>
 						<motion.p
-							className='text-[#757575] text-lg mb-8 max-w-2xl mx-auto'
+							className='text-lg mb-8 max-w-2xl mx-auto'
+							style={{ color: 'rgba(255, 255, 255, 0.7)' }}
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
@@ -401,13 +411,14 @@ export default function AboutPage() {
 							transition={{ delay: 0.2 }}
 						>
 							<Link href='/contacts'>
-								<Button
-									variant='secondary'
-									size='lg'
-									className='border-white text-white hover:bg-white hover:text-black'
+								<motion.button
+									whileHover={{ scale: 1.02 }}
+									whileTap={{ scale: 0.98 }}
+									className='px-8 py-3 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+									style={{ backgroundColor: '#ffffff', color: '#000000' }}
 								>
 									Связаться с нами →
-								</Button>
+								</motion.button>
 							</Link>
 						</motion.div>
 					</div>

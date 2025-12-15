@@ -5,7 +5,6 @@ import { Header } from '@/components/ui/Header'
 import { Footer } from '@/components/ui/Footer'
 import { ContactForm } from '@/components/ui/ContactForm'
 import { AnimatedHeading } from '@/components/ui/AnimatedText'
-import { Card3D } from '@/components/ui/Card3D'
 
 const contactInfo = [
 	{
@@ -55,7 +54,7 @@ export default function ContactsPage() {
 	return (
 		<>
 			<Header />
-			<main className='pt-24 lg:pt-32'>
+			<main style={{ paddingTop: '120px' }}>
 				{/* Hero */}
 				<section className='py-16 lg:py-24'>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12'>
@@ -84,7 +83,7 @@ export default function ContactsPage() {
 								</motion.p>
 
 								{/* Contact Cards */}
-								<div className='grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12'>
+								<div className='grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12'>
 									{contactInfo.map((contact, i) => (
 										<motion.a
 											key={contact.title}
@@ -97,67 +96,54 @@ export default function ContactsPage() {
 													? 'noopener noreferrer'
 													: undefined
 											}
-											className='block'
+											className='block group'
 											initial={{ opacity: 0, y: 20 }}
 											animate={{ opacity: 1, y: 0 }}
 											transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
 										>
-											<Card3D
-												className='p-6 h-full group'
-												intensity={5}
-												showScanLine={false}
-											>
-												<div className='flex items-start gap-4'>
-													<motion.span
-														className='text-2xl'
-														whileHover={{ scale: 1.2, rotate: 10 }}
-													>
-														{contact.icon}
-													</motion.span>
-													<div>
-														<h3 className='font-[family-name:var(--font-heading)] font-semibold mb-1 group-hover:text-[#757575] transition-colors'>
-															{contact.title}
-														</h3>
-														<p className='font-[family-name:var(--font-mono)] text-sm mb-1'>
-															{contact.value}
-														</p>
-														<p className='text-[#757575] text-xs'>
-															{contact.description}
-														</p>
-													</div>
+											<div className='p-6 border-b border-gray-200 hover:border-gray-400 transition-colors'>
+												<div className='mb-2'>
+													<span className='text-lg'>{contact.icon}</span>
 												</div>
-											</Card3D>
+												<h3 className='font-[family-name:var(--font-heading)] font-semibold mb-1 text-sm' style={{ letterSpacing: '0.05em' }}>
+													{contact.title}
+												</h3>
+												<p className='font-[family-name:var(--font-mono)] text-base mb-1'>
+													{contact.value}
+												</p>
+												<p className='text-[#757575] text-xs'>
+													{contact.description}
+												</p>
+											</div>
 										</motion.a>
 									))}
 								</div>
 
 								{/* Offices */}
 								<motion.div
+									style={{ marginTop: '40px' }}
 									initial={{ opacity: 0, y: 20 }}
 									animate={{ opacity: 1, y: 0 }}
 									transition={{ duration: 0.6, delay: 0.7 }}
 								>
-									<h3 className='font-[family-name:var(--font-heading)] font-semibold mb-4'>
+									<h3 className='font-[family-name:var(--font-heading)] font-semibold mb-6 text-sm'>
 										Офисы
 									</h3>
-									<div className='space-y-4'>
+									<div className='space-y-6'>
 										{offices.map(office => (
 											<div
 												key={office.city}
-												className='flex items-start gap-4 p-4 bg-[#FAFAFA]'
+												className='pb-6 border-b border-gray-200 last:border-0'
 											>
-												<span className='text-xl'>📍</span>
-												<div>
-													<h4 className='font-[family-name:var(--font-heading)] font-semibold'>
-														{office.city}
-													</h4>
-													<p className='text-[#757575] text-sm'>
-														{office.address}
-													</p>
-													<p className='font-[family-name:var(--font-mono)] text-xs text-[#C0C0C0]'>
-														{office.metro}
-													</p>
-												</div>
+												<h4 className='font-[family-name:var(--font-heading)] font-semibold mb-1'>
+													{office.city}
+												</h4>
+												<p className='text-[#757575] text-sm mb-1'>
+													{office.address}
+												</p>
+												<p className='font-[family-name:var(--font-mono)] text-xs text-[#757575]'>
+													{office.metro}
+												</p>
 											</div>
 										))}
 									</div>
@@ -171,7 +157,7 @@ export default function ContactsPage() {
 								animate={{ opacity: 1, x: 0 }}
 								transition={{ duration: 0.6, delay: 0.4 }}
 							>
-								<div className='bg-[#FAFAFA] p-8 lg:p-12'>
+								<div className='border-b border-gray-200 pb-12'>
 									<h2 className='font-[family-name:var(--font-heading)] text-2xl font-bold mb-2'>
 										Оставить заявку
 									</h2>
@@ -186,7 +172,7 @@ export default function ContactsPage() {
 				</section>
 
 				{/* Map Section */}
-				<section className='py-24 lg:py-32 bg-[#FAFAFA]'>
+				<section className='py-24 lg:py-32 bg-white' style={{ marginTop: '50px' }}>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12'>
 						<div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
 							{/* Map placeholder */}
@@ -293,15 +279,15 @@ export default function ContactsPage() {
 				</section>
 
 				{/* FAQ */}
-				<section className='py-24 lg:py-32'>
+				<section className='pt-24 lg:pt-32' style={{ marginTop: '50px', marginBottom: '30px', paddingBottom: '60px' }}>
 					<div className='max-w-3xl mx-auto px-6 lg:px-12'>
-						<div className='text-center mb-12'>
+						<div className='text-center mb-24 lg:mb-32'>
 							<AnimatedHeading tag='h2' className='text-3xl lg:text-4xl'>
 								Частые вопросы
 							</AnimatedHeading>
 						</div>
 
-						<div className='space-y-4'>
+						<div className='space-y-6'>
 							{[
 								{
 									q: 'Как быстро вы отвечаете?',

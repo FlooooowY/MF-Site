@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
-import { Button } from './Button'
 
 const navLinks = [
 	{ href: '/', label: 'Главная' },
@@ -17,18 +16,27 @@ const navLinks = [
 export function Header() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false)
 	const { scrollY } = useScroll()
+	const [isScrolled, setIsScrolled] = useState(false)
 
 	const headerBg = useTransform(
 		scrollY,
 		[0, 100],
-		['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 0.95)']
+		['rgba(10, 10, 10, 0.7)', 'rgba(10, 10, 10, 0.95)']
 	)
 
 	const headerShadow = useTransform(
 		scrollY,
 		[0, 100],
-		['0 0 0 rgba(0,0,0,0)', '0 4px 30px rgba(0,0,0,0.08)']
+		['0 0 0 rgba(0,0,0,0)', '0 4px 30px rgba(0,0,0,0.3)']
 	)
+
+	useEffect(() => {
+		const handleScroll = () => {
+			setIsScrolled(window.scrollY > 50)
+		}
+		window.addEventListener('scroll', handleScroll)
+		return () => window.removeEventListener('scroll', handleScroll)
+	}, [])
 
 	useEffect(() => {
 		if (isMenuOpen) {
@@ -41,7 +49,9 @@ export function Header() {
 	return (
 		<>
 			<motion.header
-				className='fixed top-0 left-0 right-0 z-50 backdrop-blur-lg'
+				className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+					isScrolled ? 'backdrop-blur-xl' : 'backdrop-blur-md'
+				}`}
 				style={{
 					backgroundColor: headerBg,
 					boxShadow: headerShadow,
@@ -56,12 +66,12 @@ export function Header() {
 								whileHover={{ scale: 1.02 }}
 								whileTap={{ scale: 0.98 }}
 							>
-								<div className='w-11 h-11 bg-[var(--foreground)] flex items-center justify-center'>
-									<span className='text-[var(--background)] font-bold text-base tracking-tight'>
+								<div className='w-11 h-11 bg-white flex items-center justify-center'>
+									<span className='text-black font-bold text-base' style={{ letterSpacing: '0.05em' }}>
 										M&F
 									</span>
 								</div>
-								<span className='font-bold text-xl tracking-tight hidden sm:block text-[var(--foreground)]'>
+								<span className='font-bold text-xl hidden sm:block text-white' style={{ letterSpacing: '0.05em' }}>
 									Digital
 								</span>
 							</motion.div>
@@ -73,7 +83,8 @@ export function Header() {
 								<Link
 									key={link.href}
 									href={link.href}
-									className='relative text-sm font-medium text-[var(--color-medium-gray)] hover:text-[var(--foreground)] transition-colors duration-200'
+									className='text-sm font-medium transition-colors duration-200'
+									style={{ color: '#ffffff' }}
 								>
 									{link.label}
 								</Link>
@@ -83,9 +94,14 @@ export function Header() {
 						{/* CTA Button */}
 						<div className='hidden lg:block'>
 							<Link href='/contacts'>
-								<Button variant='primary' size='sm'>
-									Обсудить проект
-								</Button>
+								<motion.button
+									whileHover={{ scale: 1.02 }}
+									whileTap={{ scale: 0.98 }}
+									className='px-6 py-2.5 text-sm font-medium rounded-md transition-all duration-200'
+									style={{ backgroundColor: '#ffffff', color: '#000000' }}
+								>
+									Оставить заявку →
+								</motion.button>
 							</Link>
 						</div>
 
@@ -96,20 +112,20 @@ export function Header() {
 							whileTap={{ scale: 0.9 }}
 						>
 							<motion.span
-								className='w-6 h-0.5 bg-[var(--foreground)] origin-center'
+								className='w-6 h-0.5 bg-white origin-center'
 								animate={{
 									rotate: isMenuOpen ? 45 : 0,
 									y: isMenuOpen ? 4 : 0,
 								}}
 							/>
 							<motion.span
-								className='w-6 h-0.5 bg-[var(--foreground)]'
+								className='w-6 h-0.5 bg-white'
 								animate={{
 									opacity: isMenuOpen ? 0 : 1,
 								}}
 							/>
 							<motion.span
-								className='w-6 h-0.5 bg-[var(--foreground)] origin-center'
+								className='w-6 h-0.5 bg-white origin-center'
 								animate={{
 									rotate: isMenuOpen ? -45 : 0,
 									y: isMenuOpen ? -4 : 0,
@@ -124,7 +140,7 @@ export function Header() {
 			<AnimatePresence>
 				{isMenuOpen && (
 					<motion.div
-						className='fixed inset-0 z-40 bg-[var(--background)] lg:hidden backdrop-blur-xl'
+						className='fixed inset-0 z-40 bg-black lg:hidden backdrop-blur-xl'
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
@@ -140,7 +156,7 @@ export function Header() {
 								>
 									<Link
 										href={link.href}
-										className='text-3xl font-bold text-[var(--foreground)] hover:opacity-60 transition-opacity'
+										className='text-3xl font-bold text-white hover:text-white/70 transition-colors'
 										onClick={() => setIsMenuOpen(false)}
 									>
 										{link.label}
@@ -154,9 +170,14 @@ export function Header() {
 								className='mt-8'
 							>
 								<Link href='/contacts' onClick={() => setIsMenuOpen(false)}>
-									<Button variant='primary' size='lg'>
-										Обсудить проект
-									</Button>
+									<motion.button
+										whileHover={{ scale: 1.02 }}
+										whileTap={{ scale: 0.98 }}
+										className='px-8 py-3 text-base font-medium rounded-md transition-all duration-200'
+										style={{ backgroundColor: '#ffffff', color: '#000000' }}
+									>
+										Оставить заявку →
+									</motion.button>
 								</Link>
 							</motion.div>
 						</nav>

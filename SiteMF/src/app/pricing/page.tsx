@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Header } from '@/components/ui/Header'
 import { Footer } from '@/components/ui/Footer'
-import { Button } from '@/components/ui/Button'
 import { AnimatedHeading } from '@/components/ui/AnimatedText'
 import { Card3D } from '@/components/ui/Card3D'
 import { pricingData, PricingCategory, PricingTier } from '@/data/pricing'
@@ -19,7 +18,7 @@ export default function PricingPage() {
 	return (
 		<>
 			<Header />
-			<main className='pt-24 lg:pt-32'>
+			<main style={{ paddingTop: '120px' }}>
 				{/* Hero */}
 				<section className='py-16 lg:py-24'>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12 text-center'>
@@ -47,23 +46,33 @@ export default function PricingPage() {
 				</section>
 
 				{/* Category Tabs */}
-				<section className='py-8 border-y border-[#E0E0E0] sticky top-20 lg:top-24 bg-white/95 backdrop-blur-md z-30'>
+				<section className='py-8 lg:py-12 sticky top-20 lg:top-24 bg-white/95 backdrop-blur-md z-30' style={{ marginTop: '30px' }}>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12'>
-						<div className='flex flex-wrap justify-center gap-4'>
+						<div className='flex flex-wrap items-center justify-center gap-6 lg:gap-8'>
 							{pricingData.map(category => (
 								<motion.button
 									key={category.id}
-									className={`px-6 py-3 font-[family-name:var(--font-heading)] text-sm tracking-wide transition-all duration-300 flex items-center gap-2 ${
+									className={`px-8 py-4 lg:px-10 lg:py-5 font-[family-name:var(--font-heading)] text-lg lg:text-xl font-medium transition-all duration-300 flex items-center gap-3 ${
 										activeCategory === category.id
-											? 'bg-black text-white'
-											: 'bg-transparent text-[#757575] hover:text-black hover:bg-[#F5F5F5]'
+											? 'text-black'
+											: 'text-gray-400 hover:text-gray-600'
 									}`}
 									onClick={() => setActiveCategory(category.id)}
-									whileHover={{ scale: 1.02 }}
+									whileHover={{ scale: 1.05 }}
 									whileTap={{ scale: 0.98 }}
 								>
-									<span className='text-lg'>{category.icon}</span>
-									{category.title}
+									<span className='text-2xl lg:text-3xl'>{category.icon}</span>
+									<span className='relative'>
+										{category.title}
+										{activeCategory === category.id && (
+											<motion.div
+												className='absolute -bottom-2 left-0 right-0 h-0.5 bg-black'
+												layoutId='activeCategory'
+												initial={false}
+												transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+											/>
+										)}
+									</span>
 								</motion.button>
 							))}
 						</div>
@@ -71,7 +80,7 @@ export default function PricingPage() {
 				</section>
 
 				{/* Pricing Cards */}
-				<section className='py-16 lg:py-24'>
+				<section className='py-16 lg:py-24' style={{ paddingTop: '80px' }}>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12'>
 						<AnimatePresence mode='wait'>
 							{currentCategory && (
@@ -171,12 +180,14 @@ export default function PricingPage() {
 
 													{/* CTA */}
 													<Link href='/contacts'>
-														<Button
-															variant={tier.popular ? 'primary' : 'secondary'}
-															className='w-full'
+														<motion.button
+															whileHover={{ scale: 1.02 }}
+															whileTap={{ scale: 0.98 }}
+															className='w-full px-6 py-2.5 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+															style={{ backgroundColor: '#ffffff', color: '#000000', border: '2px solid #e5e5e5' }}
 														>
-															{tier.cta}
-														</Button>
+															{tier.cta} →
+														</motion.button>
 													</Link>
 
 													{/* Hover glow effect */}
@@ -202,7 +213,7 @@ export default function PricingPage() {
 				</section>
 
 				{/* Additional Info */}
-				<section className='py-16 lg:py-24 bg-[#FAFAFA]'>
+				<section className='py-16 lg:py-24 bg-white' style={{ marginTop: '50px' }}>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12'>
 						<div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
 							{[
@@ -250,7 +261,7 @@ export default function PricingPage() {
 				</section>
 
 				{/* FAQ */}
-				<section className='py-16 lg:py-24'>
+				<section className='py-16 lg:py-24' style={{ marginTop: '50px' }}>
 					<div className='max-w-3xl mx-auto px-6 lg:px-12'>
 						<div className='text-center mb-12'>
 							<AnimatedHeading tag='h2' className='text-3xl lg:text-4xl mb-4'>
@@ -303,10 +314,14 @@ export default function PricingPage() {
 				</section>
 
 				{/* CTA */}
-				<section className='py-24 lg:py-32 bg-black text-white'>
+				<section 
+					className='py-32 lg:py-48'
+					style={{ backgroundColor: '#000000', marginTop: '50px', paddingTop: '80px', paddingBottom: '80px' }}
+				>
 					<div className='max-w-[1440px] mx-auto px-6 lg:px-12 text-center'>
 						<motion.h2
 							className='font-[family-name:var(--font-heading)] text-4xl lg:text-6xl font-bold mb-6'
+							style={{ color: '#ffffff' }}
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
@@ -314,7 +329,8 @@ export default function PricingPage() {
 							Нужна индивидуальная оценка?
 						</motion.h2>
 						<motion.p
-							className='text-[#757575] text-lg mb-8 max-w-2xl mx-auto'
+							className='text-lg mb-8 max-w-2xl mx-auto'
+							style={{ color: 'rgba(255, 255, 255, 0.7)' }}
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
@@ -330,18 +346,24 @@ export default function PricingPage() {
 							transition={{ delay: 0.2 }}
 						>
 							<Link href='/contacts'>
-								<Button
-									variant='secondary'
-									size='lg'
-									className='border-white text-white hover:bg-white hover:text-black'
+								<motion.button
+									whileHover={{ scale: 1.02 }}
+									whileTap={{ scale: 0.98 }}
+									className='px-8 py-3 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+									style={{ backgroundColor: '#ffffff', color: '#000000' }}
 								>
 									Получить смету →
-								</Button>
+								</motion.button>
 							</Link>
 							<a href='tel:+79001234567'>
-								<Button variant='ghost' size='lg' className='text-white'>
+								<motion.button
+									whileHover={{ scale: 1.02 }}
+									whileTap={{ scale: 0.98 }}
+									className='px-8 py-3 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+									style={{ backgroundColor: '#ffffff', color: '#000000' }}
+								>
 									+7 900 123 45 67
-								</Button>
+								</motion.button>
 							</a>
 						</motion.div>
 					</div>

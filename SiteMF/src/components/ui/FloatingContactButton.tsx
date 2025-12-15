@@ -11,15 +11,16 @@ export function FloatingContactButton() {
 		<>
 			{/* Floating Button */}
 			<motion.button
-				className='fixed bottom-8 right-8 z-50 bg-[var(--foreground)] text-[var(--background)] px-8 py-4 font-semibold uppercase tracking-wider shadow-2xl hover:shadow-3xl transition-shadow'
-				whileHover={{ scale: 1.05 }}
-				whileTap={{ scale: 0.95 }}
+				className='fixed bottom-8 right-8 z-50 px-6 py-2.5 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+				style={{ backgroundColor: '#ffffff', color: '#000000' }}
+				whileHover={{ scale: 1.02 }}
+				whileTap={{ scale: 0.98 }}
 				onClick={() => setIsOpen(true)}
 				initial={{ opacity: 0, y: 100 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ delay: 1, duration: 0.5, type: 'spring' }}
 			>
-				Оставить заявку
+				Оставить заявку →
 			</motion.button>
 
 			{/* Modal */}
@@ -87,4 +88,6 @@ export function FloatingContactButton() {
 		</>
 	)
 }
+
+
 

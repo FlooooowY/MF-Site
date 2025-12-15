@@ -48,7 +48,11 @@ export function TestimonialsSection() {
 	const currentTestimonial = testimonials[activeIndex]
 
 	return (
-		<section className='py-40 lg:py-48 bg-[var(--background)] relative' ref={ref}>
+		<section 
+			className='py-20 bg-[var(--background)] relative' 
+			ref={ref}
+			style={{ marginTop: '150px', marginBottom: '150px' }}
+		>
 			{/* Subtle background */}
 			<div className='absolute inset-0 opacity-[0.02]'>
 				<div className='absolute inset-0' 
@@ -130,7 +134,7 @@ export function TestimonialsSection() {
 					</AnimatePresence>
 
 					{/* Navigation */}
-					<div className='flex items-center justify-center gap-4 mt-24'>
+					<div className='flex items-center justify-center gap-4' style={{ marginTop: '140px' }}>
 						{testimonials.map((_, index) => (
 							<button
 								key={index}
@@ -158,7 +162,8 @@ export function TestimonialsSection() {
 
 				{/* Logos */}
 				<motion.div
-					className='mt-20 pt-20 border-t border-[var(--foreground)]/5'
+					className='pt-20 border-t border-[var(--foreground)]/5'
+					style={{ marginTop: '120px' }}
 					initial={{ opacity: 0, y: 20 }}
 					animate={isInView ? { opacity: 1, y: 0 } : {}}
 					transition={{ delay: 0.4 }}

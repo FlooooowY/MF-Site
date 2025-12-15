@@ -54,7 +54,7 @@ export function Modal({ isOpen, onClose, children, className }: ModalProps) {
 					{/* Modal Content */}
 					<motion.div
 						className={cn(
-							'relative z-10 bg-white max-w-4xl w-full max-h-[90vh] overflow-y-auto',
+							'relative z-10 bg-white max-w-6xl w-full max-h-[90vh] overflow-y-auto',
 							'shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)]',
 							className
 						)}
