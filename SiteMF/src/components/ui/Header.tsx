@@ -21,7 +21,7 @@ export function Header() {
 	const headerBg = useTransform(
 		scrollY,
 		[0, 100],
-		['rgba(10, 10, 10, 0.7)', 'rgba(10, 10, 10, 0.95)']
+		['rgba(0, 0, 0, 0.8)', 'rgba(0, 0, 0, 0.95)']
 	)
 
 	const headerShadow = useTransform(

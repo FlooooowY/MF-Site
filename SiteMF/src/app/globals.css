@@ -8,16 +8,16 @@
 	--color-black: #0a0a0a;
 	--color-graphite: #1a1a1a;
 	--color-dark-gray: #2a2a2a;
-	--color-medium-gray: #666666;
+	--color-medium-gray: #a3a3a3;
 	--color-light-gray: #d4d4d4;
 	--color-silver: #a3a3a3;
 	--color-white: #ffffff;
 	--color-off-white: #fafafa;
 
 	/* Background */
-	--background: #ffffff;
-	--background-secondary: #f5f5f5;
-	--foreground: #0a0a0a;
+	--background: #0a0a0a;
+	--background-secondary: #1a1a1a;
+	--foreground: #ffffff;
 
 	/* Typography */
 	--font-heading: 'Clash Grotesk', system-ui, sans-serif;
@@ -27,12 +27,12 @@
 
 /* Night Mode */
 .night-mode {
-	--background: #0a0a0a;
-	--background-secondary: #1a1a1a;
-	--foreground: #ffffff;
-	--color-medium-gray: #a3a3a3;
-	--color-black: #ffffff;
-	--color-white: #0a0a0a;
+	--background: #ffffff;
+	--background-secondary: #f5f5f5;
+	--foreground: #0a0a0a;
+	--color-medium-gray: #666666;
+	--color-black: #0a0a0a;
+	--color-white: #ffffff;
 }
 
 /* ===== BASE STYLES ===== */
