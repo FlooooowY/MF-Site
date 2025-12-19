@@ -54,7 +54,7 @@ export default function AboutPage() {
 										<motion.button
 											whileHover={{ scale: 1.02 }}
 											whileTap={{ scale: 0.98 }}
-											className='px-8 py-3 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+											className='px-10 py-4 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
 											style={{ backgroundColor: '#ffffff', color: '#000000' }}
 										>
 											Обсудить проект →
@@ -291,48 +291,48 @@ export default function AboutPage() {
 							{/* Timeline line - только на больших экранах */}
 							<div className='hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-[#E0E0E0] transform -translate-x-1/2' />
 
-							{[
+							{							[
 								{
 									step: '01',
 									title: 'Погружение',
 									description:
 										'Изучаем ваш бизнес, анализируем конкурентов, определяем цели и метрики успеха',
-									duration: '2-5 дней',
+									duration: 'до 3 дней',
 								},
 								{
 									step: '02',
 									title: 'Стратегия',
 									description:
 										'Разрабатываем концепцию, прототипы, формируем ТЗ и дорожную карту проекта',
-									duration: '5-10 дней',
+									duration: 'до 5 дней',
 								},
 								{
 									step: '03',
 									title: 'Дизайн',
 									description:
 										'Создаём уникальный визуальный язык, UI-kit, адаптивные макеты',
-									duration: '7-14 дней',
+									duration: 'до 7 дней',
 								},
 								{
 									step: '04',
 									title: 'Разработка',
 									description:
 										'Пишем чистый код, интегрируем системы, настраиваем аналитику',
-									duration: '2-8 недель',
+									duration: 'до 10 дней',
 								},
 								{
 									step: '05',
 									title: 'Тестирование',
 									description:
 										'Проверяем на всех устройствах, оптимизируем скорость, исправляем баги',
-									duration: '3-7 дней',
+									duration: 'до 4 дней',
 								},
 								{
 									step: '06',
 									title: 'Запуск',
 									description:
 										'Развёртываем на продакшн, настраиваем мониторинг, передаём документацию',
-									duration: '1-3 дня',
+									duration: 'до 2 дней',
 								},
 							].map((phase, i) => (
 								<motion.div
@@ -414,7 +414,7 @@ export default function AboutPage() {
 								<motion.button
 									whileHover={{ scale: 1.02 }}
 									whileTap={{ scale: 0.98 }}
-									className='px-8 py-3 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+									className='px-10 py-4 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
 									style={{ backgroundColor: '#ffffff', color: '#000000' }}
 								>
 									Связаться с нами →

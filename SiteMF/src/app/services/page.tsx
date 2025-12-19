@@ -148,8 +148,8 @@ export default function ServicesPage() {
 								<motion.button
 									whileHover={{ scale: 1.02 }}
 									whileTap={{ scale: 0.98 }}
-									className='px-8 py-3 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
-									style={{ backgroundColor: '#ffffff', color: '#000000' }}
+									className='px-10 py-4 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+									style={{ backgroundColor: '#ffffff', color: '#000000', border: '3px solid #000000' }}
 								>
 									Получить консультацию →
 								</motion.button>
@@ -158,8 +158,8 @@ export default function ServicesPage() {
 								<motion.button
 									whileHover={{ scale: 1.02 }}
 									whileTap={{ scale: 0.98 }}
-									className='px-8 py-3 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
-									style={{ backgroundColor: '#ffffff', color: '#000000' }}
+									className='px-10 py-4 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+									style={{ backgroundColor: '#ffffff', color: '#000000', border: '3px solid #000000' }}
 								>
 									Смотреть цены
 								</motion.button>
@@ -312,7 +312,7 @@ function ServiceSection({ service, index }: ServiceSectionProps) {
 								<motion.button
 									whileHover={{ scale: 1.02 }}
 									whileTap={{ scale: 0.98 }}
-									className='px-6 py-2.5 text-sm font-medium rounded-md transition-all duration-200'
+									className='px-8 py-3 text-sm font-medium rounded-md transition-all duration-200'
 									style={{ backgroundColor: '#ffffff', color: '#000000', border: '2px solid #e5e5e5' }}
 								>
 									Заказать →

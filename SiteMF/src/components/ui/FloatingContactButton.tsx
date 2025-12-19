@@ -11,7 +11,7 @@ export function FloatingContactButton() {
 		<>
 			{/* Floating Button */}
 			<motion.button
-				className='fixed bottom-8 right-8 z-50 px-6 py-2.5 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+				className='fixed bottom-8 right-8 z-50 px-8 py-3 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
 				style={{ backgroundColor: '#ffffff', color: '#000000' }}
 				whileHover={{ scale: 1.02 }}
 				whileTap={{ scale: 0.98 }}

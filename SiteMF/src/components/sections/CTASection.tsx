@@ -92,10 +92,10 @@ export function CTASection() {
 							</p>
 							<div className='flex flex-wrap gap-6'>
 								<a
-									href='tel:+79001234567'
+									href='tel:+79282323520'
 									className='font-[family-name:var(--font-heading)] text-lg font-bold hover:text-[#757575] transition-colors'
 								>
-									+7 900 123 45 67
+									+7 928 232 35 20
 								</a>
 								<a
 									href='mailto:hello@mf.digital'

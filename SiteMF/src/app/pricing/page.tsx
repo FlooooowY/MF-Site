@@ -122,7 +122,7 @@ export default function PricingPage() {
 												>
 													{/* Popular badge */}
 													{tier.popular && (
-														<div className='absolute top-0 right-0'>
+														<div className='absolute top-0 right-0 z-10'>
 															<div className='bg-black text-white px-4 py-1 font-[family-name:var(--font-mono)] text-xs'>
 																ПОПУЛЯРНЫЙ
 															</div>
@@ -130,7 +130,7 @@ export default function PricingPage() {
 													)}
 
 													{/* Header */}
-													<div className='mb-6'>
+													<div className='mb-6' style={{ paddingTop: '24px' }}>
 														<h3 className='font-[family-name:var(--font-heading)] text-2xl font-bold mb-2'>
 															{tier.name}
 														</h3>
@@ -183,7 +183,7 @@ export default function PricingPage() {
 														<motion.button
 															whileHover={{ scale: 1.02 }}
 															whileTap={{ scale: 0.98 }}
-															className='w-full px-6 py-2.5 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+															className='w-full px-8 py-3 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
 															style={{ backgroundColor: '#ffffff', color: '#000000', border: '2px solid #e5e5e5' }}
 														>
 															{tier.cta} →
@@ -349,20 +349,20 @@ export default function PricingPage() {
 								<motion.button
 									whileHover={{ scale: 1.02 }}
 									whileTap={{ scale: 0.98 }}
-									className='px-8 py-3 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+									className='px-10 py-4 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
 									style={{ backgroundColor: '#ffffff', color: '#000000' }}
 								>
 									Получить смету →
 								</motion.button>
 							</Link>
-							<a href='tel:+79001234567'>
+							<a href='tel:+79282323520'>
 								<motion.button
 									whileHover={{ scale: 1.02 }}
 									whileTap={{ scale: 0.98 }}
-									className='px-8 py-3 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+									className='px-10 py-4 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
 									style={{ backgroundColor: '#ffffff', color: '#000000' }}
 								>
-									+7 900 123 45 67
+									+7 928 232 35 20
 								</motion.button>
 							</a>
 						</motion.div>

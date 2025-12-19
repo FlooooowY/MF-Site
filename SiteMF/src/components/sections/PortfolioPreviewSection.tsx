@@ -30,7 +30,7 @@ export function PortfolioPreviewSection() {
 						Портфолио
 					</motion.span>
 					<motion.h2
-						className='text-5xl lg:text-7xl font-bold text-[var(--foreground)] mb-10 tracking-tight'
+						className='text-5xl lg:text-7xl font-medium text-[var(--foreground)] mb-10 tracking-tight'
 						style={{ lineHeight: '1.2' }}
 						initial={{ opacity: 0, y: 20 }}
 						animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -55,7 +55,7 @@ export function PortfolioPreviewSection() {
 							<motion.button
 								whileHover={{ scale: 1.02 }}
 								whileTap={{ scale: 0.98 }}
-								className='px-6 py-2.5 text-sm font-medium rounded-md transition-all duration-200'
+								className='px-8 py-3 text-sm font-medium rounded-md transition-all duration-200'
 								style={{ backgroundColor: '#ffffff', color: '#000000' }}
 							>
 								Все проекты →

@@ -67,8 +67,9 @@ export function CustomCursor() {
 		}
 
 		const handleMouseEnter = (e: MouseEvent) => {
-			const target = e.target as HTMLElement
+			const target = e.target
 			if (
+				target instanceof Element &&
 				target.matches(
 					'a, button, [role="button"], input, textarea, select, [data-cursor-hover]'
 				)
@@ -78,8 +79,9 @@ export function CustomCursor() {
 		}
 
 		const handleMouseLeave = (e: MouseEvent) => {
-			const target = e.target as HTMLElement
+			const target = e.target
 			if (
+				target instanceof Element &&
 				target.matches(
 					'a, button, [role="button"], input, textarea, select, [data-cursor-hover]'
 				)

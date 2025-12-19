@@ -27,7 +27,7 @@ export function AnimatedHeading({
 					ease: [0.19, 1, 0.22, 1],
 				}}
 			>
-				<Tag className={`font-bold ${className}`} style={style}>{children}</Tag>
+				<Tag className={`font-medium ${className}`} style={style}>{children}</Tag>
 			</motion.div>
 		</div>
 	)

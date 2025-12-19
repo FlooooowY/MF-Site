@@ -115,13 +115,13 @@ export function Footer() {
 						</ul>
 						<div className='mt-6'>
 							<a
-								href='tel:+79001234567'
+								href='tel:+79282323520'
 								className='text-base font-medium transition-colors duration-200'
 								style={{ color: 'rgba(255, 255, 255, 0.7)' }}
 								onMouseEnter={(e) => e.currentTarget.style.color = '#ffffff'}
 								onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(255, 255, 255, 0.7)'}
 							>
-								+7 900 123 45 67
+								+7 928 232 35 20
 							</a>
 						</div>
 					</div>

@@ -35,8 +35,8 @@ export const services: Service[] = [
 			'PostgreSQL',
 			'Tailwind CSS',
 		],
-		timeline: '4-12 недель',
-		startPrice: 150000,
+		timeline: 'до 2 недель',
+		startPrice: 25000,
 	},
 	{
 		id: 'ai-automation',
@@ -62,8 +62,8 @@ export const services: Service[] = [
 			'Vector DB',
 			'REST API',
 		],
-		timeline: '2-8 недель',
-		startPrice: 200000,
+		timeline: 'до 2 недель',
+		startPrice: 40000,
 	},
 	{
 		id: 'telegram-bots',
@@ -89,8 +89,8 @@ export const services: Service[] = [
 			'PostgreSQL',
 			'Redis',
 		],
-		timeline: '1-4 недели',
-		startPrice: 50000,
+		timeline: 'до 2 недель',
+		startPrice: 10000,
 	},
 	{
 		id: 'custom-software',
@@ -116,7 +116,7 @@ export const services: Service[] = [
 			'Docker',
 			'AWS/GCP',
 		],
-		timeline: '8-24 недели',
-		startPrice: 500000,
+		timeline: 'до 2 недель',
+		startPrice: 50000,
 	},
 ]

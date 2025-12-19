@@ -44,6 +44,7 @@ export default function PortfolioPage() {
 						</AnimatedHeading>
 						<motion.p
 							className='max-w-2xl text-[#757575] text-lg lg:text-xl'
+							style={{ marginBottom: '14px' }}
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.2 }}
@@ -54,7 +55,8 @@ export default function PortfolioPage() {
 
 						{/* Stats */}
 						<motion.div
-							className='grid grid-cols-2 md:grid-cols-4 gap-8 mt-12 pt-12 border-t border-[#E0E0E0]'
+							className='grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-[#E0E0E0]'
+							style={{ marginTop: '16px', paddingTop: '16px' }}
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.4 }}
@@ -287,7 +289,7 @@ export default function PortfolioPage() {
 								<motion.button
 									whileHover={{ scale: 1.02 }}
 									whileTap={{ scale: 0.98 }}
-									className='px-8 py-3 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
+									className='px-10 py-4 text-sm font-medium rounded-md shadow-lg transition-all duration-200'
 									style={{ backgroundColor: '#ffffff', color: '#000000' }}
 								>
 									Обсудить проект →

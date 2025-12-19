@@ -10,29 +10,29 @@ const contactInfo = [
 	{
 		icon: '📱',
 		title: 'Telegram',
-		value: '@mfdigital',
-		href: 'https://t.me/mfdigital',
-		description: 'Ответим за 5 минут',
+		value: '@mf_digitals',
+		href: 'https://t.me/mf_digitals',
+		description: 'Ответим за 15 минут',
 	},
 	{
 		icon: '📞',
 		title: 'Телефон',
-		value: '+7 900 123 45 67',
-		href: 'tel:+79001234567',
+		value: '+7 928 232 35 20',
+		href: 'tel:+79282323520',
 		description: 'Пн-Пт, 10:00-19:00 МСК',
 	},
 	{
 		icon: '✉️',
 		title: 'Email',
-		value: 'hello@mf.digital',
-		href: 'mailto:hello@mf.digital',
+		value: 'mfdigital.com',
+		href: 'mailto:mfdigital.com',
 		description: 'Ответим за 2 часа',
 	},
 	{
 		icon: '💬',
 		title: 'WhatsApp',
-		value: '+7 900 123 45 67',
-		href: 'https://wa.me/79001234567',
+		value: '+7 928 232 35 20',
+		href: 'https://wa.me/79282323520',
 		description: 'Для быстрой связи',
 	},
 ]
@@ -291,7 +291,7 @@ export default function ContactsPage() {
 							{[
 								{
 									q: 'Как быстро вы отвечаете?',
-									a: 'В рабочее время (10:00-19:00 МСК) — в течение 2 часов. В Telegram — обычно за 5 минут.',
+									a: 'В рабочее время (10:00-19:00 МСК) — в течение 2 часов. В Telegram — обычно за 15 минут.',
 								},
 								{
 									q: 'Работаете с клиентами из других городов?',

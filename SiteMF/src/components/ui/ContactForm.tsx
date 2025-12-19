@@ -8,7 +8,7 @@ interface FormData {
 	name: string
 	email: string
 	phone: string
-	service: string
+	service: string[]
 	message: string
 }
 
@@ -29,7 +29,7 @@ export function ContactForm({ variant = 'full' }: ContactFormProps) {
 		name: '',
 		email: '',
 		phone: '',
-		service: '',
+		service: [],
 		message: '',
 	})
 	const [isSubmitting, setIsSubmitting] = useState(false)
@@ -62,8 +62,21 @@ export function ContactForm({ variant = 'full' }: ContactFormProps) {
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
 	) => {
-		const { name, value } = e.target
-		setFormData(prev => ({ ...prev, [name]: value }))
+		const { name, value, type } = e.target
+		
+		if (type === 'checkbox' && name === 'service') {
+			const checked = (e.target as HTMLInputElement).checked
+			setFormData(prev => {
+				if (checked) {
+					return { ...prev, service: [...prev.service, value] }
+				} else {
+					return { ...prev, service: prev.service.filter(s => s !== value) }
+				}
+			})
+		} else {
+			setFormData(prev => ({ ...prev, [name]: value }))
+		}
+		
 		if (errors[name as keyof FormData]) {
 			setErrors(prev => ({ ...prev, [name]: undefined }))
 		}
@@ -146,17 +159,27 @@ export function ContactForm({ variant = 'full' }: ContactFormProps) {
 
 			{/* Service */}
 			<div>
-				<label className='block mb-3 text-sm text-[var(--color-medium-gray)] uppercase tracking-wider'>Услуга</label>
-				<select
-					name='service'
-					value={formData.service}
-					onChange={handleChange}
-					className={`${inputStyles} cursor-pointer`}
-				>
-					{services.map(s => (
-						<option key={s.value} value={s.value}>{s.label}</option>
+				<label className='block mb-3 text-sm text-[var(--color-medium-gray)] uppercase tracking-wider'>Услуги</label>
+				<div className='space-y-3'>
+					{services.filter(s => s.value !== '').map(s => (
+						<label
+							key={s.value}
+							className='flex items-center gap-3 cursor-pointer group'
+						>
+							<input
+								type='checkbox'
+								name='service'
+								value={s.value}
+								checked={formData.service.includes(s.value)}
+								onChange={handleChange}
+								className='w-5 h-5 border border-[var(--foreground)]/20 rounded cursor-pointer focus:ring-2 focus:ring-[var(--foreground)]/20 focus:outline-none transition-colors'
+							/>
+							<span className='text-[var(--foreground)] group-hover:text-[var(--foreground)]/80 transition-colors'>
+								{s.label}
+							</span>
+						</label>
 					))}
-				</select>
+				</div>
 			</div>
 
 			{/* Message - only for full variant */}
