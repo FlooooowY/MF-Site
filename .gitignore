@@ -1,30 +1,8 @@
-<<<<<<< HEAD
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
-=======
 # Dependencies
 node_modules/
-.pnp
+/.pnp
 .pnp.js
 
 # Testing
@@ -42,30 +20,27 @@ dist/
 # Misc
 .DS_Store
 *.pem
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env*.local
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# Debug
->>>>>>> de7b530a5fbbdc9782a550a5facd773a8e57b26d
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-<<<<<<< HEAD
-# local env files
-.env*.local
-.env
-
-# vercel
+# Vercel
 .vercel
 
-# typescript
+# TypeScript
 *.tsbuildinfo
 next-env.d.ts
-=======
+
 # IDE
 .idea
 .vscode
@@ -80,5 +55,3 @@ Thumbs.db
 # Temporary files
 *.log
 .turbo
->>>>>>> de7b530a5fbbdc9782a550a5facd773a8e57b26d
-
