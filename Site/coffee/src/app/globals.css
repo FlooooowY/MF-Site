@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,900&display=swap');
+
+:root {
+	/* Primary — Кофейный градиент */
+	--coffee-dark: #2d1b19;
+	--coffee-medium: #4a2c2a;
+	--coffee-light: #6b4423;
+
+	/* Accent — Золотая крема */
+	--gold-primary: #d4af37;
+	--gold-light: #e8d48b;
+	--gold-glow: rgba(212, 175, 55, 0.15);
+
+	/* Neutral — Керамика */
+	--cream: #f8f4e9;
+	--cream-dark: #e8e0d0;
+	--ceramic-white: #fdfcfa;
+
+	/* Action — Терракота */
+	--terracotta: #c76b4c;
+	--terracotta-hover: #b55a3b;
+	--terracotta-pressed: #a04830;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Inter', sans-serif;
+	background: linear-gradient(
+		180deg,
+		var(--coffee-dark) 0%,
+		var(--coffee-medium) 50%,
+		var(--coffee-light) 100%
+	);
+	background-attachment: fixed;
+	color: var(--cream);
+	min-height: 100vh;
+	overflow-x: hidden;
+}
+
+/* Typography */
+.heading-foam {
+	background: linear-gradient(180deg, var(--cream) 0%, var(--gold-light) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.font-playfair {
+	font-family: 'Playfair Display', serif;
+}
+
+.font-fraunces {
+	font-family: 'Fraunces', serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--coffee-dark);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--gold-primary);
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--gold-light);
+}
+
+/* Steam particles */
+.steam-particle {
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	background: rgba(255, 255, 255, 0.6);
+	border-radius: 50%;
+	filter: blur(4px);
+	pointer-events: none;
+}
+
+/* Noise texture overlay */
+.noise-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	opacity: 0.03;
+	z-index: 100;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Button shine effect */
+.btn-shine {
+	position: relative;
+	overflow: hidden;
+}
+
+.btn-shine::before {
+	content: '';
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	width: 200%;
+	height: 200%;
+	background: linear-gradient(
+		45deg,
+		transparent 40%,
+		rgba(255, 255, 255, 0.3) 50%,
+		transparent 60%
+	);
+	animation: shine 5s ease-in-out infinite;
+}
+
+@keyframes shine {
+	0%,
+	90%,
+	100% {
+		transform: translateX(-100%) rotate(45deg);
+	}
+	95% {
+		transform: translateX(100%) rotate(45deg);
+	}
+}
+
+/* Card 3D effect */
+.card-3d {
+	transform-style: preserve-3d;
+	transition: transform 0.1s ease-out;
+}
+
+.card-3d:hover {
+	box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+}
+
+/* Gradient text */
+.gradient-text {
+	background: linear-gradient(
+		135deg,
+		var(--cream) 0%,
+		var(--gold-primary) 100%
+	);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+/* Selection */
+::selection {
+	background: var(--gold-primary);
+	color: var(--coffee-dark);
+}
+
+/* Focus styles */
+:focus-visible {
+	outline: 2px solid var(--gold-primary);
+	outline-offset: 2px;
+}
+
+/* Animations */
+@layer utilities {
+	.animation-delay-200 {
+		animation-delay: 200ms;
+	}
+	.animation-delay-400 {
+		animation-delay: 400ms;
+	}
+	.animation-delay-600 {
+		animation-delay: 600ms;
+	}
+	.animation-delay-800 {
+		animation-delay: 800ms;
+	}
+	.animation-delay-1000 {
+		animation-delay: 1000ms;
+	}
+}
+
+/* Safe area support for iPhone */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+	.pb-safe {
+		padding-bottom: env(safe-area-inset-bottom, 0);
+	}
+}
+
+/* Mobile nav spacing */
+@media (max-width: 768px) {
+	main {
+		padding-bottom: 100px;
+	}
+}
+
+/* Smooth scroll for anchor links */
+html {
+	scroll-padding-top: 80px;
+}
+
+/* Hide scrollbar on mobile nav */
+.hide-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+/* Glass effect */
+.glass {
+	background: rgba(45, 27, 25, 0.8);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+/* Hover lift effect */
+.hover-lift {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Text balance for better typography */
+.text-balance {
+	text-wrap: balance;
+}
+
+/* Coffee bean pattern background */
+.coffee-pattern {
+	background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='30' cy='30' rx='15' ry='8' fill='%23D4AF37' fill-opacity='0.03'/%3E%3C/svg%3E");
+}

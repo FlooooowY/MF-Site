@@ -1,0 +1,415 @@
+// ========================================
+// APEX DETAILING — SCSS Mixins
+// ========================================
+
+// ----------------------------------------
+// RESPONSIVE MIXINS
+// ----------------------------------------
+
+@mixin respond-to($breakpoint) {
+	$value: map-get($breakpoints, $breakpoint);
+	@if $value {
+		@media (min-width: $value) {
+			@content;
+		}
+	} @else {
+		@warn "Unknown breakpoint: #{$breakpoint}";
+	}
+}
+
+@mixin respond-below($breakpoint) {
+	$value: map-get($breakpoints, $breakpoint);
+	@if $value {
+		@media (max-width: ($value - 1px)) {
+			@content;
+		}
+	}
+}
+
+// ----------------------------------------
+// TYPOGRAPHY MIXINS
+// ----------------------------------------
+
+@mixin heading-1 {
+	font-family: $font-display;
+	font-size: clamp(48px, 5vw, $h1-size);
+	font-weight: 700;
+	line-height: $h1-line-height;
+	letter-spacing: $h1-letter-spacing;
+	text-transform: uppercase;
+	color: $platinum-white;
+}
+
+@mixin heading-2 {
+	font-family: $font-display;
+	font-size: clamp(36px, 4vw, $h2-size);
+	font-weight: 700;
+	line-height: $h2-line-height;
+	letter-spacing: $h2-letter-spacing;
+	text-transform: uppercase;
+	color: $platinum-white;
+}
+
+@mixin heading-3 {
+	font-family: $font-body;
+	font-size: clamp(24px, 3vw, $h3-size);
+	font-weight: 600;
+	line-height: $h3-line-height;
+	color: $platinum-white;
+}
+
+@mixin body-text {
+	font-family: $font-body;
+	font-size: clamp(16px, 1.2vw, $body-size);
+	font-weight: 400;
+	line-height: $body-line-height;
+	color: $platinum-muted;
+}
+
+@mixin tech-number {
+	font-family: $font-tech;
+	font-size: clamp(32px, 3vw, $tech-numbers);
+	font-weight: 500;
+	letter-spacing: 1px;
+	color: $electric-blue;
+}
+
+// ----------------------------------------
+// LAYOUT MIXINS
+// ----------------------------------------
+
+@mixin container {
+	max-width: $container-max;
+	margin: 0 auto;
+	padding: 0 $container-padding;
+
+	@include respond-below('xl') {
+		padding: 0 $space-xl;
+	}
+
+	@include respond-below('md') {
+		padding: 0 $space-md;
+	}
+
+	@include respond-below('sm') {
+		padding: 0 $space-sm;
+	}
+}
+
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin flex-between {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@mixin grid-auto($min-width: 300px, $gap: $grid-gap) {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+	gap: $gap;
+}
+
+// ----------------------------------------
+// BUTTON MIXINS
+// ----------------------------------------
+
+@mixin button-base {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: $space-xs;
+	padding: 16px 32px;
+	font-family: $font-body;
+	font-weight: 600;
+	font-size: 16px;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border: none;
+	border-radius: $border-radius-sm;
+	cursor: pointer;
+	transition: all $transition-normal $ease-smooth;
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+}
+
+@mixin button-neon {
+	@include button-base;
+	position: relative;
+	background: transparent;
+	border: 2px solid $electric-blue;
+	color: $platinum-white;
+	overflow: hidden;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: $electric-blue;
+		transform: scaleX(0);
+		transform-origin: right;
+		transition: transform $transition-normal $ease-smooth;
+	}
+
+	span {
+		position: relative;
+		z-index: 1;
+	}
+
+	&:hover:not(:disabled) {
+		color: $deep-space;
+		box-shadow: $shadow-neon-strong;
+
+		&::before {
+			transform: scaleX(1);
+			transform-origin: left;
+		}
+	}
+}
+
+@mixin button-chrome {
+	@include button-base;
+	position: relative;
+	background: $gradient-chrome;
+	background-size: 200% 100%;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	color: $deep-space;
+	overflow: hidden;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: -100%;
+		left: -100%;
+		width: 300%;
+		height: 300%;
+		background: linear-gradient(
+			45deg,
+			transparent 30%,
+			rgba(255, 255, 255, 0.5) 50%,
+			transparent 70%
+		);
+		animation: chrome-shine 3s ease-in-out infinite;
+	}
+
+	&:hover:not(:disabled) {
+		background-position: 100% 0;
+		box-shadow: $shadow-chrome;
+		transform: translateY(-2px);
+	}
+}
+
+// ----------------------------------------
+// CARD MIXINS
+// ----------------------------------------
+
+@mixin card-base {
+	background: $gradient-card;
+	border: $border-card;
+	border-radius: $border-radius-lg;
+	padding: $space-lg;
+	transition: all $transition-normal $ease-smooth;
+}
+
+@mixin card-hover {
+	&:hover {
+		transform: translateY(-8px);
+		box-shadow: $shadow-neon, $shadow-card-hover;
+		border-color: rgba($electric-blue, 0.4);
+	}
+}
+
+@mixin card-glow {
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		box-shadow: 0 0 0 0 rgba($electric-blue, 0);
+		transition: box-shadow $transition-normal ease;
+		pointer-events: none;
+	}
+
+	&:hover::after {
+		box-shadow: $shadow-neon;
+	}
+}
+
+// ----------------------------------------
+// EFFECT MIXINS
+// ----------------------------------------
+
+@mixin liquid-metal-bg {
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: -50%;
+		left: -50%;
+		width: 200%;
+		height: 200%;
+		background: radial-gradient(
+				ellipse at 20% 30%,
+				rgba($electric-blue, 0.15) 0%,
+				transparent 50%
+			),
+			radial-gradient(
+				ellipse at 80% 70%,
+				rgba($neon-cyan, 0.1) 0%,
+				transparent 40%
+			),
+			radial-gradient(
+				ellipse at 50% 50%,
+				rgba($midnight-indigo, 0.3) 0%,
+				transparent 60%
+			);
+		animation: liquid-flow 20s ease-in-out infinite;
+		pointer-events: none;
+	}
+}
+
+@mixin neon-text {
+	text-shadow: 0 0 10px $electric-blue, 0 0 20px rgba($electric-blue, 0.5);
+}
+
+@mixin laser-divider {
+	height: 2px;
+	background: $gradient-laser;
+	position: relative;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		width: 8px;
+		height: 8px;
+		background: $neon-cyan;
+		border-radius: 50%;
+		top: 50%;
+		transform: translateY(-50%);
+		box-shadow: 0 0 10px $neon-cyan, 0 0 20px $neon-cyan;
+	}
+
+	&::before {
+		left: 0;
+	}
+	&::after {
+		right: 0;
+	}
+}
+
+@mixin glass-effect {
+	background: rgba($deep-space, 0.8);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+	border: 1px solid rgba($platinum-white, 0.1);
+}
+
+// ----------------------------------------
+// FORM MIXINS
+// ----------------------------------------
+
+@mixin input-base {
+	width: 100%;
+	padding: 16px 20px;
+	font-family: $font-body;
+	font-size: 16px;
+	color: $platinum-white;
+	background: rgba($midnight-indigo, 0.3);
+	border: $border-input;
+	border-radius: $border-radius-md;
+	transition: all $transition-fast ease;
+
+	&::placeholder {
+		color: $platinum-dim;
+	}
+
+	&:focus {
+		outline: none;
+		border-color: $electric-blue;
+		box-shadow: 0 0 0 3px rgba($electric-blue, 0.2);
+	}
+}
+
+// ----------------------------------------
+// KEYFRAME ANIMATIONS
+// ----------------------------------------
+
+@keyframes liquid-flow {
+	0%,
+	100% {
+		transform: translate(0, 0) rotate(0deg);
+	}
+	25% {
+		transform: translate(-5%, 5%) rotate(2deg);
+	}
+	50% {
+		transform: translate(5%, -5%) rotate(-1deg);
+	}
+	75% {
+		transform: translate(-3%, -3%) rotate(1deg);
+	}
+}
+
+@keyframes chrome-shine {
+	0% {
+		transform: translateX(-100%) rotate(45deg);
+	}
+	100% {
+		transform: translateX(100%) rotate(45deg);
+	}
+}
+
+@keyframes pulse-glow {
+	0%,
+	100% {
+		box-shadow: 0 0 20px rgba(33, 150, 243, 0.4);
+	}
+	50% {
+		box-shadow: 0 0 40px rgba(33, 150, 243, 0.6);
+	}
+}
+
+@keyframes float {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+@keyframes fade-in-up {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes scale-in {
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}

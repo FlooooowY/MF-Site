@@ -1,0 +1,19 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://brotherhood-barber.ru/sitemap.xml
+
+# Disallow admin and private pages
+Disallow: /api/
+Disallow: /admin/
+
+# Allow search engines to crawl images
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Yandex
+Allow: /
+Host: https://brotherhood-barber.ru
+
